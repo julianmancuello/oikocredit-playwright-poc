@@ -4,20 +4,20 @@ import { BasePage } from "./basePage"
 export class HomePage extends BasePage {
 
   readonly leadsTab: Locator
-  readonly recentlyViewed: Locator
+  readonly homeLatestInfo: Locator
 
   constructor(page: Page){
     super(page)
     this.leadsTab = page.getByTitle('Leads')
-    this.recentlyViewed = page.locator('[class="slds-page-header__title slds-truncate lst-temp-slds-lineHeight"]')
+    this.homeLatestInfo = page.getByText('Latest Release Information')
   }
 
-  async enterLeads(){
+  async clickOnLeadsTab(){
     await this.leadsTab.click()
   }
 
-  recentlyViewedLocator(){
-    return this.recentlyViewed
+  latestInfoTitle(){
+    return this.homeLatestInfo
   }
 
 }
