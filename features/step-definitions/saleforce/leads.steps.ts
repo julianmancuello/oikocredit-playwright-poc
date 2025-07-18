@@ -12,8 +12,22 @@ When('I click the {string} button', async (buttonName: string) => {
   await pm.onLeadsPage().clickNewLead()
 })
 
-When('I fill in the lead form', async () => {
+When('I fill in the lead form and save it', async () => {
   await pm.onLeadsPage().selectInflow()
   await pm.onLeadsPage().selectLeadSource("Event")
+  await pm.onLeadsPage().fillInWithRandomFirstName()
   await pm.onLeadsPage().fillInWithRandomLastName()
+  await pm.onLeadsPage().fillInWithRandomEmail()
+  await pm.onLeadsPage().fillInWithRandomAccountName()
+  await pm.onLeadsPage().selectCountry("Germany")
+  await pm.onLeadsPage().saveTheForm()
+})
+
+Then('I should see the success message', async () => {
+  expect(await pm.onLeadsPage().leadCreatedSuccessMessage()).toBe(true)
+})
+
+Then('the new lead should appear in the leads list', async () => {
+  await pm.onHomePage().clickOnLeadsTab()
+  expect(await pm.onLeadsPage().checkNewLeadInList()).toBe(true)
 })

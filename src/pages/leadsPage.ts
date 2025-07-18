@@ -1,16 +1,22 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
 import { utils } from ".././utils/utils"
-import { ContextStore } from "../utils/ContextStore"
+import { ContextStore as cs } from "../utils/contextStore"
 
 export class LeadsPage extends BasePage {
 
-  readonly newButton: Locator
-  readonly inflowRadio: Locator
-  readonly nextButton: Locator
-  readonly moveToChosenLeadSource: Locator
-  readonly firstNameField: Locator
-  readonly lastNameField: Locator
+  private readonly newButton: Locator
+  private readonly inflowRadio: Locator
+  private readonly nextButton: Locator
+  private readonly moveToChosenLeadSource: Locator
+  private readonly firstNameField: Locator
+  private readonly lastNameField: Locator
+  private readonly emailField: Locator
+  private readonly accountNameField: Locator
+  private readonly countryDropdown: Locator
+  private readonly saveButton: Locator
+  private readonly leadCreatedConfirmation: Locator
+  private readonly firstRowLeads: Locator
 
   constructor(page: Page){
     super(page)
@@ -20,6 +26,12 @@ export class LeadsPage extends BasePage {
     this.moveToChosenLeadSource = page.locator('[data-component-id="flexipage_fieldSection"] [title="Move to Chosen"]')
     this.firstNameField = page.getByRole('textbox', {name: "First Name"})
     this.lastNameField = page.getByRole('textbox', {name: "Last Name"})
+    this.emailField = page.getByRole('textbox', {name: "Email"})
+    this.accountNameField = page.getByRole('textbox', {name: "Account Name"})
+    this.countryDropdown = page.getByRole('combobox', {name: "Country"})
+    this.saveButton = page.getByRole('button', {name: "Save", exact: true})
+    this.leadCreatedConfirmation = page.locator('.slds-theme--success')
+    this.firstRowLeads = page.locator('tbody tr[data-row-number="1"]')
   }
 
   async clickNewLead(){
@@ -38,20 +50,70 @@ export class LeadsPage extends BasePage {
   }
 
   async fillInWithRandomFirstName(){
-    if(!ContextStore.has("firstName")){
+    if(!cs.has("firstName")){
       utils.generateAndStoreFullName()
     }
-    await this.firstNameField.fill(ContextStore.get("firstName"))
-    console.log(`Extraido ${ContextStore.get("firstName")}`)
+    await this.firstNameField.fill(cs.get("firstName"))
   }
 
   async fillInWithRandomLastName(){
-    if(!ContextStore.has("lastName")){
+    if(!cs.has("lastName")){
       utils.generateAndStoreFullName()
     }
-    await this.lastNameField.fill(ContextStore.get("lastName"))
-    console.log(`Extraido ${ContextStore.get("lastName")}`)
+    await this.lastNameField.fill(cs.get("lastName"))
   }
 
+  async fillInWithRandomEmail(){
+    if(!cs.has("firstName") && !cs.has("lastName")){
+      utils.generateAndStoreFullName()
+    }
+    const randomEmail = (`${cs.get("firstName")}.${cs.get("lastName")}${utils.generateRandomInteger(100)}@test.com`).toLowerCase()
+    cs.put("newEmail", randomEmail)
+    await this.emailField.fill(randomEmail)
+  }
 
+  async fillInWithRandomAccountName(){
+    if(!cs.has("firstName") && !cs.has("lastName")){
+      utils.generateAndStoreFullName()
+    }
+    const randomAccountName = `${cs.get("firstName")}${cs.get("lastName")}${utils.generateRandomInteger(100)}`
+    cs.put("newAccountName", randomAccountName)
+    await this.accountNameField.fill(randomAccountName)
+  }
+
+  async selectCountry(country: string){
+    await this.countryDropdown.click()
+    await this.page.locator('[aria-label="Country"]').getByRole('option', {name: country}).click()
+  }
+
+  async saveTheForm(){
+    await this.saveButton.click()
+  }
+
+  async leadCreatedSuccessMessage(){
+    const rawMessage = (await this.leadCreatedConfirmation.textContent()) ?? ""
+    const actualMessage = rawMessage.match(/Lead "[^"]+" was created\./)?.[0]
+    const expectedMessage = `Lead "${utils.getFullName()}" was created.`
+    return actualMessage == expectedMessage
+  }
+
+  async checkNewLeadInList(){
+    await this.page.waitForTimeout(4000)
+    const nameFirstRow = await this.firstRowLeads.locator('th[data-label="Name"]').textContent()
+    const emailFirstRow = await this.firstRowLeads.locator('td[data-label="Email"]').textContent()
+    const accountNameFirstRow = await this.firstRowLeads.locator('td[data-label="Account Name"]').textContent()
+
+    console.log(nameFirstRow)
+    console.log(emailFirstRow)
+    console.log(accountNameFirstRow)
+    console.log(utils.getFullName())
+    console.log(cs.get("newEmail"))
+    console.log(cs.get("newAccountName"))
+    return (
+      nameFirstRow === utils.getFullName() &&
+      emailFirstRow === cs.get("newEmail") &&
+      accountNameFirstRow === cs.get("newAccountName")
+    )
+  }
+  
 }

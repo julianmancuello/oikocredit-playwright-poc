@@ -3,12 +3,12 @@ import { BasePage } from "./basePage"
 
 export class HomePage extends BasePage {
 
-  readonly leadsTab: Locator
-  readonly homeLatestInfo: Locator
+  private readonly leadsTab: Locator
+  private readonly homeLatestInfo: Locator
 
   constructor(page: Page){
     super(page)
-    this.leadsTab = page.getByTitle('Leads')
+    this.leadsTab = page.locator('[tabindex][title="Leads"]')
     this.homeLatestInfo = page.getByText('Latest Release Information')
   }
 

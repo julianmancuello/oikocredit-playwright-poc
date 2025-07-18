@@ -1,15 +1,28 @@
 import { faker } from '@faker-js/faker'
-import { ContextStore } from './ContextStore'
+import { ContextStore as cs } from './contextStore'
 
 class Utils {
 
   generateAndStoreFullName(){
     var firstName = faker.person.firstName()
     var lastName = faker.person.lastName()
-    ContextStore.put("firstName", firstName)
+    cs.put("firstName", firstName)
     console.log(`Guardado ${firstName}`)
-    ContextStore.put("lastName", lastName)
+    cs.put("lastName", lastName)
     console.log(`Guardado ${lastName}`)
+  }
+
+  generateRandomInteger(upperBound: number){
+    return faker.number.int(upperBound)
+  }
+
+  getFullName(){
+    if(cs.has("firstName") && cs.has("lastName")){
+      return `${cs.get("firstName")} ${cs.get("lastName")}`
+    }
+    else {
+      throw new Error("Missing required fields: firstName and/or lastName")
+    }
   }
 }
 
