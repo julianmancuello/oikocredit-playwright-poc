@@ -19,3 +19,16 @@ test('first test', async ({page}) => {
   await pm.onHomePage().clickOnLeadsTab()
   expect(await pm.onLeadsPage().checkNewLeadInList()).toBe(true)
 })
+
+test('second test', async ({page}) => {
+  await page.goto("https://oikocredit--ltp.sandbox.my.salesforce.com/")
+  const pm = new PageManager(page)
+  await pm.onLoginPage().loginUser("jmancuello@oikocredit.org.ltp", "Nina23!!")
+  await pm.onHomePage().clickOnLeadsTab()
+  await pm.onLeadsPage().selectFirstLeadInList()
+  await pm.onLeadProfilePage().clickEditLead()
+  await pm.onLeadProfilePage().fillInWithRandomMobile()
+  await pm.onLeadProfilePage().saveChanges()
+  expect(await pm.onLeadProfilePage().isSavedChangesMessageDisplayed()).toBe(true)
+  expect(await pm.onLeadProfilePage().isNewMobileDisplayed()).toBe(true)
+})

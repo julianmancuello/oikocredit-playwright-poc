@@ -98,17 +98,11 @@ export class LeadsPage extends BasePage {
   }
 
   async checkNewLeadInList(){
-    await this.page.waitForTimeout(4000)
+    await this.page.waitForTimeout(500)
     const nameFirstRow = await this.firstRowLeads.locator('th[data-label="Name"]').textContent()
     const emailFirstRow = await this.firstRowLeads.locator('td[data-label="Email"]').textContent()
     const accountNameFirstRow = await this.firstRowLeads.locator('td[data-label="Account Name"]').textContent()
 
-    console.log(nameFirstRow)
-    console.log(emailFirstRow)
-    console.log(accountNameFirstRow)
-    console.log(utils.getFullName())
-    console.log(cs.get("newEmail"))
-    console.log(cs.get("newAccountName"))
     return (
       nameFirstRow === utils.getFullName() &&
       emailFirstRow === cs.get("newEmail") &&
@@ -116,4 +110,7 @@ export class LeadsPage extends BasePage {
     )
   }
   
+  async selectFirstLeadInList(){
+    await this.firstRowLeads.locator('th[data-label="Name"] a').click()
+  }
 }

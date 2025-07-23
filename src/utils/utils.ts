@@ -7,9 +7,7 @@ class Utils {
     var firstName = faker.person.firstName()
     var lastName = faker.person.lastName()
     cs.put("firstName", firstName)
-    console.log(`Guardado ${firstName}`)
     cs.put("lastName", lastName)
-    console.log(`Guardado ${lastName}`)
   }
 
   generateRandomInteger(upperBound: number){
@@ -23,6 +21,10 @@ class Utils {
     else {
       throw new Error("Missing required fields: firstName and/or lastName")
     }
+  }
+
+  generateRandomMobile(){
+    return faker.phone.number({style: 'national'})
   }
 }
 
