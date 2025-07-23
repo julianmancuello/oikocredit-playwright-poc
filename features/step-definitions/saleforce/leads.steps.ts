@@ -8,7 +8,7 @@ Given('the ISO is on the leads page', async () => {
   await pm.onHomePage().clickOnLeadsTab()
 })
 
-When('the ISO clicks the New lead button', async (buttonName: string) => {
+When('the ISO clicks the New lead button', async () => {
   await pm.onLeadsPage().clickNewLead()
 })
 

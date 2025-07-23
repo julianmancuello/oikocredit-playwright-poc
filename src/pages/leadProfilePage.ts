@@ -29,7 +29,6 @@ export class LeadProfilePage extends BasePage {
   async fillInWithRandomMobile(){
     const newMobile = utils.generateRandomMobile()
     cs.put("newMobile", newMobile)
-    console.log(newMobile)
     await this.mobileField.clear()
     await this.mobileField.fill(newMobile)
   }
@@ -43,8 +42,6 @@ export class LeadProfilePage extends BasePage {
     const rawMessage = (await this.successfulSaveMessage.textContent()) ?? ""
     const actualMessage = rawMessage.match(/Lead "[^"]+" was saved\./)?.[0]
     const expectedMessage = `Lead "${leadName}" was saved.`
-    console.log(actualMessage)
-    console.log(expectedMessage)
     return actualMessage == expectedMessage
   }
 
