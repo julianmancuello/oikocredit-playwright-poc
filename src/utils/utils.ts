@@ -24,7 +24,8 @@ class Utils {
   }
 
   generateRandomMobile(){
-    return faker.phone.number({style: 'national'})
+    const mobile = faker.phone.number({style: 'international'})
+    return mobile.replace(/^(\+\d{2})(\d+)/, '$1 $2')
   }
 }
 
