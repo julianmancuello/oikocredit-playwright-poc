@@ -1,11 +1,7 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
 import { ContextStore as cs } from "../utils/contextStore"
-
-export enum Environment {
-  LTP = 'ltp',
-  ACC = 'acc'
-}
+import { Environment } from "../utils/envUtils"
 
 export class LoginPage extends BasePage {
 

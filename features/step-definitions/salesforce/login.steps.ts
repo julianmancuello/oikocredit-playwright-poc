@@ -1,17 +1,11 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { pm, page } from '../hooks';
-import { ContextStore as cs } from '../../../src/utils/contextStore';
-import { Environment } from '../../../src/pages/loginPage';
+import { ContextStore as cs } from '../../../src/utils/contextStore'
+import { Environment, envUtils } from '../../../src/utils/envUtils'
 
 Given('the ISO is on the {string} login page', async (env: string) => {
-  const envLower = env.toLowerCase()
-
-  if (!Object.values(Environment).includes(envLower as Environment)) {
-    throw new Error(`Environment '${env}' is not supported`)
-  }
-
-  const environment = envLower as Environment
+  const environment = envUtils.parseAndValidateEnvironment(env)
   const url = cs.get<string>(`salesforce-${environment}-url`)
 
   if (!url) {
@@ -22,13 +16,7 @@ Given('the ISO is on the {string} login page', async (env: string) => {
 })
 
 When('the ISO logs in with {string} valid credentials', async (env: string) => {
-  const envLower = env.toLowerCase()
-
-  if (!Object.values(Environment).includes(envLower as Environment)) {
-    throw new Error(`Environment '${env}' is not supported`)
-  }
-
-  const environment = envLower as Environment
+  const environment = envUtils.parseAndValidateEnvironment(env)
   await pm.onLoginPage().loginWithEnvironmentCredentials(environment)
 })
 
