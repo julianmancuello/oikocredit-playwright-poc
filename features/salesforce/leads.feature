@@ -1,7 +1,7 @@
 Feature: Leads
 
   Background:
-    Given the ISO is on the leads page
+    Given the ISO is on the "LTP" leads page
 
   Scenario: Create a new lead
     When the ISO clicks the New lead button
