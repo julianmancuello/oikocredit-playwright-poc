@@ -15,9 +15,9 @@ test('first test', async ({page}) => {
   await pm.onLeadsPage().fillInWithRandomAccountName()
   await pm.onLeadsPage().selectCountry("Germany")
   await pm.onLeadsPage().saveTheForm()
-  expect(await pm.onLeadsPage().leadCreatedSuccessMessage()).toBe(true)
+  expect(await pm.onLeadsPage().isLeadCreatedMessageDisplayed()).toBe(true)
   await pm.onHomePage().clickOnLeadsTab()
-  expect(await pm.onLeadsPage().checkNewLeadInList()).toBe(true)
+  expect(await pm.onLeadsPage().isNewLeadInList()).toBe(true)
 })
 
 test('second test', async ({page}) => {
@@ -49,5 +49,5 @@ test('third test', async ({page}) => {
   await pm.onAccountsPage().searchAccount()
   await pm.onAccountsPage().selectAccountRetrieved()
   expect(await pm.onAccountProfilePage().isRecordType("Prospect Individual")).toBe(true)
-    expect(await pm.onAccountProfilePage().isStatus("Pending Signup")).toBe(true)
+  expect(await pm.onAccountProfilePage().isStatus("Pending Signup")).toBe(true)
 })

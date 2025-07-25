@@ -90,14 +90,14 @@ export class LeadsPage extends BasePage {
     await this.saveButton.click()
   }
 
-  async leadCreatedSuccessMessage(){
+  async isLeadCreatedMessageDisplayed(){
     const rawMessage = (await this.leadCreatedConfirmation.textContent()) ?? ""
     const actualMessage = rawMessage.match(/Lead "[^"]+" was created\./)?.[0]
     const expectedMessage = `Lead "${utils.getFullName()}" was created.`
     return actualMessage == expectedMessage
   }
 
-  async checkNewLeadInList(){
+  async isNewLeadInList(){
     await this.page.waitForTimeout(500)
     const nameFirstRow = await this.firstRowLeads.locator('th[data-label="Name"]').textContent()
     const emailFirstRow = await this.firstRowLeads.locator('td[data-label="Email"]').textContent()

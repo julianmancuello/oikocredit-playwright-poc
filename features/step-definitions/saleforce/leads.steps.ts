@@ -24,12 +24,12 @@ When('the ISO fills in the lead form and saves it', async () => {
 })
 
 Then('the ISO should see the created lead success message', async () => {
-  expect(await pm.onLeadsPage().leadCreatedSuccessMessage()).toBe(true)
+  expect(await pm.onLeadsPage().isLeadCreatedMessageDisplayed()).toBe(true)
 })
 
 Then('the ISO should see the new lead in the leads list', async () => {
   await pm.onHomePage().clickOnLeadsTab()
-  expect(await pm.onLeadsPage().checkNewLeadInList()).toBe(true)
+  expect(await pm.onLeadsPage().isNewLeadInList()).toBe(true)
 })
 
 When('the ISO selects an existing lead', async () => {
