@@ -1,10 +1,12 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
+import { HeaderMenu } from "./headerMenu"
 import { utils } from ".././utils/utils"
 import { ContextStore as cs } from "../utils/contextStore"
 
 export class LeadProfilePage extends BasePage {
 
+  readonly menu: HeaderMenu
   private readonly editButton: Locator
   private readonly convertButton: Locator
   private readonly mobileField: Locator
@@ -20,6 +22,7 @@ export class LeadProfilePage extends BasePage {
 
   constructor(page: Page){
     super(page)
+    this.menu = new HeaderMenu(page)
     this.editButton = page.locator('.windowViewMode-normal button[name="Edit"]')
     this.convertButton = page.locator('.windowViewMode-normal button[name="Convert"]')
     this.mobileField = page.getByRole('textbox', {name: "Mobile"})

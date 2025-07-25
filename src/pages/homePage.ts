@@ -1,29 +1,19 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
+import { HeaderMenu } from "./headerMenu"
 
 export class HomePage extends BasePage {
 
-  private readonly leadsTab: Locator
-  private readonly accountsTab: Locator
+  readonly menu: HeaderMenu
   private readonly homeLatestInfo: Locator
 
   constructor(page: Page){
     super(page)
-    this.leadsTab = page.locator('[tabindex][title="Leads"]')
-    this.accountsTab = page.locator('[tabindex][title="Accounts"]')
+    this.menu = new HeaderMenu(page)
     this.homeLatestInfo = page.getByText('Latest Release Information')
-  }
-
-  async clickOnLeadsTab(){
-    await this.leadsTab.click()
-  }
-
-  async clickOnAccountsTab(){
-    await this.accountsTab.click()
   }
 
   latestInfoTitle(){
     return this.homeLatestInfo
   }
-
 }

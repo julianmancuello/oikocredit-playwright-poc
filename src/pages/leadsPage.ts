@@ -1,10 +1,12 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
+import { HeaderMenu } from "./headerMenu"
 import { utils } from ".././utils/utils"
 import { ContextStore as cs } from "../utils/contextStore"
 
 export class LeadsPage extends BasePage {
 
+  readonly menu: HeaderMenu
   private readonly newButton: Locator
   private readonly inflowRadio: Locator
   private readonly nextButton: Locator
@@ -20,6 +22,7 @@ export class LeadsPage extends BasePage {
 
   constructor(page: Page){
     super(page)
+    this.menu = new HeaderMenu(page)
     this.newButton = page.getByRole('button', {name: "New"})
     this.inflowRadio = page.getByRole('radio', {name: "Inflow"})
     this.nextButton = page.getByRole('button', {name: "Next"})

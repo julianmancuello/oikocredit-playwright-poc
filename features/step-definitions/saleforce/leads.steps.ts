@@ -5,7 +5,7 @@ import { pm, page } from '.././hooks';
 Given('the ISO is on the leads page', async () => {
   await page.goto('https://oikocredit--ltp.sandbox.my.salesforce.com/')
   await pm.onLoginPage().loginUser("jmancuello@oikocredit.org.ltp", "Nina23!!")
-  await pm.onHomePage().clickOnLeadsTab()
+  await pm.onHomePage().menu.clickOnTab("Leads")
 })
 
 When('the ISO clicks the New lead button', async () => {
@@ -28,7 +28,7 @@ Then('the ISO should see the created lead success message', async () => {
 })
 
 Then('the ISO should see the new lead in the leads list', async () => {
-  await pm.onHomePage().clickOnLeadsTab()
+  await pm.onLeadProfilePage().menu.clickOnTab("Leads")
   expect(await pm.onLeadsPage().isNewLeadInList()).toBe(true)
 })
 
@@ -63,7 +63,7 @@ Then('the ISO should see the lead conversion success message', async () => {
 })
 
 Then('the {string} account should have a status of {string}', async (recordType: string, status: string) => {
-  await pm.onHomePage().clickOnAccountsTab()
+  await pm.onLeadsPage().menu.clickOnTab("Accounts")
   await pm.onAccountsPage().searchAccount()
   await pm.onAccountsPage().selectAccountRetrieved()
   expect(await pm.onAccountProfilePage().isRecordType(recordType)).toBe(true)
