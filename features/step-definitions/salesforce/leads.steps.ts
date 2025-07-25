@@ -1,10 +1,11 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
-import { pm, page } from '.././hooks';
+import { pm, page } from '../hooks'
+import { ContextStore as cs } from '../../../src/utils/contextStore';
 
 Given('the ISO is on the leads page', async () => {
-  await page.goto('https://oikocredit--ltp.sandbox.my.salesforce.com/')
-  await pm.onLoginPage().loginUser("jmancuello@oikocredit.org.ltp", "Nina23!!")
+  await page.goto(cs.get("salesforce-ltp-url"))
+  await pm.onLoginPage().loginUser(cs.get("salesforce-ltp-user"), cs.get("salesforce-ltp-password"))
   await pm.onHomePage().menu.clickOnTab("Leads")
 })
 
