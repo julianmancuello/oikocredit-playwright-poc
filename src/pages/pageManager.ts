@@ -1,10 +1,10 @@
 import { Page } from "@playwright/test"
-import { LoginPage } from "./loginPage"
-import { HomePage } from "./homePage"
-import { LeadsPage } from "./leadsPage"
-import { AccountsPage } from "./accountsPage"
-import { LeadProfilePage } from "./leadProfilePage"
-import { AccountProfilePage } from "./accountProfilePage"
+import { LoginPage } from "./salesforce-pages/loginPage"
+import { HomePage } from "./salesforce-pages/homePage"
+import { LeadsPage } from "./salesforce-pages/leadsPage"
+import { AccountsPage } from "./salesforce-pages/accountsPage"
+import { LeadProfilePage } from "./salesforce-pages/leadProfilePage"
+import { AccountProfilePage } from "./salesforce-pages/accountProfilePage"
 
 export class PageManager {
 
