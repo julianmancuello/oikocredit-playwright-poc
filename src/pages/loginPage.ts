@@ -2,6 +2,11 @@ import { Locator, Page } from "@playwright/test"
 import { BasePage } from "./basePage"
 import { ContextStore as cs } from "../utils/contextStore"
 
+export enum Environment {
+  LTP = 'ltp',
+  ACC = 'acc'
+}
+
 export class LoginPage extends BasePage {
 
   readonly usernameField: Locator
@@ -21,14 +26,12 @@ export class LoginPage extends BasePage {
     await this.logInButton.click()
   }
 
-  async loginWithEnvironmentCredentials(env: string) {
-    const environment = env.toLowerCase()
-
-    const username = cs.get<string>(`salesforce-${environment}-user`)
-    const password = cs.get<string>(`salesforce-${environment}-password`)
+  async loginWithEnvironmentCredentials(env: Environment) {
+    const username = cs.get<string>(`salesforce-${env}-user`)
+    const password = cs.get<string>(`salesforce-${env}-password`)
 
     if (!username || !password) {
-      throw new Error(`Missing credentials for environment: ${environment}`)
+      throw new Error(`Missing credentials for environment: ${env}`)
     }
 
     await this.loginUser(username, password)
