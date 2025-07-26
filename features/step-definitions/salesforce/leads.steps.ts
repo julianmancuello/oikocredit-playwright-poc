@@ -3,16 +3,11 @@ import { expect } from '@playwright/test'
 import { pm, page } from '../hooks'
 import { ContextStore as cs } from '../../../src/utils/contextStore'
 import { Environment, envUtils } from '../../../src/utils/envUtils'
+import { NavigationManager as nm } from '../../../src/pages/navigationManager'
 
 Given('the ISO is on the {string} leads page', async (env: string) => {
   const environment = envUtils.parseAndValidateEnvironment(env)
-  const url = cs.get<string>(`salesforce-${environment}-url`)
-  
-  if (!url) {
-    throw new Error(`URL for environment '${environment}' not found in ContextStore`)
-  }
-  
-  await page.goto(url)
+  await nm.goToApp('salesforce', environment)
   await pm.onLoginPage().loginWithEnvironmentCredentials(environment)
   await pm.onHomePage().menu.clickOnTab("Leads")
 })

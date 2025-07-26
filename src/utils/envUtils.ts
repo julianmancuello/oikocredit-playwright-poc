@@ -5,7 +5,7 @@ export enum Environment {
 
 class EnvUtils {
 
-  parseAndValidateEnvironment(env: string): Environment {
+  parseAndValidateEnvironment(env: string) {
     const envLower = env.toLowerCase()
 
     if (!Object.values(Environment).includes(envLower as Environment)) {
