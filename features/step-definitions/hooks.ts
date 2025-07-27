@@ -1,5 +1,5 @@
 import { Before, After } from '@cucumber/cucumber'
-import { chromium, Page, Browser, BrowserContext, expect } from '@playwright/test'
+import { chromium, Page, Browser, BrowserContext } from '@playwright/test'
 import { PageManager } from '../../src/pages/pageManager'
 import { ContextStore as cs } from '../../src/utils/contextStore'
 

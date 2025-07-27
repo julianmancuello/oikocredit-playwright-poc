@@ -1,7 +1,6 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { HeaderMenu } from "./headerMenu"
-import { utils } from "../.././utils/utils"
 import { ContextStore as cs } from "../../utils/contextStore"
 
 export class AccountsPage extends BasePage {

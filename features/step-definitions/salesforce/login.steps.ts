@@ -1,8 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
-import { pm, page } from '../hooks';
-import { ContextStore as cs } from '../../../src/utils/contextStore'
-import { Environment, Application, platformUtils } from '../../../src/utils/platformUtils'
+import { pm } from '../hooks'
+import { platformUtils } from '../../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../../src/pages/navigationManager'
 
 Given('the ISO is on the {string} {string} login page', async (app: string, env: string) => {
