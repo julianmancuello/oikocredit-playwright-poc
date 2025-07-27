@@ -2,12 +2,12 @@ import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { pm, page } from '../hooks'
 import { ContextStore as cs } from '../../../src/utils/contextStore'
-import { Environment, envUtils } from '../../../src/utils/envUtils'
+import { Environment, platformUtils } from '../../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../../src/pages/navigationManager'
 
 Given('the ISO is on the {string} leads page', async (env: string) => {
-  const environment = envUtils.parseAndValidateEnvironment(env)
-  await nm.goToApp('salesforce', environment)
+  const { application, environment } = platformUtils.parseAndValidateContext('salesforce', env)
+  await nm.goToApp(application, environment)
   await pm.onLoginPage().loginWithEnvironmentCredentials(environment)
   await pm.onHomePage().menu.clickOnTab("Leads")
 })

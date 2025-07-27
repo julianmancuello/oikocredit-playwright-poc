@@ -1,10 +1,10 @@
 import { ContextStore as cs } from "../utils/contextStore"
-import { Environment } from "../utils/envUtils"
+import { Environment, Application } from "../utils/platformUtils"
 import { page } from "../../features/step-definitions/hooks"
 
 export class NavigationManager {
 
-  static async goToApp(app: string, env: Environment) {
+  static async goToApp(app: Application, env: Environment) {
     const key = `${app}-${env}-url`
     const url = cs.get<string>(key)
 

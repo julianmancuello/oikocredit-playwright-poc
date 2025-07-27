@@ -2,16 +2,16 @@ import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { pm, page } from '../hooks';
 import { ContextStore as cs } from '../../../src/utils/contextStore'
-import { Environment, envUtils } from '../../../src/utils/envUtils'
+import { Environment, Application, platformUtils } from '../../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../../src/pages/navigationManager'
 
-Given('the ISO is on the {string} login page', async (env: string) => {
-  const environment = envUtils.parseAndValidateEnvironment(env)
-  await nm.goToApp('salesforce', environment)
+Given('the ISO is on the {string} {string} login page', async (app: string, env: string) => {
+  const { application, environment } = platformUtils.parseAndValidateContext(app, env)
+  await nm.goToApp(application, environment)
 })
 
 When('the ISO logs in with {string} valid credentials', async (env: string) => {
-  const environment = envUtils.parseAndValidateEnvironment(env)
+  const environment = platformUtils.parseAndValidateEnvironment(env)
   await pm.onLoginPage().loginWithEnvironmentCredentials(environment)
 })
 
