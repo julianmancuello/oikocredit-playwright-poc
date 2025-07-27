@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:cucumber": "cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts"
+    "test:cucumber": "cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --format json:reports/cucumber.json",
+    "report": "ts-node scripts/generateReport.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "@faker-js/faker": "^9.9.0",
     "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.14",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
