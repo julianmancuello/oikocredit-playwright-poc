@@ -14,3 +14,17 @@ body.darkmode .navbar .navbar-text:first-of-type {
   background-image: url('images/dark-logo.jpeg') !important;
   background-size: contain !important;
 }
+
+.navbar .navbar-text:last-of-type {
+  font-size: 0 !important;
+}
+
+.navbar .navbar-text:last-of-type::after {
+  content: "Oikocredit Automation Report";
+  font-size: 18px;
+  color: #5a738e;
+}
+
+body.darkmode .navbar .navbar-text:last-of-type::after {
+  color: #b1bfcd !important;
+}
