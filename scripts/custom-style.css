@@ -1,0 +1,30 @@
+.navbar .navbar-text:first-of-type {
+  width: 60px;
+  height: 60px;
+  background-image: url('images/light-logo.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-indent: -9999px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body.darkmode .navbar .navbar-text:first-of-type {
+  background-image: url('images/dark-logo.jpeg') !important;
+  background-size: contain !important;
+}
+
+.navbar .navbar-text:last-of-type {
+  font-size: 0 !important;
+}
+
+.navbar .navbar-text:last-of-type::after {
+  content: "Oikocredit Automation Report";
+  font-size: 18px;
+  color: #5a738e;
+}
+
+body.darkmode .navbar .navbar-text:last-of-type::after {
+  color: #b1bfcd !important;
+}

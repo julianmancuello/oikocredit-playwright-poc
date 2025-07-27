@@ -1,5 +1,7 @@
 import { Locator, Page } from "@playwright/test"
-import { BasePage } from "./basePage"
+import { BasePage } from "../basePage"
+import { ContextStore as cs } from "../../utils/contextStore"
+import { Environment } from "../../utils/platformUtils"
 
 export class LoginPage extends BasePage {
 
@@ -20,4 +22,14 @@ export class LoginPage extends BasePage {
     await this.logInButton.click()
   }
 
+  async loginWithEnvironmentCredentials(env: Environment) {
+    const username = cs.get<string>(`salesforce-${env}-user`)
+    const password = cs.get<string>(`salesforce-${env}-password`)
+
+    if (!username || !password) {
+      throw new Error(`Missing credentials for environment: ${env}`)
+    }
+
+    await this.loginUser(username, password)
+  }
 }
