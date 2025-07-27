@@ -1,0 +1,16 @@
+.navbar .navbar-text:first-of-type {
+  width: 60px;
+  height: 60px;
+  background-image: url('images/light-logo.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-indent: -9999px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body.darkmode .navbar .navbar-text:first-of-type {
+  background-image: url('images/dark-logo.jpeg') !important;
+  background-size: contain !important;
+}

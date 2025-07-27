@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test:cucumber": "cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --format json:reports/cucumber.json",
-    "report": "ts-node scripts/generateReport.ts"
+    "report": "ts-node scripts/generateReport.ts",
+    "test:with-report": "npm run test:cucumber && npm run report"
   },
   "keywords": [],
   "author": "",

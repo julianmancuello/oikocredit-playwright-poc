@@ -3,6 +3,7 @@ import reporter from 'multiple-cucumber-html-reporter'
 reporter.generate({
   jsonDir: 'reports',
   reportPath: 'reports/html',
+  pageTitle: 'Oikocredit Report',
   metadata: {
     browser: {
       name: 'chrome',
@@ -22,5 +23,6 @@ reporter.generate({
       { label: 'Cycle', value: 'Regression' },
       { label: 'Execution Time', value: new Date().toLocaleString() }
     ]
-  }
+  },
+  customStyle: 'scripts/custom-style.css'
 })
