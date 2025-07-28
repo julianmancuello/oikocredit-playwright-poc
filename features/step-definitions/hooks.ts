@@ -10,12 +10,13 @@ export let pm: PageManager
 
 Before(async () => {
   cs.loadProperties('resources/test.properties')
-  browser = await chromium.launch({ headless: false })
+  const headless = !!process.env.CI || false
+  browser = await chromium.launch({ headless })
   context = await browser.newContext()
   page = await context.newPage()
   pm = new PageManager(page)
 })
 
 After(async () => {
-  await browser.close()
+  await browser?.close()
 })

@@ -36,6 +36,28 @@ export class ContextStore {
   }
 
   static loadProperties(filePath: string): void {
+    this.loadFromEnv();
+    
+    if (!this.hasCredentials()) {
+      this.loadFromFile(filePath);
+    }
+  }
+
+  private static loadFromEnv(): void {
+    const envMappings = {
+      'SALESFORCE_LTP_USER': 'salesforce-ltp-user',
+      'SALESFORCE_LTP_PASSWORD': 'salesforce-ltp-password'
+    };
+
+    Object.entries(envMappings).forEach(([envVar, storeKey]) => {
+      const value = process.env[envVar];
+      if (value) {
+        ContextStore.put(storeKey, value);
+      }
+    });
+  }
+
+  private static loadFromFile(filePath: string): void {
     const absolutePath = path.resolve(filePath);
     if (!fs.existsSync(absolutePath)) {
       console.error(`Properties file not found at path: ${absolutePath}`);
@@ -52,5 +74,10 @@ export class ContextStore {
       const value = valueParts.join('=').trim();
       ContextStore.put(key.trim(), value);
     });
+  }
+
+  private static hasCredentials(): boolean {
+    return ContextStore.context.has('salesforce-ltp-user') || 
+           ContextStore.context.has('salesforce-ltp-password');
   }
 }
