@@ -1,4 +1,5 @@
 import reporter from 'multiple-cucumber-html-reporter'
+import { getCucumberExecutionTime } from './timer'
 
 reporter.generate({
   jsonDir: 'reports',
@@ -21,7 +22,8 @@ reporter.generate({
       { label: 'Project', value: 'Oikocredit Playwright POC' },
       { label: 'Release', value: '1.0.0' },
       { label: 'Cycle', value: 'Regression' },
-      { label: 'Execution Time', value: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Amsterdam' }) }
+      { label: 'Execution Time', value: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Amsterdam' }) },
+      { label: 'Execution Duration', value: getCucumberExecutionTime() }
     ]
   },
   customStyle: 'scripts/custom-style.css'
