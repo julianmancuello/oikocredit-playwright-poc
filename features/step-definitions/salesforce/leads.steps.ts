@@ -3,6 +3,8 @@ import { expect } from '@playwright/test'
 import { pm } from '../hooks'
 import { platformUtils } from '../../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../../src/pages/navigationManager'
+import { utils } from '../../../src/utils/utils'
+import { ContextStore as cs } from '../../../src/utils/contextStore'
 
 Given('the ISO is on the {string} leads page', async (env: string) => {
   const { application, environment } = platformUtils.parseAndValidateContext('salesforce', env)
@@ -27,12 +29,19 @@ When('the ISO fills in the lead form and saves it', async () => {
 })
 
 Then('the ISO should see the created lead success message', async () => {
-  expect(await pm.onLeadsPage().isLeadCreatedMessageDisplayed()).toBe(true)
+  const expectedMessage = `Lead "${utils.getFullName()}" was created.`
+  expect(await pm.onLeadsPage().getLeadCreatedMessage()).toEqual(expectedMessage)
 })
 
 Then('the ISO should see the new lead in the leads list', async () => {
   await pm.onLeadProfilePage().menu.clickOnTab("Leads")
-  expect(await pm.onLeadsPage().isNewLeadInList()).toBe(true)
+  const actualValues = await pm.onLeadsPage().getNewLeadInList()
+  const expectedValues = {
+    name: utils.getFullName(),
+    email: cs.get("newEmail"),
+    accountName: cs.get("newAccountName")
+  }
+  expect(actualValues).toEqual(expectedValues)
 })
 
 When('the ISO selects an existing lead', async () => {
