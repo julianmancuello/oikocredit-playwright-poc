@@ -1,7 +1,7 @@
 .navbar .navbar-text:first-of-type {
   width: 60px;
   height: 60px;
-  background-image: url('images/dark-logo.jpg');
+  background-image: url('images/dark-logo.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -11,7 +11,7 @@
 }
 
 body.darkmode .navbar .navbar-text:first-of-type {
-  background-image: url('images/light-logo.jpeg') !important;
+  background-image: url('images/light-logo.jpg') !important;
   background-size: contain !important;
 }
 
