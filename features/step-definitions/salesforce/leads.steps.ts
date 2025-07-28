@@ -56,11 +56,13 @@ When('the ISO updates the Mobile field with a random mobile number', async () =>
 })
 
 Then('the ISO should see the saved lead success message', async () => {
-  expect(await pm.onLeadProfilePage().isSavedChangesMessageDisplayed()).toBe(true)
+  const expectedMessage = `Lead "${cs.get("name")}" was saved1.`
+  expect(await pm.onLeadProfilePage().getSavedChangesMessage()).toEqual(expectedMessage)
 })
 
 Then('the ISO should see the new mobile number in the lead details', async () => {
-  expect(await pm.onLeadProfilePage().isNewMobileDisplayed()).toBe(true)
+  const expectedMobile = cs.get("newMobile")
+  expect(await pm.onLeadProfilePage().getNewMobile()).toEqual(expectedMobile)
 })
 
 When('the ISO converts the lead to a {string}', async (recordType: string) => {

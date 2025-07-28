@@ -68,17 +68,15 @@ export class LeadProfilePage extends BasePage {
     await this.saveButton.click()
   }
 
-  async isSavedChangesMessageDisplayed(){
-    const leadName = cs.get("name")
+  async getSavedChangesMessage(){
     const rawMessage = (await this.successfulSaveMessage.textContent()) ?? ""
     const actualMessage = rawMessage.match(/Lead "[^"]+" was saved\./)?.[0]
-    const expectedMessage = `Lead "${leadName}" was saved1.`
-    return actualMessage == expectedMessage
+    return actualMessage
   }
 
-  async isNewMobileDisplayed(){
+  async getNewMobile(){
     const mobileInDetails = await this.mobileDetails.textContent()
-    return mobileInDetails === cs.get("newMobile")
+    return mobileInDetails
   }
 
   async selectRecordType(recordType: string){
