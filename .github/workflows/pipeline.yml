@@ -4,13 +4,11 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 9 * * *' #Ejecuta a las 9 AM UTC diariamente
+    - cron: '0 9 * * *'
 
 env:
-  # Establece aquí las variables de entorno que reemplazarán tu test.properties
   SALESFORCE_LTP_USER: ${{ secrets.SALESFORCE_LTP_USER }}
   SALESFORCE_LTP_PASSWORD: ${{ secrets.SALESFORCE_LTP_PASSWORD }}
-  # Agrega otras variables que necesites
 
 jobs:
   test:
