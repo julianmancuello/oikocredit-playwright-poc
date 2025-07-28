@@ -15,5 +15,6 @@ When('the ISO logs in with {string} valid credentials', async (env: string) => {
 })
 
 Then('the ISO should see the Home page', async () => {
+  await pm.onHomePage().latestInfoTitle().waitFor({ state: 'visible' })
   await expect(pm.onHomePage().latestInfoTitle()).toBeVisible()
 })
