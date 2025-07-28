@@ -43,3 +43,23 @@ jobs:
       with:
         name: cucumber-report
         path: reports/
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download HTML report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cucumber-report
+          path: reports
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports/html
