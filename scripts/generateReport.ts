@@ -21,7 +21,7 @@ reporter.generate({
       { label: 'Project', value: 'Oikocredit Playwright POC' },
       { label: 'Release', value: '1.0.0' },
       { label: 'Cycle', value: 'Regression' },
-      { label: 'Execution Time', value: new Date().toLocaleString() }
+      { label: 'Execution Time', value: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Amsterdam' }) }
     ]
   },
   customStyle: 'scripts/custom-style.css'
