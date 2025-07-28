@@ -1,6 +1,6 @@
 import reporter from 'multiple-cucumber-html-reporter'
 import { getCucumberExecutionTime } from './timer'
-//tes
+
 reporter.generate({
   jsonDir: 'reports',
   reportPath: 'reports/html',
