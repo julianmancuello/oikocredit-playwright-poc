@@ -72,7 +72,7 @@ export class LeadProfilePage extends BasePage {
     const leadName = cs.get("name")
     const rawMessage = (await this.successfulSaveMessage.textContent()) ?? ""
     const actualMessage = rawMessage.match(/Lead "[^"]+" was saved\./)?.[0]
-    const expectedMessage = `Lead "${leadName}" was saved.`
+    const expectedMessage = `Lead "${leadName}" was saved1.`
     return actualMessage == expectedMessage
   }
 

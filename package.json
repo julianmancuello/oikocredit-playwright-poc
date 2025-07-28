@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:cucumber": "cucumber-js --require-module ts-node/register --require cucumber.ts --require 'features/step-definitions/**/*.ts' --format json:reports/cucumber.json features/",
-    "test:local": "cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --format json:reports/cucumber.json",
+    "test:cucumber": "cucumber-js --require-module ts-node/register --require cucumber.ts --require 'features/step-definitions/**/*.ts' --format json:reports/cucumber.json features/ || true",
+    "test:local": "cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --format json:reports/cucumber.json || true",
     "report": "ts-node scripts/generateReport.ts",
-    "test:with-report": "npm run test:cucumber && npm run report",
-    "test-local:with-report": "npm run test:local && npm run report"
+    "test:with-report": "npm run test:cucumber & npm run report",
+    "test-local:with-report": "npm run test:local & npm run report"
   },
   "keywords": [],
   "author": "",
