@@ -933,7 +933,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">100.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">0.00 %</td>
                     
                     
                     </tr>
@@ -1087,14 +1087,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
-                        <li>
-                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
-                        </li>
-                    
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">2</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
                         </li>
                     
 
@@ -1244,8 +1240,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
-                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
                                         </div>
                                     
                                 
@@ -1266,8 +1262,6 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     
 
                                     
-                                        <a href="#error0-3-error" data-bs-toggle="collapse">+ Show Error</a>
-                                    
 
                                     
 
@@ -1284,22 +1278,6 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             </div>
 
                         
-                            
-                                <div id="error0-3-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
-
-Locator: getByText('Latest Release Information')
-Expected: visible
-Received: (element(s) not found)
-Call log:
-  - Expect "to.be.visible" with timeout 5000ms
-  - waiting for getByText('Latest Release Information')
-    - waiting for" https://oikocredit--ltp.sandbox.my.salesforce.com/one/one.app" navigation to finish...
-    - navigated to "https://oikocredit--ltp.sandbox.lightning.force.com/one/one.app"
-
-    at Proxy.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/node_modules/playwright/lib/matchers/expect.js:221:24)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/login.steps.ts:18:51)</pre>
-                                </div>
                             
 
                             
@@ -1385,8 +1363,8 @@ Call log:
                     ],
                     datasets: [{
                         data: [
-                            0,
                             1,
+                            0,
                             0,
                             0,
                             0,
