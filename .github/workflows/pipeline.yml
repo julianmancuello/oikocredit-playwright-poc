@@ -31,8 +31,8 @@ jobs:
       
     - name: Create reports directory and copy images
       run: |
-        mkdir -p reports/images
-        cp -r resources/images/* reports/images/
+        mkdir -p reports/html/images
+        cp -r resources/images/* reports/html/images/
         
     - name: Run tests with report generation
       run: npm run test:with-report
