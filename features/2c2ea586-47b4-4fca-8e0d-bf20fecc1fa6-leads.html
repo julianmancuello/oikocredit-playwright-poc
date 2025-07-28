@@ -1725,12 +1725,12 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             
                                 <div id="error1-4-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>Error: expect(received).toBe(expected) // Object.is equality
+                                    <pre class=info>Error: expect(received).toEqual(expected) // deep equality
 
-Expected: true
-Received: false
+Expected: "Lead \"Cooper Macejkovic\" was saved1."
+Received: "Lead \"Cooper Macejkovic\" was saved."
     at Proxy.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/node_modules/playwright/lib/matchers/expect.js:221:24)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/leads.steps.ts:59:73)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/leads.steps.ts:60:65)</pre>
                                 </div>
                             
 
