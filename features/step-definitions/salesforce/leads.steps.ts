@@ -56,7 +56,7 @@ When('the ISO updates the Mobile field with a random mobile number', async () =>
 })
 
 Then('the ISO should see the saved lead success message', async () => {
-  const expectedMessage = `Lead "${cs.get("name")}" was saved1.`
+  const expectedMessage = `Lead "${cs.get("name")}" was saved.`
   expect(await pm.onLeadProfilePage().getSavedChangesMessage()).toEqual(expectedMessage)
 })
 
@@ -73,13 +73,14 @@ When('the ISO converts the lead to a {string}', async (recordType: string) => {
 })
 
 Then('the ISO should see the lead conversion success message', async () => {
-  expect(await pm.onLeadProfilePage().isLeadConvertedMessageDisplayed()).toBe(true)
+  const expectedMessage = "Your lead has been converted"
+  expect(await pm.onLeadProfilePage().getLeadConvertedMessage()).toEqual(expectedMessage)
 })
 
 Then('the {string} account should have a status of {string}', async (recordType: string, status: string) => {
   await pm.onLeadsPage().menu.clickOnTab("Accounts")
   await pm.onAccountsPage().searchAccount()
   await pm.onAccountsPage().selectAccountRetrieved()
-  expect(await pm.onAccountProfilePage().isRecordType(recordType)).toBe(true)
-  expect(await pm.onAccountProfilePage().isStatus(status)).toBe(true)
+  expect(await pm.onAccountProfilePage().getRecordType()).toEqual(recordType)
+  expect(await pm.onAccountProfilePage().getStatus()).toEqual(status)
 })

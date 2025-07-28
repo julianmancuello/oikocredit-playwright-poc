@@ -88,10 +88,9 @@ export class LeadProfilePage extends BasePage {
     await this.convertButtonInForm.click()
   }
 
-  async isLeadConvertedMessageDisplayed(){
+  async getLeadConvertedMessage(){
     const actualMessage = await this.leadConvertedMessage.textContent()
-    const expectedMessage = "Your lead has been converted"
     await this.closeWindowButton.click()
-    return actualMessage === expectedMessage
+    return actualMessage
   }
 }

@@ -15,13 +15,13 @@ export class AccountProfilePage extends BasePage {
     this.status = page.locator('//p/slot/lightning-formatted-text[text()="Pending Signup"]')
   }
 
-  async isRecordType(expectedRecordType: string){
+  async getRecordType(){
     const actualRecordType = await this.accountRecordType.textContent()
-    return actualRecordType === expectedRecordType
+    return actualRecordType
   }
 
-  async isStatus(expectedStatus: string){
+  async getStatus(){
     const actualStatus = await this.status.textContent()
-    return actualStatus === expectedStatus
+    return actualStatus
   }
 }
