@@ -1,5 +1,6 @@
 Feature: Login to Salesforce
 
+  @smoke @regression
   Scenario: User logs in with valid credentials
     Given the ISO is on the "SALESFORCE" "LTP" login page
     When the ISO logs in with "LTP" valid credentials

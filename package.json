@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test:debug": "set BROWSER=webkit&& cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --tags \"@debug\"",
     "report": "ts-node scripts/generateReport.ts",
-    "test:all-browsers": "ts-node scripts/runAllBrowsers.ts",
+    "test:all-browsers": "echo all > reports/run-type.txt && ts-node scripts/runAllBrowsers.ts",
     "test-all:with-report": "npm run test:all-browsers; npm run report",
     "test-local:with-report": "npm run test:all-browsers & npm run report",
-    "test:debug": "set BROWSER=chromium&& cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --tags \"@debug\""
+    "test:smoke-all-browsers": "echo smoke > reports/run-type.txt && ts-node scripts/runSmokeAllBrowsers.ts",
+    "smoke-test:report": "npm run test:smoke-all-browsers & npm run report",
+    "test:regression-all-browsers": "echo regression > reports/run-type.txt && ts-node scripts/runRegressionAllBrowsers.ts",
+    "regression-test:report": "npm run test:regression-all-browsers & npm run report"
+
   },
   "keywords": [],
   "author": "",

@@ -48,6 +48,20 @@ for (const file of jsonFiles) {
   fs.writeFileSync(filePath, JSON.stringify(json, null, 2), 'utf-8')
 }
 
+let runType = 'unknown'
+const runTypeFile = path.join(reportsDir, 'run-type.txt')
+if (fs.existsSync(runTypeFile)) {
+  runType = fs.readFileSync(runTypeFile, 'utf-8').trim()
+}
+const cycleLabel = (() => {
+  switch (runType.toLowerCase()) {
+    case 'smoke': return 'Smoke Tests'
+    case 'regression': return 'Regression Tests'
+    case 'all': return 'Full Test Suite'
+    default: return 'Unknown'
+  }
+})()
+
 reporter.generate({
   jsonDir: reportsDir,
   reportPath: path.join(reportsDir, 'html'),
@@ -57,7 +71,7 @@ reporter.generate({
     data: [
       { label: 'Project', value: 'Oikocredit Playwright POC' },
       { label: 'Release', value: '1.0.0' },
-      { label: 'Cycle', value: 'Regression' },
+      { label: 'Cycle', value: cycleLabel },
       { label: 'Execution Time', value: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Amsterdam' }) },
       { label: 'Execution Duration', value: getCucumberExecutionTime() }
     ]
@@ -68,4 +82,15 @@ reporter.generate({
 const versionFiles = fs.readdirSync(reportsDir).filter(f => f.startsWith('version-') && f.endsWith('.txt'))
 for (const file of versionFiles) {
   fs.unlinkSync(path.join(reportsDir, file))
+}
+
+const cucumberJsonFiles = fs.readdirSync(reportsDir).filter(f =>
+  (f.startsWith('cucumber-') && f.endsWith('.json')) || f === 'cucumber.json'
+)
+for (const file of cucumberJsonFiles) {
+  fs.unlinkSync(path.join(reportsDir, file))
+}
+
+if (fs.existsSync(runTypeFile)) {
+  fs.unlinkSync(runTypeFile)
 }

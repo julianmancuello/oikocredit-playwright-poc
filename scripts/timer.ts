@@ -33,10 +33,10 @@ export function getCucumberExecutionTime(): string {
     const milliseconds = remainingMsAfterMinutes % 1000
 
     if (minutes > 0) {
-      return `${minutes}m ${seconds} s ${milliseconds} ms`
+      return `${minutes} min ${seconds} seg ${milliseconds} ms`
     }
     
-    return `${seconds} s ${milliseconds} ms`
+    return `${seconds} seg ${milliseconds} ms`
 
   } catch (error) {
     console.error('Error reading execution time:', error)
