@@ -5,7 +5,8 @@
   "scripts": {
     "report": "ts-node scripts/generateReport.ts",
     "test:all-browsers": "ts-node scripts/runAllBrowsers.ts",
-    "test-all:with-report": "npm run test:all-browsers & npm run report",
+    "test-all:with-report": "npm run test:all-browsers; npm run report",
+    "test-local:with-report": "npm run test:all-browsers & npm run report",
     "test:debug": "set BROWSER=chromium&& cucumber-js --require-module ts-node/register --require cucumber.ts --require features/step-definitions/**/*.ts --tags \"@debug\""
   },
   "keywords": [],
