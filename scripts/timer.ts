@@ -2,36 +2,44 @@ import fs from 'fs'
 import path from 'path'
 
 export function getCucumberExecutionTime(): string {
-    try {
-        const reportPath = path.join(__dirname, '../reports/cucumber.json')
-        const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf-8'))
-        
-        let totalNanoseconds = 0
-        
-        reportData.forEach((feature: any) => {
-            feature.elements?.forEach((scenario: any) => {
-                scenario.steps?.forEach((step: any) => {
-                    if (step.result?.duration) {
-                        totalNanoseconds += step.result.duration
-                    }
-                })
-            })
+  try {
+    const reportsDir = path.join(__dirname, '../reports')
+    const jsonFiles = fs.readdirSync(reportsDir).filter(file => file.endsWith('.json'))
+
+    let totalNanoseconds = 0
+
+    for (const file of jsonFiles) {
+      const filePath = path.join(reportsDir, file)
+      const content = fs.readFileSync(filePath, 'utf-8')
+      const reportData = JSON.parse(content)
+
+      reportData.forEach((feature: any) => {
+        feature.elements?.forEach((scenario: any) => {
+          scenario.steps?.forEach((step: any) => {
+            if (step.result?.duration) {
+              totalNanoseconds += step.result.duration
+            }
+          })
         })
-        
-        const totalSeconds = totalNanoseconds / 1000000000
-        const seconds = Math.floor(totalSeconds)
-        const milliseconds = Math.round((totalSeconds - seconds) * 1000)
-        
-        if (seconds >= 60) {
-            const minutes = Math.floor(seconds / 60)
-            const remainingSeconds = seconds % 60
-            return `${minutes}m ${remainingSeconds}.${milliseconds.toString().padStart(3, '0')}s`
-        }
-        
-        return `${seconds}.${milliseconds.toString().padStart(3, '0')}s`
-        
-    } catch (error) {
-        console.error('Error reading execution time:', error)
-        return '0.000s'
+      })
     }
+
+    const totalMilliseconds = Math.round(totalNanoseconds / 1000000)
+
+    const minutes = Math.floor(totalMilliseconds / 60000)
+    const remainingMsAfterMinutes = totalMilliseconds % 60000
+
+    const seconds = Math.floor(remainingMsAfterMinutes / 1000)
+    const milliseconds = remainingMsAfterMinutes % 1000
+
+    if (minutes > 0) {
+      return `${minutes}m ${seconds} s ${milliseconds} ms`
+    }
+    
+    return `${seconds} s ${milliseconds} ms`
+
+  } catch (error) {
+    console.error('Error reading execution time:', error)
+    return '0.000s'
+  }
 }

@@ -24,7 +24,7 @@ export class LeadsPage extends BasePage {
     super(page)
     this.menu = new HeaderMenu(page)
     this.newButton = page.getByRole('button', {name: "New"})
-    this.inflowRadio = page.getByRole('radio', {name: "Inflow"})
+    this.inflowRadio = page.locator('//input[@value="0127S000000X6jgQAC"]/parent::div/span[@class="slds-radio--faux"]')
     this.nextButton = page.getByRole('button', {name: "Next"})
     this.moveToChosenLeadSource = page.locator('[data-component-id="flexipage_fieldSection"] [title="Move to Chosen"]')
     this.firstNameField = page.getByRole('textbox', {name: "First Name"})

@@ -1,21 +1,57 @@
 import reporter from 'multiple-cucumber-html-reporter'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
 import { getCucumberExecutionTime } from './timer'
 
-reporter.generate({
-  jsonDir: 'reports',
-  reportPath: 'reports/html',
-  pageTitle: 'Oikocredit Report',
-  metadata: {
-    browser: {
-      name: 'chrome',
-      version: '115'
-    },
-    device: 'Local machine',
-    platform: {
-      name: 'Windows',
-      version: '11'
+const reportsDir = path.join(__dirname, '../reports')
+const jsonFiles = fs.readdirSync(reportsDir).filter(f => f.startsWith('cucumber-') && f.endsWith('.json'))
+
+for (const file of jsonFiles) {
+  const browserNameRaw = file.replace('cucumber-', '').replace('.json', '')
+  const filePath = path.join(reportsDir, file)
+  const content = fs.readFileSync(filePath, 'utf-8')
+  const json = JSON.parse(content)
+
+  const normalizedBrowserName = (() => {
+    switch (browserNameRaw.toLowerCase()) {
+      case 'chromium': return 'chrome'
+      case 'webkit': return 'safari'
+      case 'firefox': return 'firefox'
+      default: return browserNameRaw
     }
-  },
+  })()
+
+  const versionFile = path.join(reportsDir, `version-${browserNameRaw}.txt`)
+  let browserVersion = 'N/A'
+  if (fs.existsSync(versionFile)) {
+    browserVersion = fs.readFileSync(versionFile, 'utf-8').trim()
+  }
+
+  json.forEach((feature: any) => {
+    feature.tags = feature.tags || []
+    feature.tags.push({ name: `@browser:${normalizedBrowserName}` })
+
+    feature.metadata = {
+      browser: {
+        name: normalizedBrowserName,
+        version: browserVersion
+      },
+      device: process.env.CI ? 'GitHub Actions' : 'Local machine',
+      platform: {
+        name: os.platform(),
+        version: os.release()
+      }
+    }
+  })
+
+  fs.writeFileSync(filePath, JSON.stringify(json, null, 2), 'utf-8')
+}
+
+reporter.generate({
+  jsonDir: reportsDir,
+  reportPath: path.join(reportsDir, 'html'),
+  pageTitle: 'Oikocredit Report',
   customData: {
     title: 'Run info',
     data: [
@@ -28,3 +64,8 @@ reporter.generate({
   },
   customStyle: 'scripts/custom-style.css'
 })
+
+const versionFiles = fs.readdirSync(reportsDir).filter(f => f.startsWith('version-') && f.endsWith('.txt'))
+for (const file of versionFiles) {
+  fs.unlinkSync(path.join(reportsDir, file))
+}
