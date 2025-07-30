@@ -57,7 +57,6 @@ const cycleLabel = (() => {
   switch (runType.toLowerCase()) {
     case 'smoke': return 'Smoke Tests'
     case 'regression': return 'Regression Tests'
-    case 'all': return 'Full Test Suite'
     default: return 'Unknown'
   }
 })()
