@@ -1,3 +1,4 @@
+@regression
 Feature: Leads
 
   Background:
@@ -10,7 +11,6 @@ Feature: Leads
     Then the ISO should see the created lead success message
     And the ISO should see the new lead in the leads list
   
-  @regression
   Scenario: Edit a lead
     When the ISO selects an existing lead
     And the ISO updates the Mobile field with a random mobile number
