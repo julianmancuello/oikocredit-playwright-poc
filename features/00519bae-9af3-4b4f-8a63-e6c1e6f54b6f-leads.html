@@ -879,7 +879,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@regression</span>
                         
-                            <span class="tag">@browser:chrome</span>
+                            <span class="tag">@browser:firefox</span>
                         
                             <span class="tag">@smoke</span>
                         
@@ -887,15 +887,15 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                 
             </div>
             <h1>Feature:
-                <small>Login to Salesforce</small>
+                <small>Leads</small>
             </h1>
             
                 <p>
                <p><strong>File name:</strong>
-                    login.feature
+                    leads.feature
                 </p>
                 <p><strong>Relative path:</strong>
-                    salesforce/login.feature</p>
+                    salesforce/leads.feature</p>
             
         </div>
 
@@ -931,7 +931,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
         <tr>
             <td class="chart">
                 <canvas id="scenario-chart"></canvas>
-                <div class="total">2</div>
+                <div class="total">3</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -1025,10 +1025,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                     
                     
-                    <i class="fa fa-chrome fa-lg">
-                        <span>chrome</span>
+                    <i class="fa fa-firefox fa-lg">
+                        <span>firefox</span>
                     </i>
-                    139.0.7258.5
+                    140.0.2
                     
                 </span>
             </li>
@@ -1089,7 +1089,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario: <small>User logs in with valid credentials</small></h2>
+                <h2>Scenario: <small>Create a new lead</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1106,7 +1106,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -1138,7 +1138,71 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Given </span>
 
                                     
-                                        the ISO is on the "SALESFORCE" "LTP" login page
+                                        the ISO logs into "SALESFORCE" "LTP" with valid credentials
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        the ISO navigates to the "Leads" page
                                         
                                     
 
@@ -1202,7 +1266,71 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the ISO logs in with "LTP" valid credentials
+                                        the ISO clicks the New lead button
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the ISO fills in the lead form and saves it
                                         
                                     
 
@@ -1266,7 +1394,71 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the ISO should see the Home page
+                                        the ISO should see the created lead success message
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the ISO should see the new lead in the leads list
                                         
                                     
 
@@ -1337,7 +1529,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario: <small>The user attempts to log in with invalid credentials</small></h2>
+                <h2>Scenario: <small>Edit a lead</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1354,7 +1546,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
                         </li>
                     
 
@@ -1386,7 +1578,71 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Given </span>
 
                                     
-                                        the ISO is on the "SALESFORCE" "LTP" login page
+                                        the ISO logs into "SALESFORCE" "LTP" with valid credentials
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        the ISO navigates to the "Leads" page
                                         
                                     
 
@@ -1450,7 +1706,71 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the ISO attempts to log in with invalid credentials
+                                        the ISO selects an existing lead
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the ISO updates the Mobile field with a random mobile number
                                         
                                     
 
@@ -1514,7 +1834,513 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the ISO should see an error message
+                                        the ISO should see the saved lead success message
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the ISO should see the new mobile number in the lead details
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="height: auto;">
+            <div class="x_title">
+
+                <div class="tags">
+                    
+                        
+                        
+                            <i class="fa fa-tags fa-lg"></i>
+                            
+                                <span class="tag">@regression</span>
+                            
+                                <span class="tag">@smoke</span>
+                            
+                        
+                    
+                </div>
+
+                <h2>Scenario: <small>Convert a lead</small></h2>
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                    </li>
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
+                        </li>
+                    
+
+                    
+
+                    
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content" style="display: none;">
+                <div class="scenario-step-container"></div>
+                    
+                        
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        the ISO logs into "SALESFORCE" "LTP" with valid credentials
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        the ISO navigates to the "Leads" page
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        the ISO selects an existing lead
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the ISO converts the lead to a "Prospect Individual"
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Then </span>
+
+                                    
+                                        the ISO should see the lead conversion success message
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">And </span>
+
+                                    
+                                        the "Prospect Individual" account should have a status of "Pending Signup"
                                         
                                     
 
@@ -1627,7 +2453,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            2,
+                            3,
                             0,
                             0,
                             0,
