@@ -1,7 +1,5 @@
 import { Locator, Page } from "@playwright/test"
 import { BaseLoginPage } from "../baseLoginPage"
-import { ContextStore as cs } from "../../utils/contextStore"
-import { Environment } from "../../utils/platformUtils"
 
 export class LoginPageMOC extends BaseLoginPage {
 

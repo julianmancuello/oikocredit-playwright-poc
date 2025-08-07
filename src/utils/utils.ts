@@ -14,6 +14,10 @@ class Utils {
     return faker.number.int(upperBound)
   }
 
+  generateRandomIntegerBetween(lowerBound: number, upperBound: number){
+    return faker.number.int({ min: lowerBound, max: upperBound })
+  }
+
   getFullName(){
     if(cs.has("firstName") && cs.has("lastName")){
       return `${cs.get("firstName")} ${cs.get("lastName")}`
