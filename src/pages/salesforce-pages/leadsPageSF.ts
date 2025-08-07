@@ -1,12 +1,12 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { HeaderMenu } from "./headerMenu"
-import { utils } from "../.././utils/utils"
+import { HeaderMenuSF } from "./headerMenuSF"
+import { utils } from "../../utils/utils"
 import { ContextStore as cs } from "../../utils/contextStore"
 
-export class LeadsPage extends BasePage {
+export class LeadsPageSF extends BasePage {
 
-  readonly menu: HeaderMenu
+  readonly menuSF: HeaderMenuSF
   private readonly newButton: Locator
   private readonly inflowRadio: Locator
   private readonly nextButton: Locator
@@ -22,7 +22,7 @@ export class LeadsPage extends BasePage {
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenu(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.newButton = page.getByRole('button', {name: "New"})
     this.inflowRadio = page.locator('//input[@value="0127S000000X6jgQAC"]/parent::div/span[@class="slds-radio--faux"]')
     this.nextButton = page.getByRole('button', {name: "Next"})

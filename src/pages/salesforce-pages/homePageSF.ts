@@ -1,15 +1,15 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { HeaderMenu } from "./headerMenu"
+import { HeaderMenuSF } from "./headerMenuSF"
 
-export class HomePage extends BasePage {
+export class HomePageSF extends BasePage {
 
-  readonly menu: HeaderMenu
+  readonly menuSF: HeaderMenuSF
   private readonly homeLatestInfo: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenu(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.homeLatestInfo = page.getByText('Latest Release Information')
   }
 

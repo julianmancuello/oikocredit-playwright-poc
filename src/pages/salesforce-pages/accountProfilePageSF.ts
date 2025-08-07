@@ -1,16 +1,16 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { HeaderMenu } from "./headerMenu"
+import { HeaderMenuSF } from "./headerMenuSF"
 
-export class AccountProfilePage extends BasePage {
+export class AccountProfilePageSF extends BasePage {
 
-  readonly menu: HeaderMenu
+  readonly menu: HeaderMenuSF
   private readonly accountRecordType: Locator
   private readonly status: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenu(page)
+    this.menu = new HeaderMenuSF(page)
     this.accountRecordType = page.locator('p .recordTypeName')
     this.status = page.locator('//p/slot/lightning-formatted-text[text()="Pending Signup"]')
   }

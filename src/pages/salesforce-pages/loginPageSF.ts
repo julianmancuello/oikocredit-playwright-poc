@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test"
 import { BaseLoginPage } from "../baseLoginPage"
 
-export class LoginPage extends BaseLoginPage {
+export class LoginPageSF extends BaseLoginPage {
 
   readonly usernameField: Locator
   readonly passwordField: Locator

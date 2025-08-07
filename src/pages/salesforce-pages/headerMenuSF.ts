@@ -1,8 +1,8 @@
 import { Locator, Page } from "@playwright/test"
 
-export type HeaderTab = "Leads" | "Accounts"
+export type HeaderTabSF = "Leads" | "Accounts"
 
-export class HeaderMenu {
+export class HeaderMenuSF {
 
   private readonly page: Page
   private readonly leadsTab: Locator
@@ -14,7 +14,7 @@ export class HeaderMenu {
     this.accountsTab = page.locator('[tabindex][title="Accounts"]')
   }
 
-  async clickOnTab(tabName: HeaderTab) {
+  async clickOnTab(tabName: HeaderTabSF) {
     switch (tabName) {
       case "Leads":
         await this.leadsTab.click()

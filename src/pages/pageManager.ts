@@ -1,56 +1,56 @@
 import { Page } from "@playwright/test"
-import { LoginPage } from "./salesforce-pages/loginPage"
-import { HomePage } from "./salesforce-pages/homePage"
-import { LeadsPage } from "./salesforce-pages/leadsPage"
-import { AccountsPage } from "./salesforce-pages/accountsPage"
-import { LeadProfilePage } from "./salesforce-pages/leadProfilePage"
-import { AccountProfilePage } from "./salesforce-pages/accountProfilePage"
+import { LoginPageSF } from "./salesforce-pages/loginPageSF"
+import { HomePageSF } from "./salesforce-pages/homePageSF"
+import { LeadsPageSF } from "./salesforce-pages/leadsPageSF"
+import { AccountsPageSF } from "./salesforce-pages/accountsPageSF"
+import { LeadProfilePageSF } from "./salesforce-pages/leadProfilePageSF"
+import { AccountProfilePageSF } from "./salesforce-pages/accountProfilePageSF"
 import { LoginPageMOC } from "./myoikocredit-pages/loginPageMOC"
 
 export class PageManager {
 
   private readonly page: Page
-  private readonly loginPage: LoginPage
-  private readonly homePage: HomePage
-  private readonly leadsPage: LeadsPage
-  private readonly accountsPage: AccountsPage
-  private readonly leadProfilePage: LeadProfilePage
-  private readonly accountProfilePage: AccountProfilePage
+  private readonly loginPageSF: LoginPageSF
+  private readonly homePageSF: HomePageSF
+  private readonly leadsPageSF: LeadsPageSF
+  private readonly accountsPageSF: AccountsPageSF
+  private readonly leadProfilePageSF: LeadProfilePageSF
+  private readonly accountProfilePageSF: AccountProfilePageSF
   private readonly loginPageMOC: LoginPageMOC
   
   constructor(page: Page){
     this.page = page
-    this.loginPage = new LoginPage(this.page)
-    this.homePage = new HomePage(this.page)
-    this.leadsPage = new LeadsPage(this.page)
-    this.accountsPage = new AccountsPage(this.page)
-    this.leadProfilePage = new LeadProfilePage(this.page)
-    this.accountProfilePage = new AccountProfilePage(this.page)
+    this.loginPageSF = new LoginPageSF(this.page)
+    this.homePageSF = new HomePageSF(this.page)
+    this.leadsPageSF = new LeadsPageSF(this.page)
+    this.accountsPageSF = new AccountsPageSF(this.page)
+    this.leadProfilePageSF = new LeadProfilePageSF(this.page)
+    this.accountProfilePageSF = new AccountProfilePageSF(this.page)
     this.loginPageMOC = new LoginPageMOC(this.page)
   }
 
-  onLoginPage(){
-    return this.loginPage
+  onLoginPageSF(){
+    return this.loginPageSF
   }
 
-  onHomePage(){
-    return this.homePage
+  onHomePageSF(){
+    return this.homePageSF
   }
 
-  onLeadsPage(){
-    return this.leadsPage
+  onLeadsPageSF(){
+    return this.leadsPageSF
   }
 
-  onAccountsPage(){
-    return this.accountsPage
+  onAccountsPageSF(){
+    return this.accountsPageSF
   }
 
-  onLeadProfilePage(){
-    return this.leadProfilePage
+  onLeadProfilePageSF(){
+    return this.leadProfilePageSF
   }
 
-  onAccountProfilePage(){
-    return this.accountProfilePage
+  onAccountProfilePageSF(){
+    return this.accountProfilePageSF
   }
 
   onLoginPageMOC(){

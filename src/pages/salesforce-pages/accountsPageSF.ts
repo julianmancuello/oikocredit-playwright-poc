@@ -1,17 +1,17 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { HeaderMenu } from "./headerMenu"
+import { HeaderMenuSF } from "./headerMenuSF"
 import { ContextStore as cs } from "../../utils/contextStore"
 
-export class AccountsPage extends BasePage {
+export class AccountsPageSF extends BasePage {
 
-  readonly menu: HeaderMenu
+  readonly menu: HeaderMenuSF
   private readonly searchBar: Locator
   private readonly accountRetrieved: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenu(page)
+    this.menu = new HeaderMenuSF(page)
     this.searchBar = page.getByPlaceholder('Search this list...')
     this.accountRetrieved = page.locator('th[data-label="Account Name"] a')
   }

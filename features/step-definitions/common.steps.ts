@@ -14,7 +14,7 @@ Given('the ISO logs into {string} {string} with valid credentials', async (app: 
 
   switch (application) {
     case Application.SALESFORCE:
-      await pm.onLoginPage().loginWithEnvironmentCredentials(application, environment)
+      await pm.onLoginPageSF().loginWithEnvironmentCredentials(application, environment)
       break
     case Application.MYOIKOCREDIT:
       await pm.onLoginPageMOC().loginWithEnvironmentCredentials(application, environment)
