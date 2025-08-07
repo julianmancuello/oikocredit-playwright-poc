@@ -1,17 +1,8 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { pm } from '../hooks'
-import { platformUtils } from '../../../src/utils/platformUtils'
-import { NavigationManager as nm } from '../../../src/pages/navigationManager'
 import { utils } from '../../../src/utils/utils'
 import { ContextStore as cs } from '../../../src/utils/contextStore'
-
-Given('the ISO is on the {string} leads page', async (env: string) => {
-  const { application, environment } = platformUtils.parseAndValidateContext('salesforce', env)
-  await nm.goToApp(application, environment)
-  await pm.onLoginPage().loginWithEnvironmentCredentials(environment)
-  await pm.onHomePage().menu.clickOnTab("Leads")
-})
 
 When('the ISO clicks the New lead button', async () => {
   await pm.onLeadsPage().clickNewLead()

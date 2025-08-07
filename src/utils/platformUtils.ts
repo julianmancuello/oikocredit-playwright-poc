@@ -5,7 +5,8 @@ export enum Environment {
 
 export enum Application {
   SALESFORCE = 'salesforce',
-  TITAN = 'titan'
+  TITAN = 'titan',
+  MYOIKOCREDIT = 'myoikocredit'
 }
 
 class PlatformUtils {

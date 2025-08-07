@@ -5,3 +5,5 @@ node_modules/
 /playwright/.cache/
 /resources/test.properties
 reports/
+src/utils/authenticator-ltp.ts
+src/utils/authenticator-test.ts

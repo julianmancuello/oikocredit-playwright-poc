@@ -5,11 +5,15 @@ import { page } from "../../features/step-definitions/hooks"
 const urls: Record<Application, Record<Environment, string>> = {
   [Application.SALESFORCE]: {
     [Environment.LTP]: 'https://oikocredit--ltp.sandbox.my.salesforce.com/',
-    [Environment.ACC]: 'https://acc.salesforce.com',
+    [Environment.ACC]: 'https://acc.salesforce.comFAKE',
   },
   [Application.TITAN]: {
-    [Environment.LTP]: 'https://ltp.titan.io',
-    [Environment.ACC]: 'https://acc.titan.io',
+    [Environment.LTP]: 'https://ltp.titan.ioFAKE',
+    [Environment.ACC]: 'https://acc.titan.ioFAKE',
+  },
+  [Application.MYOIKOCREDIT]: {
+    [Environment.LTP]: 'https://oikocredit--ltp.sandbox.my.site.com/s/login/?language=de',
+    [Environment.ACC]: 'https://acc.myoikocredit.ioFAKE',
   }
 }
 

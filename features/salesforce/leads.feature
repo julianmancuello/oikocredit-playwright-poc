@@ -2,7 +2,8 @@
 Feature: Leads
 
   Background:
-    Given the ISO is on the "LTP" leads page
+    Given the ISO logs into "SALESFORCE" "LTP" with valid credentials
+    Given the ISO navigates to the "Leads" page
 
   @smoke
   Scenario: Create a new lead

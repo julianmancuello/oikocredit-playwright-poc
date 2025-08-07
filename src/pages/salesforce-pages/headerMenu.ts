@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test"
 
-type HeaderTab = "Leads" | "Accounts"
+export type HeaderTab = "Leads" | "Accounts"
 
 export class HeaderMenu {
 

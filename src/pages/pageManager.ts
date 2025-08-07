@@ -5,6 +5,7 @@ import { LeadsPage } from "./salesforce-pages/leadsPage"
 import { AccountsPage } from "./salesforce-pages/accountsPage"
 import { LeadProfilePage } from "./salesforce-pages/leadProfilePage"
 import { AccountProfilePage } from "./salesforce-pages/accountProfilePage"
+import { LoginPageMOC } from "./myoikocredit-pages/loginPageMOC"
 
 export class PageManager {
 
@@ -15,6 +16,7 @@ export class PageManager {
   private readonly accountsPage: AccountsPage
   private readonly leadProfilePage: LeadProfilePage
   private readonly accountProfilePage: AccountProfilePage
+  private readonly loginPageMOC: LoginPageMOC
   
   constructor(page: Page){
     this.page = page
@@ -24,6 +26,7 @@ export class PageManager {
     this.accountsPage = new AccountsPage(this.page)
     this.leadProfilePage = new LeadProfilePage(this.page)
     this.accountProfilePage = new AccountProfilePage(this.page)
+    this.loginPageMOC = new LoginPageMOC(this.page)
   }
 
   onLoginPage(){
@@ -48,5 +51,9 @@ export class PageManager {
 
   onAccountProfilePage(){
     return this.accountProfilePage
+  }
+
+  onLoginPageMOC(){
+    return this.loginPageMOC
   }
 }
