@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">66.67 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">33.33 %</td>
                     
                     
                     </tr>
@@ -1103,10 +1103,14 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
+                        <li>
+                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
+                        </li>
+                    
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">5</span>
                         </li>
                     
 
@@ -1448,8 +1452,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
                                         </div>
                                     
                                 
@@ -1470,6 +1474,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     
 
                                     
+                                        <a href="#error0-6-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
 
                                     
 
@@ -1486,6 +1492,24 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             </div>
 
                         
+                            
+                                <div id="error0-6-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 3
++ Received  + 3
+
+  Object {
+-   "accountName": "JoannyShields18",
+-   "email": "joanny.shields98@test.com",
+-   "name": "Joanny Shields",
++   "accountName": "ChristaWehner13",
++   "email": "christa.wehner69@test.com",
++   "name": "Christa Wehner",
+  }
+    at Proxy.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/node_modules/playwright/lib/matchers/expect.js:221:24)
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/leadsSF.steps.ts:35:24)</pre>
+                                </div>
                             
 
                             
@@ -2453,8 +2477,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            3,
-                            0,
+                            2,
+                            1,
                             0,
                             0,
                             0,
