@@ -11,6 +11,7 @@ export class TransactionsPageMOC extends BasePage {
   private readonly redeemButton: Locator
   private readonly transactionAmountField: Locator
   private readonly nextButton: Locator
+  private readonly confirmAmount: Locator
 
   constructor(page: Page) {
     super(page)
@@ -18,6 +19,7 @@ export class TransactionsPageMOC extends BasePage {
     this.redeemButton = page.getByTitle('Redeem Shares')
     this.transactionAmountField = page.locator('input[name="Amount"]')
     this.nextButton = page.locator('button[kx-scope="button-brand"]')
+    this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span')
   }
 
   async selectTransaction(transaction: Transaction) {
@@ -36,5 +38,12 @@ export class TransactionsPageMOC extends BasePage {
     cs.put("transactionAmount", amount)
     await this.transactionAmountField.fill(amount.toString())
     await this.nextButton.click()
+  }
+
+  async getAmountInConfirmRequest(){
+    await this.confirmAmount.first().waitFor({ state: 'visible' })
+    const currency = (await this.confirmAmount.nth(0).textContent())?.trim()
+    const amount = (await this.confirmAmount.nth(1).textContent())?.trim()
+    return `${currency} ${amount}`
   }
 }
