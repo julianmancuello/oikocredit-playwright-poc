@@ -19,6 +19,9 @@ Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, asy
     case Application.MYOIKOCREDIT:
       await pm.onLoginPageMOC().loginWithEnvironmentCredentials(application, environment)
       break
+    case Application.TITAN:
+      await pm.onLoginPageMS().loginWithEnvironmentCredentials(application, environment)
+      break
     default:
       throw new Error(`No login handler defined for application: ${application}`)
   }

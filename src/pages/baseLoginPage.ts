@@ -13,7 +13,7 @@ export abstract class BaseLoginPage extends BasePage {
     super(page)
   }
 
-  async loginUser(username: string, password: string){
+  protected async loginUser(username: string, password: string, env?: Environment){
     await this.usernameField.fill(username)
     await this.passwordField.fill(password)
     await this.logInButton.click()
@@ -27,7 +27,7 @@ export abstract class BaseLoginPage extends BasePage {
       throw new Error(`Missing credentials for application ${app} and environment ${env}`)
     }
 
-    await this.loginUser(username, password)
+    await this.loginUser(username, password, env)
   }
 
 }

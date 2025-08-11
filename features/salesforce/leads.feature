@@ -2,7 +2,7 @@
 Feature: Leads
 
   Background:
-    Given the ISO logs into "SALESFORCE" "LTP" with valid credentials
+    Given the ISO logs into SALESFORCE LTP with valid credentials
     Given the ISO navigates to the "Leads" page
 
   @smoke

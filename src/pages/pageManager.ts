@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test"
+import { LoginPageMS } from "./microsoft-pages/loginPageMS"
 import { LoginPageSF } from "./salesforce-pages/loginPageSF"
 import { HomePageSF } from "./salesforce-pages/homePageSF"
 import { LeadsPageSF } from "./salesforce-pages/leadsPageSF"
@@ -12,6 +13,7 @@ import { TransactionsPageMOC } from "./myoikocredit-pages/transactionsPageMOC"
 export class PageManager {
 
   private readonly page: Page
+  private readonly loginPageMS: LoginPageMS
   private readonly loginPageSF: LoginPageSF
   private readonly homePageSF: HomePageSF
   private readonly leadsPageSF: LeadsPageSF
@@ -24,6 +26,7 @@ export class PageManager {
   
   constructor(page: Page){
     this.page = page
+    this.loginPageMS = new LoginPageMS(this.page)
     this.loginPageSF = new LoginPageSF(this.page)
     this.homePageSF = new HomePageSF(this.page)
     this.leadsPageSF = new LeadsPageSF(this.page)
@@ -33,6 +36,10 @@ export class PageManager {
     this.loginPageMOC = new LoginPageMOC(this.page)
     this.homePageMOC = new HomePageMOC(this.page)
     this.transactionsPageMOC = new TransactionsPageMOC(this.page)
+  }
+
+  onLoginPageMS(){
+    return this.loginPageMS
   }
 
   onLoginPageSF(){

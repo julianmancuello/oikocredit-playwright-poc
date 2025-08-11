@@ -7,7 +7,7 @@ const urls: Record<Application, Record<Environment, string>> = {
     [Environment.ACC]: 'https://acc.salesforce.comFAKE',
   },
   [Application.TITAN]: {
-    [Environment.LTP]: 'https://ltp.titan.ioFAKE',
+    [Environment.LTP]: 'https://titant.oikocredit.net',
     [Environment.ACC]: 'https://acc.titan.ioFAKE',
   },
   [Application.MYOIKOCREDIT]: {
