@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">0.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">100.00 %</td>
                     
                     
                     </tr>
@@ -1101,13 +1101,17 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
-
+                        <li>
+                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">1</span>
+                        </li>
                     
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">2</span>
+                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
                         </li>
+                    
+
                     
 
                     
@@ -1128,8 +1132,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
                                         </div>
                                     
                                 
@@ -1150,6 +1154,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     
 
                                     
+                                        <a href="#error0-1-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
 
                                     
 
@@ -1166,6 +1172,13 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             </div>
 
                         
+                            
+                                <div id="error0-1-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>Error: Application '"SALESFORCE"' is not supported
+    at PlatformUtils.parseAndValidateApplication (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/platformUtils.ts:28:13)
+    at PlatformUtils.parseAndValidateContext (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/platformUtils.ts:35:30)
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:12:54)</pre>
+                                </div>
                             
 
                             
@@ -1192,8 +1205,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
+                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
                                         </div>
                                     
                                 
@@ -1285,13 +1298,17 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
-
+                        <li>
+                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">2</span>
+                        </li>
                     
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
+                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
                         </li>
+                    
+
                     
 
                     
@@ -1312,8 +1329,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
                                         </div>
                                     
                                 
@@ -1334,6 +1351,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     
 
                                     
+                                        <a href="#error1-1-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
 
                                     
 
@@ -1350,6 +1369,13 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             </div>
 
                         
+                            
+                                <div id="error1-1-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>Error: Application '"SALESFORCE"' is not supported
+    at PlatformUtils.parseAndValidateApplication (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/platformUtils.ts:28:13)
+    at PlatformUtils.parseAndValidateContext (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/platformUtils.ts:35:30)
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:7:54)</pre>
+                                </div>
                             
 
                             
@@ -1376,8 +1402,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
+                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
                                         </div>
                                     
                                 
@@ -1440,8 +1466,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
+                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
                                         </div>
                                     
                                 
@@ -1563,8 +1589,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            2,
                             0,
+                            2,
                             0,
                             0,
                             0,
