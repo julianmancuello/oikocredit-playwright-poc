@@ -3,12 +3,12 @@ import { pm } from './hooks'
 import { platformUtils, Application } from '../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../src/pages/navigationManager'
 
-Given('the ISO is on the {string} {string} login page', async (app: string, env: string) => {
+Given(/^(?:the ISO|the client) is on the (\S+) (\S+) login page$/, async (app: string, env: string) => {
   const { application, environment } = platformUtils.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 })
 
-Given('the ISO logs into {string} {string} with valid credentials', async (app: string, env: string) => {
+Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, async (app: string, env: string) => {
   const { application, environment } = platformUtils.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 
