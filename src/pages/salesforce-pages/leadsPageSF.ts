@@ -100,7 +100,7 @@ export class LeadsPageSF extends BasePage {
   }
 
   async getNewLeadInList(){
-    await this.page.waitForTimeout(500)
+    await this.waitForContentUpdate(this.firstRowLeads.locator('th[data-label="Name"]'), utils.getFullName())
     const nameFirstRow = await this.firstRowLeads.locator('th[data-label="Name"]').textContent()
     const emailFirstRow = await this.firstRowLeads.locator('td[data-label="Email"]').textContent()
     const accountNameFirstRow = await this.firstRowLeads.locator('td[data-label="Account Name"]').textContent()

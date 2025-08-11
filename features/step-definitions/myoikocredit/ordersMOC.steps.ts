@@ -10,5 +10,18 @@ When('the client creates a {string} order', async (transaction: Transaction) => 
   await pm.onTransactionsPageMOC().selectTransaction(transaction)
   await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber()
   const expectedAmount = `EUR ${utils.applyNumberFormat("European format", cs.get("transactionAmount"), 2)}`
+  const amount = `EUR ${utils.applyNumberFormat("European format", cs.get("transactionAmount"), 0)}`
+  cs.put("expectedAmount", amount)
   expect(await pm.onTransactionsPageMOC().getAmountInConfirmRequest()).toEqual(expectedAmount)
+  await pm.onTransactionsPageMOC().confirmRequest()
+  await expect(pm.onTransactionsPageMOC().informationOfTheTransaction()).toBeVisible()
+  await pm.onTransactionsPageMOC().closeConfirmation()
+  const actualValues = await pm.onTransactionsPageMOC().getNewTransaction()
+  const expectedValues = {
+    date: utils.getFormattedToday(),
+    transactionType: utils.getTransactionType(transaction),
+    status: "Eingereicht",
+    amount: amount
+  }
+  expect(actualValues).toEqual(expectedValues)
 })
