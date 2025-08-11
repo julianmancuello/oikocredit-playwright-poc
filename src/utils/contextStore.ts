@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export class ContextStore {
+  
   private static context: Map<string, unknown> = new Map();
 
   static put(key: string, value: unknown): void {

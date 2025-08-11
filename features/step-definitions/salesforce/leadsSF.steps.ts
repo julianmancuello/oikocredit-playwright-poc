@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { pm } from '../hooks'
-import { utils } from '../../../src/utils/utils'
+import { Utils as utils } from '../../../src/utils/utils'
 import { ContextStore as cs } from '../../../src/utils/contextStore'
 
 When('the ISO clicks the New lead button', async () => {

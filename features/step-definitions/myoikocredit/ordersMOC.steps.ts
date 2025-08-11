@@ -3,7 +3,7 @@ import { expect } from '@playwright/test'
 import { pm } from '../hooks'
 import { Transaction } from '../../../src/pages/myoikocredit-pages/transactionsPageMOC'
 import { ContextStore as cs } from '../../../src/utils/contextStore'
-import { utils } from '../../../src/utils/utils'
+import { Utils as utils } from '../../../src/utils/utils'
 
 When('the client creates a {string} order', async (transaction: Transaction) => {
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()

@@ -4,24 +4,9 @@ import { Transaction } from '../pages/myoikocredit-pages/transactionsPageMOC'
 
 export type Format = "European format" | "English format"
 
-class Utils {
+export class Utils {
 
-  generateAndStoreFullName() {
-    var firstName = faker.person.firstName()
-    var lastName = faker.person.lastName()
-    cs.put("firstName", firstName)
-    cs.put("lastName", lastName)
-  }
-
-  generateRandomInteger(upperBound: number) {
-    return faker.number.int(upperBound)
-  }
-
-  generateRandomIntegerBetween(lowerBound: number, upperBound: number) {
-    return faker.number.int({ min: lowerBound, max: upperBound })
-  }
-
-  getFullName() {
+  static getFullName() {
     if (cs.has("firstName") && cs.has("lastName")) {
       return `${cs.get("firstName")} ${cs.get("lastName")}`
     }
@@ -30,12 +15,7 @@ class Utils {
     }
   }
 
-  generateRandomMobile() {
-    const mobile = faker.phone.number({ style: 'international' })
-    return mobile.replace(/^(\+\d{2})(\d+)/, '$1 $2')
-  }
-
-  applyNumberFormat(format: Format, number: number, decimals: number) {
+  static applyNumberFormat(format: Format, number: number, decimals: number) {
     switch (format) {
       case "European format":
         return number.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
@@ -44,7 +24,7 @@ class Utils {
     }
   }
 
-  getFormattedToday() {
+  static getFormattedToday() {
     const today = new Date()
     return today.toLocaleDateString("en-GB", {
       day: "numeric",
@@ -53,7 +33,7 @@ class Utils {
     })
   }
 
-  getTransactionType(transaction: Transaction) {
+  static getTransactionType(transaction: Transaction) {
     switch (transaction) {
       case "Purchase":
         return "Investition"
@@ -62,5 +42,3 @@ class Utils {
     }
   }
 }
-
-export const utils = new Utils()

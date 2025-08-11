@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { utils } from "../../utils/utils"
+import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
 
 export type Transaction = "Purchase" | "Redeem"
@@ -40,7 +40,7 @@ export class TransactionsPageMOC extends BasePage {
   }
 
   async fillInAmountWithRandomNumber() {
-    const amount = utils.generateRandomIntegerBetween(1000, 1500)
+    const amount = df.generateRandomIntegerBetween(1000, 1500)
     cs.put("transactionAmount", amount)
     await this.transactionAmountField.fill(amount.toString())
     await this.nextButton.click()

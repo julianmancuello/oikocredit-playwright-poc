@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { HeaderMenuSF } from "./headerMenuSF"
-import { utils } from "../../utils/utils"
+import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
 
 export class LeadProfilePageSF extends BasePage {
@@ -58,7 +58,7 @@ export class LeadProfilePageSF extends BasePage {
   }
 
   async fillInWithRandomMobile(){
-    const newMobile = utils.generateRandomMobile()
+    const newMobile = df.generateRandomMobile()
     cs.put("newMobile", newMobile)
     await this.mobileField.clear()
     await this.mobileField.fill(newMobile)

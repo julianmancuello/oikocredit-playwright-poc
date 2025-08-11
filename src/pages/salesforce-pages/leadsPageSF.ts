@@ -1,7 +1,8 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { HeaderMenuSF } from "./headerMenuSF"
-import { utils } from "../../utils/utils"
+import { Utils as utils } from "../../utils/utils"
+import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
 
 export class LeadsPageSF extends BasePage {
@@ -54,32 +55,32 @@ export class LeadsPageSF extends BasePage {
 
   async fillInWithRandomFirstName(){
     if(!cs.has("firstName")){
-      utils.generateAndStoreFullName()
+      df.generateAndStoreFullName()
     }
     await this.firstNameField.fill(cs.get("firstName"))
   }
 
   async fillInWithRandomLastName(){
     if(!cs.has("lastName")){
-      utils.generateAndStoreFullName()
+      df.generateAndStoreFullName()
     }
     await this.lastNameField.fill(cs.get("lastName"))
   }
 
   async fillInWithRandomEmail(){
     if(!cs.has("firstName") && !cs.has("lastName")){
-      utils.generateAndStoreFullName()
+      df.generateAndStoreFullName()
     }
-    const randomEmail = (`${cs.get("firstName")}.${cs.get("lastName")}${utils.generateRandomInteger(100)}@test.com`).toLowerCase()
+    const randomEmail = (`${cs.get("firstName")}.${cs.get("lastName")}${df.generateRandomInteger(100)}@test.com`).toLowerCase()
     cs.put("newEmail", randomEmail)
     await this.emailField.fill(randomEmail)
   }
 
   async fillInWithRandomAccountName(){
     if(!cs.has("firstName") && !cs.has("lastName")){
-      utils.generateAndStoreFullName()
+      df.generateAndStoreFullName()
     }
-    const randomAccountName = `${cs.get("firstName")}${cs.get("lastName")}${utils.generateRandomInteger(100)}`
+    const randomAccountName = `${cs.get("firstName")}${cs.get("lastName")}${df.generateRandomInteger(100)}`
     cs.put("newAccountName", randomAccountName)
     await this.accountNameField.fill(randomAccountName)
   }
