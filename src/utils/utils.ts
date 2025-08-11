@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker'
 import { ContextStore as cs } from './contextStore'
 import { Transaction } from '../pages/myoikocredit-pages/transactionsPageMOC'
 
