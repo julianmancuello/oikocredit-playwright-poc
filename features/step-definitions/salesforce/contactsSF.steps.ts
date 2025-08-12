@@ -10,4 +10,5 @@ When(/^the ISO searches for the (\S+) investor$/, async (env: string) => {
   const environment = pu.parseAndValidateEnvironment(env)
   const investor = cs.get<string>(`investor-name-${environment}`)
   await pm.onHomePageSF().menuSF.searchInMainSearchBar(investor)
+  await pm.onSearchResultsPageSF().selectResult(investor)
 })

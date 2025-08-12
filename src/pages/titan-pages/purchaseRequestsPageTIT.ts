@@ -17,7 +17,7 @@ export class PurchaseRequestsPageTIT extends BasePage {
     this.requestApprovedMessage = page.locator('#ctl00_ExceptionControl_divBody')
   }
 
-  async selectRequest(amount: string) {
+  async selectRequest(amount: string) {//TODO: Improve the method so that it can handle multiple dates
     const formattedAmount = utils.applyNumberFormat("English format", Number(amount), 2)
     const formattedDate = utils.getFormattedToday("dd/mm/YYYY")
     await this.requestTable.waitFor({ state: 'visible' })
@@ -32,7 +32,7 @@ export class PurchaseRequestsPageTIT extends BasePage {
         return
       }
     }
-    throw new Error(`No row found with amount "${formattedAmount}" and date "${formattedDate}"`);
+    throw new Error(`No row found with amount "${formattedAmount}" and date "${formattedDate}"`)
   }
 
   async approveRequest(){
