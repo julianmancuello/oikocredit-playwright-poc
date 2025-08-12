@@ -3,7 +3,7 @@ import { BasePage } from "../basePage"
 import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
 
-export type Transaction = "Purchase" | "Redeem"
+export type Transaction = "Purchase" | "Redemption"
 
 export class TransactionsPageMOC extends BasePage {
 
@@ -33,7 +33,7 @@ export class TransactionsPageMOC extends BasePage {
       case "Purchase":
         await this.buyButton.click()
         break
-      case "Redeem":
+      case "Redemption":
         await this.redeemButton.click()
         break
     }
@@ -47,7 +47,6 @@ export class TransactionsPageMOC extends BasePage {
   }
 
   async getAmountInConfirmRequest(){
-    await this.confirmAmount.first().waitFor({ state: 'visible' })
     const currency = (await this.confirmAmount.nth(0).textContent())?.trim()
     const amount = (await this.confirmAmount.nth(1).textContent())?.trim()
     return `${currency} ${amount}`

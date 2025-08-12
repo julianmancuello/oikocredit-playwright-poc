@@ -18,7 +18,7 @@ When('the user creates a {string} order', async (transaction: Transaction) => {
   await pm.onTransactionsPageMOC().closeConfirmation()
   const actualValues = await pm.onTransactionsPageMOC().getNewTransaction()
   const expectedValues = {
-    date: utils.getFormattedToday(),
+    date: utils.getFormattedToday("dd MMMM YYYY"),
     transactionType: utils.getTransactionType(transaction),
     status: "Eingereicht",
     amount: amount

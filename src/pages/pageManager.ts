@@ -9,6 +9,8 @@ import { AccountProfilePageSF } from "./salesforce-pages/accountProfilePageSF"
 import { LoginPageMOC } from "./myoikocredit-pages/loginPageMOC"
 import { HomePageMOC } from "./myoikocredit-pages/homePageMOC"
 import { TransactionsPageMOC } from "./myoikocredit-pages/transactionsPageMOC"
+import { HomePageTIT } from "./titan-pages/homePageTIT"
+import { PurchaseRequestsPageTIT } from "./titan-pages/purchaseRequestsPageTIT"
 
 export class PageManager {
 
@@ -23,6 +25,8 @@ export class PageManager {
   private readonly loginPageMOC: LoginPageMOC
   private readonly homePageMOC: HomePageMOC
   private readonly transactionsPageMOC: TransactionsPageMOC
+  private readonly homePageTIT: HomePageTIT
+  private readonly purchaseRequestsPageTIT: PurchaseRequestsPageTIT
   
   constructor(page: Page){
     this.page = page
@@ -36,6 +40,8 @@ export class PageManager {
     this.loginPageMOC = new LoginPageMOC(this.page)
     this.homePageMOC = new HomePageMOC(this.page)
     this.transactionsPageMOC = new TransactionsPageMOC(this.page)
+    this.homePageTIT = new HomePageTIT(this.page)
+    this.purchaseRequestsPageTIT = new PurchaseRequestsPageTIT(this.page)
   }
 
   onLoginPageMS(){
@@ -76,5 +82,13 @@ export class PageManager {
 
   onTransactionsPageMOC(){
     return this.transactionsPageMOC
+  }
+
+  onHomePageTIT(){
+    return this.homePageTIT
+  }
+
+  onPurchaseRequestsPageTIT(){
+    return this.purchaseRequestsPageTIT
   }
 }

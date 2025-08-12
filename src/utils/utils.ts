@@ -1,7 +1,8 @@
 import { ContextStore as cs } from './contextStore'
 import { Transaction } from '../pages/myoikocredit-pages/transactionsPageMOC'
 
-export type Format = "European format" | "English format"
+export type DecimalFormat = "European format" | "English format"
+export type DateFormat = "dd/mm/YYYY" | "dd MMMM YYYY"
 
 export class Utils {
 
@@ -14,8 +15,8 @@ export class Utils {
     }
   }
 
-  static applyNumberFormat(format: Format, number: number, decimals: number) {
-    switch (format) {
+  static applyNumberFormat(decimalFormat: DecimalFormat, number: number, decimals: number) {
+    switch (decimalFormat) {
       case "European format":
         return number.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
       case "English format":
@@ -23,20 +24,21 @@ export class Utils {
     }
   }
 
-  static getFormattedToday() {
+  static getFormattedToday(dateFormat: DateFormat) {
     const today = new Date()
-    return today.toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    })
+    switch (dateFormat) {
+      case "dd/mm/YYYY":
+        return today.toLocaleDateString("en-GB")
+      case "dd MMMM YYYY":
+        return today.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+    }
   }
 
   static getTransactionType(transaction: Transaction) {
     switch (transaction) {
       case "Purchase":
         return "Investition"
-      case "Redeem":
+      case "Redemption":
         return "Verkauf"
     }
   }

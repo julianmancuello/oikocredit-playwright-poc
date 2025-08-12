@@ -6,4 +6,5 @@ Feature: Orders in MyOikocredit
   @debug
   Scenario: E2E - Investor Portal - Purchase Order
     When the user creates a "Purchase" order
-    And the user logs into TITAN LTP with valid credentials
+    And the ISO logs into TITAN LTP with valid credentials
+    And the ISO approves the "Purchase" order
