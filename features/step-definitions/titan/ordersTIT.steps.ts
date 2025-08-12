@@ -7,7 +7,5 @@ import { Utils as utils } from '../../../src/utils/utils'
 
 When('the ISO approves the {string} order', async (transaction: Transaction) => {
   await pm.onHomePageTIT().selectTypeOfRequests(transaction)
-  const formattedAmount = utils.applyNumberFormat("English format", cs.get("transactionAmount"), 2)
-  const formattedDate = utils.getFormattedToday("dd/mm/YYYY")
-  await pm.onPurchaseRequestsPageTIT().selectRequest(formattedAmount, formattedDate)
+  await pm.onPurchaseRequestsPageTIT().selectRequest(cs.get("transactionAmount"))
 })

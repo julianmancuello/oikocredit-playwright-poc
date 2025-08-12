@@ -2,6 +2,7 @@ import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
+import { Utils as utils } from "../../utils/utils"
 
 export type Transaction = "Purchase" | "Redemption"
 
@@ -42,6 +43,8 @@ export class TransactionsPageMOC extends BasePage {
   async fillInAmountWithRandomNumber() {
     const amount = df.generateRandomIntegerBetween(1000, 1500)
     cs.put("transactionAmount", amount)
+    const expAmountInConfirmation = `EUR ${utils.applyNumberFormat("European format", amount, 2)}`
+    cs.put("expAmountInConfirmation", expAmountInConfirmation)
     await this.transactionAmountField.fill(amount.toString())
     await this.nextButton.click()
   }
@@ -65,7 +68,9 @@ export class TransactionsPageMOC extends BasePage {
   }
 
   async getNewTransaction(){
-    await this.waitForContentUpdate(this.firstRowTransactions.locator('td[data-label="Betrag"]'), cs.get("expectedAmount"))
+    const expAmountInTransactions = `EUR ${utils.applyNumberFormat("European format", cs.get("transactionAmount"), 0)}`
+    cs.put("expAmountInTransactions", expAmountInTransactions)
+    await this.waitForContentUpdate(this.firstRowTransactions.locator('td[data-label="Betrag"]'), expAmountInTransactions)
     const date = await this.firstRowTransactions.locator('th[data-label="Datum"]').textContent()
     const transactionType = await this.firstRowTransactions.locator('td[data-label="Transaktion"]').textContent()
     const status = await this.firstRowTransactions.locator('td[data-label="Status"]').textContent()

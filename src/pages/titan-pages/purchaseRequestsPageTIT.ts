@@ -1,5 +1,6 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
+import { Utils as utils } from "../../utils/utils"
 
 export class PurchaseRequestsPageTIT extends BasePage {
 
@@ -12,7 +13,9 @@ export class PurchaseRequestsPageTIT extends BasePage {
     this.requestRow = this.requestTable.locator('tbody tr')
   }
 
-  async selectRequest(amount: string, date: string) {
+  async selectRequest(amount: string) {
+    const formattedAmount = utils.applyNumberFormat("English format", Number(amount), 2)
+    const formattedDate = utils.getFormattedToday("dd/mm/YYYY")
     await this.requestTable.waitFor({ state: 'visible' })
     const rowCount = await this.requestRow.count()
 
@@ -20,11 +23,11 @@ export class PurchaseRequestsPageTIT extends BasePage {
       const currentRow = this.requestRow.nth(i)
       const amountInColumn = await currentRow.locator('td.NumberColumn').innerText()
       const dateInColumn = await currentRow.locator('td.DateTimeColumn[style="width:85px;"]').innerText()
-      if (amountInColumn.trim() === amount && dateInColumn.trim() === date) {
+      if (amountInColumn.trim() === formattedAmount && dateInColumn.trim() === formattedDate) {
         await this.requestRow.nth(i).locator('td:nth-child(15)').click()
         return
       }
     }
-    throw new Error(`No row found with amount "${amount}" and date "${date}"`);
+    throw new Error(`No row found with amount "${formattedAmount}" and date "${formattedDate}"`);
   }
 }

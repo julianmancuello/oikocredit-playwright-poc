@@ -9,10 +9,7 @@ When('the user creates a {string} order', async (transaction: Transaction) => {
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()
   await pm.onTransactionsPageMOC().selectTransaction(transaction)
   await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber()
-  const expectedAmount = `EUR ${utils.applyNumberFormat("European format", cs.get("transactionAmount"), 2)}`
-  const amount = `EUR ${utils.applyNumberFormat("European format", cs.get("transactionAmount"), 0)}`
-  cs.put("expectedAmount", amount)
-  expect(await pm.onTransactionsPageMOC().getAmountInConfirmRequest()).toEqual(expectedAmount)
+  expect(await pm.onTransactionsPageMOC().getAmountInConfirmRequest()).toEqual(cs.get("expAmountInConfirmation"))
   await pm.onTransactionsPageMOC().confirmRequest()
   await expect(pm.onTransactionsPageMOC().informationOfTheTransaction()).toBeVisible()
   await pm.onTransactionsPageMOC().closeConfirmation()
@@ -21,7 +18,7 @@ When('the user creates a {string} order', async (transaction: Transaction) => {
     date: utils.getFormattedToday("dd MMMM YYYY"),
     transactionType: utils.getTransactionType(transaction),
     status: "Eingereicht",
-    amount: amount
+    amount: cs.get("expAmountInTransactions")
   }
   expect(actualValues).toEqual(expectedValues)
 })
