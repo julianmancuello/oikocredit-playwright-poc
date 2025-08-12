@@ -6,11 +6,15 @@ export class PurchaseRequestsPageTIT extends BasePage {
 
   private readonly requestTable: Locator
   private readonly requestRow: Locator
+  private readonly approveButton: Locator
+  private readonly requestApprovedMessage: Locator
 
   constructor(page: Page) {
     super(page)
     this.requestTable = page.locator('table.rgMasterTable')
     this.requestRow = this.requestTable.locator('tbody tr')
+    this.approveButton = page.locator('#ctl00_UsecaseContent_lbApproveRequest')
+    this.requestApprovedMessage = page.locator('#ctl00_ExceptionControl_divBody')
   }
 
   async selectRequest(amount: string) {
@@ -29,5 +33,14 @@ export class PurchaseRequestsPageTIT extends BasePage {
       }
     }
     throw new Error(`No row found with amount "${formattedAmount}" and date "${formattedDate}"`);
+  }
+
+  async approveRequest(){
+    await this.approveButton.click()
+  }
+
+  async getRequestApprovedMessage(){
+    const actualMessage = (await this.requestApprovedMessage.innerText()).trim()
+    return actualMessage
   }
 }
