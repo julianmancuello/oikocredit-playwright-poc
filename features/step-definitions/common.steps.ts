@@ -1,15 +1,15 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { pm } from './hooks'
-import { platformUtils, Application } from '../../src/utils/platformUtils'
+import { PlatformUtils as pu, Application } from '../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../src/pages/navigationManager'
 
 Given(/^(?:the ISO|the client) is on the (\S+) (\S+) login page$/, async (app: string, env: string) => {
-  const { application, environment } = platformUtils.parseAndValidateContext(app, env)
+  const { application, environment } = pu.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 })
 
 Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, async (app: string, env: string) => {
-  const { application, environment } = platformUtils.parseAndValidateContext(app, env)
+  const { application, environment } = pu.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 
   switch (application) {

@@ -9,9 +9,9 @@ export enum Application {
   MYOIKOCREDIT = 'myoikocredit'
 }
 
-class PlatformUtils {
+export class PlatformUtils {
 
-  parseAndValidateEnvironment(env: string) {
+  static parseAndValidateEnvironment(env: string) {
     const envLower = env.toLowerCase()
 
     if (!Object.values(Environment).includes(envLower as Environment)) {
@@ -21,7 +21,7 @@ class PlatformUtils {
     return envLower as Environment
   }
 
-  parseAndValidateApplication(app: string) {
+  static parseAndValidateApplication(app: string) {
     const appLower = app.toLowerCase()
 
     if (!Object.values(Application).includes(appLower as Application)) {
@@ -31,12 +31,10 @@ class PlatformUtils {
     return appLower as Application
   }
 
-  parseAndValidateContext(app: string, env: string) {
+  static parseAndValidateContext(app: string, env: string) {
     const application = this.parseAndValidateApplication(app)
     const environment = this.parseAndValidateEnvironment(env)
 
     return { application, environment }
   }
 }
-
-export const platformUtils = new PlatformUtils()

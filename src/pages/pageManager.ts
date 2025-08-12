@@ -6,6 +6,7 @@ import { LeadsPageSF } from "./salesforce-pages/leadsPageSF"
 import { AccountsPageSF } from "./salesforce-pages/accountsPageSF"
 import { LeadProfilePageSF } from "./salesforce-pages/leadProfilePageSF"
 import { AccountProfilePageSF } from "./salesforce-pages/accountProfilePageSF"
+import { ContactProfilePageSF } from "./salesforce-pages/contactProfilePageSF"
 import { LoginPageMOC } from "./myoikocredit-pages/loginPageMOC"
 import { HomePageMOC } from "./myoikocredit-pages/homePageMOC"
 import { TransactionsPageMOC } from "./myoikocredit-pages/transactionsPageMOC"
@@ -22,6 +23,7 @@ export class PageManager {
   private readonly accountsPageSF: AccountsPageSF
   private readonly leadProfilePageSF: LeadProfilePageSF
   private readonly accountProfilePageSF: AccountProfilePageSF
+  private readonly contactProfilePageSF: ContactProfilePageSF
   private readonly loginPageMOC: LoginPageMOC
   private readonly homePageMOC: HomePageMOC
   private readonly transactionsPageMOC: TransactionsPageMOC
@@ -37,6 +39,7 @@ export class PageManager {
     this.accountsPageSF = new AccountsPageSF(this.page)
     this.leadProfilePageSF = new LeadProfilePageSF(this.page)
     this.accountProfilePageSF = new AccountProfilePageSF(this.page)
+    this.contactProfilePageSF = new ContactProfilePageSF(this.page)
     this.loginPageMOC = new LoginPageMOC(this.page)
     this.homePageMOC = new HomePageMOC(this.page)
     this.transactionsPageMOC = new TransactionsPageMOC(this.page)
@@ -70,6 +73,10 @@ export class PageManager {
 
   onAccountProfilePageSF(){
     return this.accountProfilePageSF
+  }
+
+  onContactProfilePageSF(){
+    return this.contactProfilePageSF
   }
 
   onLoginPageMOC(){
