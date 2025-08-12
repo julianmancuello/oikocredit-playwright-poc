@@ -11,4 +11,9 @@ When(/^the ISO searches for the (\S+) investor$/, async (env: string) => {
   const investor = cs.get<string>(`investor-name-${environment}`)
   await pm.onHomePageSF().menuSF.searchInMainSearchBar(investor)
   await pm.onSearchResultsPageSF().selectResult(investor)
+  expect(await pm.onContactProfilePageSF().getContactName()).toContain(investor)
+})
+
+When('the ISO checks that the {string} order appears in the emails', async (transaction: Transaction) => {
+  await pm.onContactProfilePageSF().selectTypeOfEmail(transaction)
 })

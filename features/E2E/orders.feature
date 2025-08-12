@@ -10,4 +10,4 @@ Feature: Orders in MyOikocredit
     #And the ISO approves the "Purchase" order
     And the ISO logs into SALESFORCE LTP with valid credentials
     And the ISO searches for the LTP investor 
-    #And the ISO checks that the approved "Purchase" order appears in the emails
+    And the ISO checks that the "Purchase" order appears in the emails

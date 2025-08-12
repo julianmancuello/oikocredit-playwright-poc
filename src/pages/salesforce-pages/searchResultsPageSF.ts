@@ -17,6 +17,7 @@ export class SearchResultsPageSF extends BasePage {
     const actualValue = await this.contactsResult.innerText()
     if (actualValue.trim() === searchedValue) {
       await this.contactsResult.click()
+      return
     }
     throw new Error(`Value "${searchedValue}" not found in search results`)
   }
