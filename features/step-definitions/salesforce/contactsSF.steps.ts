@@ -16,4 +16,5 @@ When(/^the ISO searches for the (\S+) investor$/, async (env: string) => {
 
 When('the ISO checks that the {string} order appears in the emails', async (transaction: Transaction) => {
   await pm.onContactProfilePageSF().selectTypeOfEmail(transaction)
+  expect(await pm.onEmailMessagePageSF().getAmountInEmail()).toEqual(cs.get("expAmountInConfirmation"))
 })

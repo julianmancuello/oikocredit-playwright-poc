@@ -30,6 +30,7 @@ export class HeaderMenuSF {
   }
 
   async searchInMainSearchBar(value: string) {
+    await this.page.waitForLoadState('domcontentloaded')
     await this.mainSearchBarButton.click()
     await this.mainSearchBarInput.waitFor({ state: 'visible' })
     await this.mainSearchBarInput.fill(value)

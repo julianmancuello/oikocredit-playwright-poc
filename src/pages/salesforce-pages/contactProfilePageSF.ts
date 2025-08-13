@@ -5,14 +5,14 @@ import { Transaction } from "../myoikocredit-pages/transactionsPageMOC"
 
 export class ContactProfilePageSF extends BasePage {
 
-  readonly menu: HeaderMenuSF
+  readonly menuSF: HeaderMenuSF
   private readonly contactName: Locator
   private readonly firstPurchaseEmail: Locator
   private readonly firstRedemptionEmail: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenuSF(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.contactName = page.locator('flexipage-field[slot="primaryField"]')
     this.firstPurchaseEmail = page.locator('(//a[@title="Erwerb von Beteiligungen"])[1]')
     this.firstRedemptionEmail = page.locator('(//a[@title="Rücknahme von Beteiligungen"])[1]')

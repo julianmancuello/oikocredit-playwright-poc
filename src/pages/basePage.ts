@@ -8,16 +8,16 @@ export class BasePage {
     this.page = page
   }
 
-  async waitForContentUpdate(locator: Locator, expectedValue: string, timeout: number = 10000, interval: number = 100): Promise<boolean> {
+  async waitForContentUpdate(locator: Locator, expectedValue: string, timeout: number = 10000, interval: number = 100) {
     const startTime = Date.now()
 
     while (Date.now() - startTime < timeout) {
       const currentValue = await locator.innerText()
       if (currentValue === expectedValue) {
-        return true;
+        return
       }
       await new Promise(resolve => setTimeout(resolve, interval))
     }
-    return false
+    throw new Error(`Timed out after ${timeout}ms waiting for content to match: "${expectedValue}"`)
   }
 }

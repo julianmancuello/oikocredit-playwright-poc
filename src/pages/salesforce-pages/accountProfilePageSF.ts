@@ -4,13 +4,13 @@ import { HeaderMenuSF } from "./headerMenuSF"
 
 export class AccountProfilePageSF extends BasePage {
 
-  readonly menu: HeaderMenuSF
+  readonly menuSF: HeaderMenuSF
   private readonly accountRecordType: Locator
   private readonly status: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenuSF(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.accountRecordType = page.locator('p .recordTypeName')
     this.status = page.locator('//p/slot/lightning-formatted-text[text()="Pending Signup"]')
   }

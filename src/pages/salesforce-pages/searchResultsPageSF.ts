@@ -4,12 +4,12 @@ import { HeaderMenuSF } from "./headerMenuSF"
 
 export class SearchResultsPageSF extends BasePage {
 
-  readonly menu: HeaderMenuSF
+  readonly menuSF: HeaderMenuSF
   private readonly contactsResult: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenuSF(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.contactsResult = page.locator('(//div[contains(@class, "resultsItem")][.//a[contains(text(), "Contacts")]])//tbody//th')
   }
 

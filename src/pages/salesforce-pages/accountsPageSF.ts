@@ -5,13 +5,13 @@ import { ContextStore as cs } from "../../utils/contextStore"
 
 export class AccountsPageSF extends BasePage {
 
-  readonly menu: HeaderMenuSF
+  readonly menuSF: HeaderMenuSF
   private readonly searchBar: Locator
   private readonly accountRetrieved: Locator
 
   constructor(page: Page){
     super(page)
-    this.menu = new HeaderMenuSF(page)
+    this.menuSF = new HeaderMenuSF(page)
     this.searchBar = page.getByPlaceholder('Search this list...')
     this.accountRetrieved = page.locator('th[data-label="Account Name"] a')
   }
