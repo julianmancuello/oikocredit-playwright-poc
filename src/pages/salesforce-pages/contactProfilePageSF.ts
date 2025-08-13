@@ -19,6 +19,7 @@ export class ContactProfilePageSF extends BasePage {
   }
 
   async getContactName() {
+    await this.waitForContentPresence(this.contactName, "text")
     const actualName = await this.contactName.innerText()
     return actualName
   }
