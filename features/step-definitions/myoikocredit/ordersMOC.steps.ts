@@ -5,7 +5,7 @@ import { Transaction } from '../../../src/pages/myoikocredit-pages/transactionsP
 import { ContextStore as cs } from '../../../src/utils/contextStore'
 import { Utils as utils } from '../../../src/utils/utils'
 
-When('the user creates a {string} order', async (transaction: Transaction) => {
+When('the user creates a {} order', async (transaction: Transaction) => {
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()
   await pm.onTransactionsPageMOC().selectTransaction(transaction)
   await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber(transaction)
@@ -23,7 +23,7 @@ When('the user creates a {string} order', async (transaction: Transaction) => {
   expect(actualValues).toEqual(expectedValues)
 })
 
-Then('the user checks that the {string} order appears approved in the transactions', async (transaction: Transaction) => {
+Then('the user checks that the {} order appears approved in the transactions', async (transaction: Transaction) => {
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()
   const date = utils.getFormattedToday("dd MMMM YYYY")
   const transactionType = utils.getTransactionType(transaction)
