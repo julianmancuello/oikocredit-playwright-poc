@@ -879,7 +879,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@regression</span>
                         
-                            <span class="tag">@browser:firefox</span>
+                            <span class="tag">@browser:safari</span>
                         
                             <span class="tag">@debug</span>
                         
@@ -887,7 +887,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                 
             </div>
             <h1>Feature:
-                <small>Orders in MyOikocredit</small>
+                <small>E2E - Orders in MyOikocredit Investor Portal</small>
             </h1>
             
                 <p>
@@ -1025,10 +1025,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                     
                     
-                    <i class="fa fa-firefox fa-lg">
-                        <span>firefox</span>
+                    <i class="fa fa-safari fa-lg">
+                        <span>safari</span>
                     </i>
-                    140.0.2
+                    26.0
                     
                 </span>
             </li>
@@ -1089,7 +1089,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario Outline: <small>E2E - Investor Portal - Purchase Order</small></h2>
+                <h2>Scenario Outline: <small>E2E - Order Flow - Purchase</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1177,7 +1177,11 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <pre class=info>Error: Key 'myoikocredit-ltp-user' not found in ContextStore.
     at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
     at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:23:25)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at processImmediate (node:internal/timers:453:9)
+    at process.topLevelDomainCallback (node:domain:161:15)
+    at process.callbackTrampoline (node:internal/async_hooks:128:24)</pre>
                                 </div>
                             
 
@@ -1736,7 +1740,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario Outline: <small>E2E - Investor Portal - Purchase Order</small></h2>
+                <h2>Scenario Outline: <small>E2E - Order Flow - Redemption</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
