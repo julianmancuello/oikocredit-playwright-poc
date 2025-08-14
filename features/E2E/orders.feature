@@ -1,10 +1,8 @@
 @regression
-Feature: Orders in MyOikocredit
-
-  Background:
-    Given the user logs into MYOIKOCREDIT LTP with valid credentials
+Feature: E2E - Orders in MyOikocredit Investor Portal
   @debug
-  Scenario Outline: E2E - Investor Portal - Purchase Order
+  Scenario Outline: E2E - Order Flow - <TransactionType>
+    Given the user logs into MYOIKOCREDIT LTP with valid credentials
     When the user creates a <TransactionType> order
     And the ISO logs into TITAN LTP with valid credentials
     And the ISO approves the <TransactionType> order
