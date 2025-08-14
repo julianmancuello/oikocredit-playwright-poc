@@ -879,7 +879,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@regression</span>
                         
-                            <span class="tag">@browser:chrome</span>
+                            <span class="tag">@browser:firefox</span>
                         
                             <span class="tag">@debug</span>
                         
@@ -1025,10 +1025,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                     
                     
-                    <i class="fa fa-chrome fa-lg">
-                        <span>chrome</span>
+                    <i class="fa fa-firefox fa-lg">
+                        <span>firefox</span>
                     </i>
-                    139.0.7258.5
+                    140.0.2
                     
                 </span>
             </li>
@@ -1079,15 +1079,17 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                         
                         
-                            <i class="fa fa-tag fa-lg"></i>
+                            <i class="fa fa-tags fa-lg"></i>
                             
                                 <span class="tag">@regression</span>
+                            
+                                <span class="tag">@debug</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario: <small>E2E - Investor Portal - Purchase Order</small></h2>
+                <h2>Scenario Outline: <small>: E2E - Investor Portal - Purchase Order</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1175,11 +1177,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <pre class=info>Error: Key 'myoikocredit-ltp-user' not found in ContextStore.
     at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
     at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:23:25)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)
-    at runNextTicks (node:internal/process/task_queues:65:5)
-    at processImmediate (node:internal/timers:453:9)
-    at process.topLevelDomainCallback (node:domain:161:15)
-    at process.callbackTrampoline (node:internal/async_hooks:128:24)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
                                 </div>
                             
 
@@ -1217,7 +1215,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the user creates a "Purchase" order
+                                        the user creates a Purchase order
                                         
                                     
 
@@ -1345,7 +1343,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the ISO approves the "Purchase" order
+                                        the ISO approves the Purchase order
                                         
                                     
 
@@ -1537,7 +1535,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the ISO checks that the "Purchase" order appears in the emails
+                                        the ISO checks that the Purchase order appears in the emails
                                         
                                     
 
@@ -1665,7 +1663,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the user checks that the "Purchase" order appears approved in the transactions
+                                        the user checks that the Purchase order appears approved in the transactions
                                         
                                     
 
@@ -1738,7 +1736,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario: <small>E2E - Investor Portal - Redemption Order</small></h2>
+                <h2>Scenario Outline: <small>: E2E - Investor Portal - Purchase Order</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1826,11 +1824,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <pre class=info>Error: Key 'myoikocredit-ltp-user' not found in ContextStore.
     at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
     at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:23:25)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)
-    at runNextTicks (node:internal/process/task_queues:65:5)
-    at processImmediate (node:internal/timers:453:9)
-    at process.topLevelDomainCallback (node:domain:161:15)
-    at process.callbackTrampoline (node:internal/async_hooks:128:24)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
                                 </div>
                             
 
@@ -1868,7 +1862,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the user creates a "Redemption" order
+                                        the user creates a Redemption order
                                         
                                     
 
@@ -1996,7 +1990,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the ISO approves the "Redemption" order
+                                        the ISO approves the Redemption order
                                         
                                     
 
@@ -2188,7 +2182,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">And </span>
 
                                     
-                                        the ISO checks that the "Redemption" order appears in the emails
+                                        the ISO checks that the Redemption order appears in the emails
                                         
                                     
 
@@ -2316,7 +2310,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the user checks that the "Redemption" order appears approved in the transactions
+                                        the user checks that the Redemption order appears approved in the transactions
                                         
                                     
 
