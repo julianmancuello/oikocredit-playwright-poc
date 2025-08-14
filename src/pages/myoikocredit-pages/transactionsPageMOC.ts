@@ -24,7 +24,7 @@ export class TransactionsPageMOC extends BasePage {
     this.redeemButton = page.getByTitle('Redeem Shares')
     this.transactionAmountField = page.locator('input[name="Amount"]')
     this.nextButton = page.locator('button[kx-scope="button-brand"]')
-    this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span')
+    this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span | //p[.//strong[contains(text(), "Verkaufsauftrag:")]]/span')
     this.informationOfTransaction = page.locator('(//flowruntime-lwc-field)[1]')
     this.closeButton = page.locator('button[title="Close"]')
     this.firstRowTransactions = page.locator('tbody tr[data-row-number="1"]')
@@ -42,11 +42,14 @@ export class TransactionsPageMOC extends BasePage {
     }
   }
 
-  async fillInAmountWithRandomNumber() {
+  async fillInAmountWithRandomNumber(transaction: Transaction) {
     const amount = df.generateRandomIntegerBetween(1000, 1500)
     cs.put("transactionAmount", amount)
     const expAmountInConfirmation = `EUR ${utils.applyNumberFormat("European format", amount, 2)}`
     cs.put("expAmountInConfirmation", expAmountInConfirmation)
+    if (transaction === "Redemption") {
+      await this.nextButton.click()
+    }
     await this.transactionAmountField.fill(amount.toString())
     await this.nextButton.click()
   }

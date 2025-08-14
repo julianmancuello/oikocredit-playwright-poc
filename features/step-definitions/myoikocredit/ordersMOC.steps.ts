@@ -8,7 +8,7 @@ import { Utils as utils } from '../../../src/utils/utils'
 When('the user creates a {string} order', async (transaction: Transaction) => {
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()
   await pm.onTransactionsPageMOC().selectTransaction(transaction)
-  await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber()
+  await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber(transaction)
   expect(await pm.onTransactionsPageMOC().getAmountInConfirmRequest()).toEqual(cs.get("expAmountInConfirmation"))
   await pm.onTransactionsPageMOC().confirmRequest()
   await expect(pm.onTransactionsPageMOC().informationOfTheTransaction()).toBeVisible()
