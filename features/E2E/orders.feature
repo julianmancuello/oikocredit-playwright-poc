@@ -16,8 +16,8 @@ Feature: Orders in MyOikocredit
   @debug
   Scenario: E2E - Investor Portal - Redemption Order
     When the user creates a "Redemption" order
-    #And the ISO logs into TITAN LTP with valid credentials
-    #And the ISO approves the "Redemption" order
+    And the ISO logs into TITAN LTP with valid credentials
+    And the ISO approves the "Redemption" order
     #And the ISO logs into SALESFORCE LTP with valid credentials
     #And the ISO searches for the LTP investor 
     #And the ISO checks that the "Redemption" order appears in the emails

@@ -28,7 +28,7 @@ export class PurchaseRequestsPageTIT extends BasePage {
       const amountInColumn = await currentRow.locator('td.NumberColumn').innerText()
       const dateInColumn = await currentRow.locator('td.DateTimeColumn[style="width:85px;"]').innerText()
       if (amountInColumn.trim() === formattedAmount && dateInColumn.trim() === formattedDate) {
-        await this.requestRow.nth(i).locator('td:nth-child(15)').click()
+        await this.requestRow.nth(i).locator('td [type="checkbox"]').click()
         return
       }
     }
