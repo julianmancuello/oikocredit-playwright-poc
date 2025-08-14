@@ -40,6 +40,7 @@ export class PurchaseRequestsPageTIT extends BasePage {
   }
 
   async getRequestApprovedMessage(){
+    await this.requestApprovedMessage.waitFor({ state: 'visible' })
     const actualMessage = (await this.requestApprovedMessage.innerText()).trim()
     return actualMessage
   }
