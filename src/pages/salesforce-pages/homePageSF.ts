@@ -9,8 +9,8 @@ export class HomePageSF extends BasePage {
 
   constructor(page: Page){
     super(page)
-    this.menuSF = new HeaderMenuSF(page)
     this.homeLatestInfo = page.getByText('Latest Release Information')
+    this.menuSF = new HeaderMenuSF(page, this.homeLatestInfo)
   }
 
   latestInfoTitle(){
