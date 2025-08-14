@@ -15,6 +15,6 @@ export class EmailMessagePageSF extends BasePage {
 
   async getAmountInEmail() {
     const amount = (await this.iframeEmail.locator('//p/span[contains(text(), "EUR")]').innerText()).trim()
-    return amount
+    return amount.replace('Betrag: ', '')
   }
 }
