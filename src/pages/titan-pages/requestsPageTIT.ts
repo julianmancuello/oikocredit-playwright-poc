@@ -2,7 +2,7 @@ import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { Utils as utils } from "../../utils/utils"
 
-export class PurchaseRequestsPageTIT extends BasePage {
+export class RequestsPageTIT extends BasePage {
 
   private readonly requestTable: Locator
   private readonly requestRow: Locator
