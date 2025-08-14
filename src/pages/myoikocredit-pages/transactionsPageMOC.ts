@@ -16,6 +16,7 @@ export class TransactionsPageMOC extends BasePage {
   private readonly informationOfTransaction: Locator
   private readonly closeButton: Locator
   private readonly firstRowTransactions: Locator
+  private readonly transactionRow: Locator
 
   constructor(page: Page) {
     super(page)
@@ -27,6 +28,7 @@ export class TransactionsPageMOC extends BasePage {
     this.informationOfTransaction = page.locator('(//flowruntime-lwc-field)[1]')
     this.closeButton = page.locator('button[title="Close"]')
     this.firstRowTransactions = page.locator('tbody tr[data-row-number="1"]')
+    this.transactionRow = page.locator('tbody tr')
   }
 
   async selectTransaction(transaction: Transaction) {
@@ -81,6 +83,30 @@ export class TransactionsPageMOC extends BasePage {
       transactionType: transactionType,
       status: status,
       amount: amount
+    }
+  }
+
+  async getTransactionStatus(date: string, transactionType: string, amount: string){
+    await this.firstRowTransactions.waitFor({ state: 'visible' })
+    const rowCount = await this.transactionRow.count()
+    for (let i = 0; i < rowCount; i++) {
+      const currentRow = this.transactionRow.nth(i)
+      const dateInCol = await currentRow.locator('th[data-label="Datum"]').innerText()
+      const transactionTypeInCol = await currentRow.locator('td[data-label="Transaktion"]').innerText()
+      const amountInCol = await currentRow.locator('td[data-label="Betrag"]').innerText()
+      if (dateInCol.trim() === date && transactionTypeInCol.trim() === transactionType && amountInCol.trim() === amount) {
+        return await currentRow.locator('td[data-label="Status"]').innerText()
+      }
+    }
+    throw new Error(`No row found with date "${date}", transaction type "${transactionType}" and amount "${amount}"`)
+  }
+
+  async getApprovalLabel(transaction: Transaction) {
+    switch (transaction) {
+      case "Purchase":
+        return "Investition angekündigt";
+      case "Redemption":
+        return "Rücknahme Beantragt";
     }
   }
 }

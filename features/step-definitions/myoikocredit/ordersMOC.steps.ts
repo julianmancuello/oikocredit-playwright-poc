@@ -22,3 +22,13 @@ When('the user creates a {string} order', async (transaction: Transaction) => {
   }
   expect(actualValues).toEqual(expectedValues)
 })
+
+Then('the user checks that the {string} order appears approved in the transactions', async (transaction: Transaction) => {
+  await pm.onHomePageMOC().clickBuySellDividendsAndMore()
+  const date = utils.getFormattedToday("dd MMMM YYYY")
+  const transactionType = utils.getTransactionType(transaction)
+  const amount = cs.get<string>("expAmountInTransactions")
+  const actualStatus = await pm.onTransactionsPageMOC().getTransactionStatus(date, transactionType, amount)
+  const expectedStatus = await pm.onTransactionsPageMOC().getApprovalLabel(transaction)
+  expect(actualStatus).toEqual(expectedStatus)
+})

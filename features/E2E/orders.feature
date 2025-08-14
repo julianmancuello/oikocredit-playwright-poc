@@ -12,3 +12,4 @@ Feature: Orders in MyOikocredit
     And the ISO searches for the LTP investor 
     And the ISO checks that the "Purchase" order appears in the emails
     And the user logs into MYOIKOCREDIT LTP with valid credentials
+    Then the user checks that the "Purchase" order appears approved in the transactions
