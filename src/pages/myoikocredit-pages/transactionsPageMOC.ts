@@ -91,17 +91,21 @@ export class TransactionsPageMOC extends BasePage {
 
   async getTransactionStatus(date: string, transactionType: string, amount: string){
     await this.firstRowTransactions.waitFor({ state: 'visible' })
+    let transformedAmount = amount
+    if (transactionType === "Verkauf") {
+      transformedAmount = amount.replace("EUR ", "EUR -")
+    }
     const rowCount = await this.transactionRow.count()
     for (let i = 0; i < rowCount; i++) {
       const currentRow = this.transactionRow.nth(i)
       const dateInCol = await currentRow.locator('th[data-label="Datum"]').innerText()
       const transactionTypeInCol = await currentRow.locator('td[data-label="Transaktion"]').innerText()
       const amountInCol = await currentRow.locator('td[data-label="Betrag"]').innerText()
-      if (dateInCol.trim() === date && transactionTypeInCol.trim() === transactionType && amountInCol.trim() === amount) {
+      if (dateInCol.trim() === date && transactionTypeInCol.trim() === transactionType && amountInCol.trim() === transformedAmount) {
         return await currentRow.locator('td[data-label="Status"]').innerText()
       }
     }
-    throw new Error(`No row found with date "${date}", transaction type "${transactionType}" and amount "${amount}"`)
+    throw new Error(`No row found with date "${date}", transaction type "${transactionType}" and amount "${transformedAmount}"`)
   }
 
   async getApprovalLabel(transaction: Transaction) {

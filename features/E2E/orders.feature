@@ -21,5 +21,5 @@ Feature: Orders in MyOikocredit
     And the ISO logs into SALESFORCE LTP with valid credentials
     And the ISO searches for the LTP investor 
     And the ISO checks that the "Redemption" order appears in the emails
-    #And the user logs into MYOIKOCREDIT LTP with valid credentials
-    #Then the user checks that the "Redemption" order appears approved in the transactions
+    And the user logs into MYOIKOCREDIT LTP with valid credentials
+    Then the user checks that the "Redemption" order appears approved in the transactions
