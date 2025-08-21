@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test"
+import { Locator, Page, expect } from "@playwright/test"
 
 export class BasePage {
 
@@ -38,5 +38,15 @@ export class BasePage {
       await new Promise(resolve => setTimeout(resolve, interval))
     }
     throw new Error(`Timed out after ${timeout}ms waiting for ${mode} content`)
+  }
+
+  async verifyElementsAreVisible(locators: Locator[]): Promise<void> {
+    for (const locator of locators) {
+      await locator.first().waitFor({ state: 'visible' });
+      const count = await locator.count()
+      for (let i = 0; i < count; i++) {
+        await expect(locator.nth(i)).toBeVisible()
+      }
+    }
   }
 }

@@ -17,6 +17,14 @@ export class TransactionsPageMOC extends BasePage {
   private readonly closeButton: Locator
   private readonly firstRowTransactions: Locator
   private readonly transactionRow: Locator
+  private readonly backButton: Locator
+  private readonly accountId: Locator
+  private readonly accountName: Locator
+  private readonly accountIban: Locator
+  private readonly balanceDetails: Locator
+  private readonly dividendDetails: Locator
+  private readonly transactionsTitle: Locator
+  private readonly columnHeaders: Locator
 
   constructor(page: Page) {
     super(page)
@@ -29,6 +37,14 @@ export class TransactionsPageMOC extends BasePage {
     this.closeButton = page.locator('button[title="Close"]')
     this.firstRowTransactions = page.locator('tbody tr[data-row-number="1"]')
     this.transactionRow = page.locator('tbody tr')
+    this.backButton = page.locator('a.linkURL')
+    this.accountId = page.locator('div[class="header slds-border_bottom"]')
+    this.accountName = page.locator('div[class="name slds-float_left"]')
+    this.accountIban = page.locator('div[class="slds-float_left"]')
+    this.balanceDetails = page.locator('div.slds-float_right')//2
+    this.dividendDetails = page.locator('div[class="slds-float_left slds-p-left_xx-large"]') //3
+    this.transactionsTitle = page.locator('span.slds-text-heading_medium')
+    this.columnHeaders = page.locator('span.slds-th__action') //5
   }
 
   async selectTransaction(transaction: Transaction) {
@@ -115,5 +131,11 @@ export class TransactionsPageMOC extends BasePage {
       case "Redemption":
         return "Rücknahme Beantragt";
     }
+  }
+
+  async verifyPageElementsAreAvailable(){
+    const essentialElements = [this.backButton, this.accountId, this.accountName, this.accountIban, this.balanceDetails, this.dividendDetails,
+      this.buyButton, this.redeemButton, this.transactionsTitle, this.columnHeaders]
+    await this.verifyElementsAreVisible(essentialElements)
   }
 }

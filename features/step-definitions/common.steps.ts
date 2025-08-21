@@ -26,3 +26,11 @@ Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, asy
       throw new Error(`No login handler defined for application: ${application}`)
   }
 })
+
+When("the user goes to Transaction Page", async () => {//TODO: make for general use
+  await pm.onHomePageMOC().clickBuySellDividendsAndMore()
+})
+
+Then("the user checks the visibility of the Transaction Page details", async () => {//TODO: make for general use
+  await pm.onTransactionsPageMOC().verifyPageElementsAreAvailable()
+})
