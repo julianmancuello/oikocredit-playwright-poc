@@ -10,6 +10,10 @@ export abstract class BasePage {
 
   abstract getEssentialElements(): Locator[]
 
+  async navigateTo(destination: string): Promise<void> {
+    throw new Error(`${this.constructor.name} does not implement navigation to "${destination}"`)
+  }
+
   async waitForContentUpdate(locator: Locator, expectedValue: string, timeout: number = 10000, interval: number = 100, contains: boolean = false) {
     const startTime = Date.now()
 

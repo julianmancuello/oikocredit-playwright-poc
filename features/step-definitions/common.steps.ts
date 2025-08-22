@@ -27,8 +27,8 @@ Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, asy
   }
 })
 
-When("the user goes to Transaction Page", async () => {//TODO: make for general use
-  await pm.onHomePageMOC().clickBuySellDividendsAndMore()
+When("the user navigates from {string} to {string}", async (fromPage: string, toPage: string) => {//TODO: make for general use
+  await pm.onPage(fromPage).navigateTo(toPage)
 })
 
 Then("the user checks the visibility of the {string} details", async (pageName: string) => {//TODO: make for general use

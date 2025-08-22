@@ -15,6 +15,15 @@ export class HomePageMOC extends BasePage {
     return []
   }
 
+  async navigateTo(destination: string): Promise<void> {
+    switch (destination) {
+      case "Transaction Page - MOC":
+        return await this.clickBuySellDividendsAndMore()
+      default:
+        return super.navigateTo(destination)
+    }
+  }
+
   async clickBuySellDividendsAndMore(){
     await this.buySellDividendsButton.click()
   }
