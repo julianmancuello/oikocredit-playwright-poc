@@ -54,6 +54,7 @@ export class PageManager {
     this.homePageTIT = new HomePageTIT(this.page)
     this.requestsPageTIT = new RequestsPageTIT(this.page)
     this.pagesMap = {
+      "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
       "Transaction Page - MOC": this.transactionsPageMOC,
     }

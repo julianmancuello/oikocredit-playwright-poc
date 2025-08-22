@@ -3,7 +3,7 @@ Feature: Leads
 
   Background:
     Given the ISO logs into SALESFORCE LTP with valid credentials
-    Given the ISO navigates to the "Leads" page
+    Given the user navigates from "Home Page - SF" to "Leads"
 
   @smoke
   Scenario: Create a new lead
