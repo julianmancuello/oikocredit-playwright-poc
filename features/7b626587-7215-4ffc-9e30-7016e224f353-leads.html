@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">66.67 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">33.33 %</td>
                     
                     
                     </tr>
@@ -1985,10 +1985,14 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
+                        <li>
+                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
+                        </li>
+                    
 
                     
                         <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">6</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">5</span>
                         </li>
                     
 
@@ -2330,8 +2334,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" title="Success">
-                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
                                         </div>
                                     
                                 
@@ -2352,6 +2356,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     
 
                                     
+                                        <a href="#error2-6-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
 
                                     
 
@@ -2368,6 +2374,38 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             </div>
 
                         
+                            
+                                <div id="error2-6-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('[tabindex][title="Accounts"]')
+    - locator resolved to (a tabindex="0" title="Accounts" draggable="false" aria-current="false" href="/lightning/o/Account/home" class="slds-context-bar__label-action dndItem")…(/a)
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - (h2 data-aura-rendered-by="31:1822;a")Your lead has been converted(/h2) from (div data-aura-rendered-by="456:0;p" class="DESKTOP uiContainerManager" data-aura-class="uiContainerManager")…(/div) subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - (h2 data-aura-rendered-by="31:1822;a")Your lead has been converted(/h2) from (div data-aura-rendered-by="456:0;p" class="DESKTOP uiContainerManager" data-aura-class="uiContainerManager")…(/div) subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - (h2 data-aura-rendered-by="31:1822;a")Your lead has been converted(/h2) from (div data-aura-rendered-by="456:0;p" class="DESKTOP uiContainerManager" data-aura-class="uiContainerManager")…(/div) subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at HeaderMenuSF.clickOnTab (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/headerMenuSF.ts:29:32)
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/leadsSF.steps.ts:72:35)</pre>
+                                </div>
                             
 
                             
@@ -2453,8 +2491,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            3,
-                            0,
+                            2,
+                            1,
                             0,
                             0,
                             0,
