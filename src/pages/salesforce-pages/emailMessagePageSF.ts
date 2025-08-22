@@ -13,11 +13,6 @@ export class EmailMessagePageSF extends BasePage {
     this.iframeEmail = page.frameLocator('#emailuiFrame')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async getAmountInEmail() {
     const amount = (await this.iframeEmail.locator('//p/span[contains(text(), "EUR")]').innerText()).trim()
     return amount.replace('Betrag: ', '')

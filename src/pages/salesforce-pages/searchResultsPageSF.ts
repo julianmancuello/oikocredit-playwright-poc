@@ -13,11 +13,6 @@ export class SearchResultsPageSF extends BasePage {
     this.contactsResult = page.locator('(//div[contains(@class, "resultsItem")][.//a[contains(text(), "Contacts")]])//tbody//th')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async selectResult(searchedValue: string) {//TODO: Improve the method so that it can handle multiple results
     const actualValue = await this.contactsResult.innerText()
     if (actualValue.trim() === searchedValue) {

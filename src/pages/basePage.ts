@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test"
 
-export abstract class BasePage {
+export class BasePage {
 
   readonly page: Page
 
@@ -8,7 +8,9 @@ export abstract class BasePage {
     this.page = page
   }
 
-  abstract getEssentialElements(): Locator[]
+  getEssentialElements(): Locator[] {
+    return []
+  }
 
   async navigateTo(destination: string): Promise<void> {
     throw new Error(`${this.constructor.name} does not implement navigation to "${destination}"`)

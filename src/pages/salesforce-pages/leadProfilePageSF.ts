@@ -37,11 +37,6 @@ export class LeadProfilePageSF extends BasePage {
     this.closeWindowButton = page.locator('.active [title="Cancel and close"]')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async clickEditLead(){
     await this.editButton.click()
   }

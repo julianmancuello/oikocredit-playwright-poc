@@ -16,11 +16,6 @@ export class LoginPageSF extends BaseLoginPage {
     this.logInErrorMessage = page.locator('#error.loginError')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async loginWithInvalidCredentials() {
     await this.loginUser("username", "password")
   }

@@ -20,11 +20,6 @@ export class LoginPageMS extends BaseLoginPage {
     this.verifyButton = page.locator('#idSubmit_SAOTCC_Continue')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   protected override async loginUser(username: string, password: string, env: Environment){
     await this.usernameField.fill(username)
     await this.logInButton.click()

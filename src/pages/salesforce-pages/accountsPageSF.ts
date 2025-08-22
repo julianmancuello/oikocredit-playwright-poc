@@ -16,11 +16,6 @@ export class AccountsPageSF extends BasePage {
     this.accountRetrieved = page.locator('th[data-label="Account Name"] a')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async searchAccount(accountName?: string) {
     const nameToSearch = accountName ?? cs.get("accountName");
 

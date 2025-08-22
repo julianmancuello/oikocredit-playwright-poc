@@ -13,9 +13,4 @@ export class LoginPageMOC extends BaseLoginPage {
     this.passwordField = page.getByRole('textbox', {name: "Passwort"})
     this.logInButton = page.getByRole('button', {name: "Login"})
   }
-
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
 }

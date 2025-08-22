@@ -10,11 +10,6 @@ export class HomePageMOC extends BasePage {
     this.buySellDividendsButton = page.locator('div.slds-clearfix a.linkURL[href]')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async navigateTo(destination: string): Promise<void> {
     switch (destination) {
       case "Transaction Page - MOC":

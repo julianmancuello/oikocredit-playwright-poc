@@ -38,11 +38,6 @@ export class LeadsPageSF extends BasePage {
     this.firstRowLeads = page.locator('tbody tr[data-row-number="1"]')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async clickNewLead(){
     await this.newButton.click()
   }

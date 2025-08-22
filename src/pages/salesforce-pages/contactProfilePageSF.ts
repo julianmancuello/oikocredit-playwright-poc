@@ -18,11 +18,6 @@ export class ContactProfilePageSF extends BasePage {
     this.firstRedemptionEmail = page.locator('(//a[@title="Rücknahme von Beteiligungen"])[1]')
   }
 
-  getEssentialElements(): Locator[] {
-    console.log("No essential elements were defined")
-    return []
-  }
-
   async getContactName() {
     await this.waitForContentPresence(this.contactName, "text")
     const actualName = await this.contactName.innerText()
