@@ -1,12 +1,14 @@
 import { Locator, Page, expect } from "@playwright/test"
 
-export class BasePage {
+export abstract class BasePage {
 
   readonly page: Page
 
   constructor(page: Page) {
     this.page = page
   }
+
+  abstract getEssentialElements(): Locator[]
 
   async waitForContentUpdate(locator: Locator, expectedValue: string, timeout: number = 10000, interval: number = 100, contains: boolean = false) {
     const startTime = Date.now()
@@ -40,12 +42,13 @@ export class BasePage {
     throw new Error(`Timed out after ${timeout}ms waiting for ${mode} content`)
   }
 
-  async verifyElementsAreVisible(locators: Locator[]): Promise<void> {
-    for (const locator of locators) {
-      await locator.first().waitFor({ state: 'visible' });
-      const count = await locator.count()
+  async verifyPageElementsAreVisible(): Promise<void> {
+    const elements = this.getEssentialElements()
+    for (const element of elements) {
+      await element.first().waitFor({ state: 'visible' });
+      const count = await element.count()
       for (let i = 0; i < count; i++) {
-        await expect(locator.nth(i)).toBeVisible()
+        await expect(element.nth(i)).toBeVisible()
       }
     }
   }

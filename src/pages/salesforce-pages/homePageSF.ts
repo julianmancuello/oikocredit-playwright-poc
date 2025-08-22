@@ -13,6 +13,11 @@ export class HomePageSF extends BasePage {
     this.menuSF = new HeaderMenuSF(page, this.homeLatestInfo)
   }
 
+  getEssentialElements(): Locator[] {
+    console.log("No essential elements were defined")
+    return []
+  }
+
   latestInfoTitle(){
     return this.homeLatestInfo
   }

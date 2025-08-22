@@ -15,6 +15,11 @@ export class AccountProfilePageSF extends BasePage {
     this.status = page.locator('//p/slot/lightning-formatted-text[text()="Pending Signup"]')
   }
 
+  getEssentialElements(): Locator[] {
+    console.log("No essential elements were defined")
+    return []
+  }
+
   async getRecordType(){
     const actualRecordType = await this.accountRecordType.textContent()
     return actualRecordType

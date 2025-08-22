@@ -17,6 +17,11 @@ export class RequestsPageTIT extends BasePage {
     this.requestApprovedMessage = page.locator('#ctl00_ExceptionControl_divBody')
   }
 
+  getEssentialElements(): Locator[] {
+    console.log("No essential elements were defined")
+    return []
+  }
+
   async selectRequest(amount: string) {//TODO: Improve the method so that it can handle multiple dates
     const formattedAmount = utils.applyNumberFormat("English format", Number(amount), 2)
     const formattedDate = utils.getFormattedToday("dd/mm/YYYY")

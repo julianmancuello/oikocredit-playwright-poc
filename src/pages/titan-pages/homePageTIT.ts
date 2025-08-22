@@ -13,6 +13,11 @@ export class HomePageTIT extends BasePage {
     this.redemptionRequests = page.locator('#ctl00_UsecaseContent_PendingRequests_C_ctl00_lbRedemptionRequests')
   }
 
+  getEssentialElements(): Locator[] {
+    console.log("No essential elements were defined")
+    return []
+  }
+
   async selectTypeOfRequests(transaction: Transaction) {
     switch (transaction) {
       case "Purchase":

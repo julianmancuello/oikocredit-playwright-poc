@@ -47,6 +47,21 @@ export class TransactionsPageMOC extends BasePage {
     this.columnHeaders = page.locator('span.slds-th__action') //5
   }
 
+  getEssentialElements(): Locator[] {
+    return [
+      this.backButton,
+      this.accountId,
+      this.accountName,
+      this.accountIban,
+      this.balanceDetails,
+      this.dividendDetails,
+      this.buyButton,
+      this.redeemButton,
+      this.transactionsTitle,
+      this.columnHeaders
+    ]
+  }
+
   async selectTransaction(transaction: Transaction) {
     switch (transaction) {
       case "Purchase":
@@ -131,11 +146,5 @@ export class TransactionsPageMOC extends BasePage {
       case "Redemption":
         return "Rücknahme Beantragt";
     }
-  }
-
-  async verifyPageElementsAreAvailable(){
-    const essentialElements = [this.backButton, this.accountId, this.accountName, this.accountIban, this.balanceDetails, this.dividendDetails,
-      this.buyButton, this.redeemButton, this.transactionsTitle, this.columnHeaders]
-    await this.verifyElementsAreVisible(essentialElements)
   }
 }

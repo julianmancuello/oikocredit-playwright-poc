@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test"
+import { BasePage } from "./basePage"
 import { LoginPageMS } from "./microsoft-pages/loginPageMS"
 import { LoginPageSF } from "./salesforce-pages/loginPageSF"
 import { HomePageSF } from "./salesforce-pages/homePageSF"
@@ -17,6 +18,7 @@ import { RequestsPageTIT } from "./titan-pages/requestsPageTIT"
 
 export class PageManager {
 
+  private readonly pagesMap: Record<string, BasePage>
   private readonly page: Page
   private readonly loginPageMS: LoginPageMS
   private readonly loginPageSF: LoginPageSF
@@ -51,6 +53,15 @@ export class PageManager {
     this.transactionsPageMOC = new TransactionsPageMOC(this.page)
     this.homePageTIT = new HomePageTIT(this.page)
     this.requestsPageTIT = new RequestsPageTIT(this.page)
+    this.pagesMap = {
+      "Transaction Page - MOC": this.transactionsPageMOC,
+    }
+  }
+
+  onPage(name: string): BasePage {
+    const page = this.pagesMap[name]
+    if (!page) throw new Error(`Page "${name}" not found in PageManager`)
+    return page
   }
 
   onLoginPageMS(){

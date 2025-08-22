@@ -31,6 +31,6 @@ When("the user goes to Transaction Page", async () => {//TODO: make for general 
   await pm.onHomePageMOC().clickBuySellDividendsAndMore()
 })
 
-Then("the user checks the visibility of the Transaction Page details", async () => {//TODO: make for general use
-  await pm.onTransactionsPageMOC().verifyPageElementsAreAvailable()
+Then("the user checks the visibility of the {string} details", async (pageName: string) => {//TODO: make for general use
+  await pm.onPage(pageName).verifyPageElementsAreVisible()
 })
