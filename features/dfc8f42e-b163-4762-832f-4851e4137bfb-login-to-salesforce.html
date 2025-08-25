@@ -881,21 +881,21 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@browser:safari</span>
                         
-                            <span class="tag">@debug</span>
+                            <span class="tag">@smoke</span>
                         
                     
                 
             </div>
             <h1>Feature:
-                <small>MyOikocredit - Investor Portal - Transactions</small>
+                <small>Login to Salesforce</small>
             </h1>
             
                 <p>
                <p><strong>File name:</strong>
-                    transactions.feature
+                    login.feature
                 </p>
                 <p><strong>Relative path:</strong>
-                    myoikocredit/transactions.feature</p>
+                    salesforce/login.feature</p>
             
         </div>
 
@@ -931,7 +931,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
         <tr>
             <td class="chart">
                 <canvas id="scenario-chart"></canvas>
-                <div class="total">1</div>
+                <div class="total">2</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">50.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">50.00 %</td>
                     
                     
                     </tr>
@@ -1083,13 +1083,13 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                             
                                 <span class="tag">@regression</span>
                             
-                                <span class="tag">@debug</span>
+                                <span class="tag">@smoke</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario: <small>Validate Transaction Details - <TransactionType></small></h2>
+                <h2>Scenario: <small>User logs in with valid credentials</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1101,10 +1101,6 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
 
                     
-                        <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">2</span>
-                        </li>
-                    
 
                     
                         <li>
@@ -1112,6 +1108,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         </li>
                     
 
+                    
+                        <li>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">1</span>
+                        </li>
                     
 
                     
@@ -1132,8 +1132,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
-                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
                                         </div>
                                     
                                 
@@ -1142,80 +1142,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Given </span>
 
                                     
-                                        the user logs into MYOIKOCREDIT LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-                                        <a href="#error0-1-error" data-bs-toggle="collapse">+ Show Error</a>
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-                                <div id="error0-1-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>Error: Key 'myoikocredit-ltp-user' not found in ContextStore.
-    at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
-    at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:23:25)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
-                                </div>
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">When </span>
-
-                                    
-                                        the user navigates from "Home Page - MOC" to "Transaction Page - MOC"
+                                        the ISO logs into SALESFORCE LTP with valid credentials
                                         
                                     
 
@@ -1269,8 +1196,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                                 
                                     
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
                                         </div>
                                     
                                 
@@ -1279,7 +1206,267 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the user checks the visibility of the "Transaction Page - MOC" details
+                                        the ISO should see the Home page
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+                                        <a href="#error0-2-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+                                <div id="error0-2-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+  - waiting for getByText('Latest Release Information') to be visible
+    - waiting for navigation to finish...
+    - navigated to "https://oikocredit--ltp.sandbox.my.salesforce.com/_ui/system/security/ChangePassword?retURL=%2Fhome%2Fhome.jsp&fromFrontdoor=1&display=page&setupid=ChangePassword"
+
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/loginSF.steps.ts:6:45)</pre>
+                                </div>
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="height: auto;">
+            <div class="x_title">
+
+                <div class="tags">
+                    
+                        
+                        
+                            <i class="fa fa-tag fa-lg"></i>
+                            
+                                <span class="tag">@regression</span>
+                            
+                        
+                    
+                </div>
+
+                <h2>Scenario: <small>The user attempts to log in with invalid credentials</small></h2>
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                    </li>
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
+                        </li>
+                    
+
+                    
+
+                    
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content" style="display: none;">
+                <div class="scenario-step-container"></div>
+                    
+                        
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Given </span>
+
+                                    
+                                        the ISO is on the SALESFORCE LTP login page
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        the ISO attempts to log in with invalid credentials
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">Then </span>
+
+                                    
+                                        the ISO should see an error message
                                         
                                     
 
@@ -1392,7 +1579,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            0,
+                            1,
                             1,
                             0,
                             0,
