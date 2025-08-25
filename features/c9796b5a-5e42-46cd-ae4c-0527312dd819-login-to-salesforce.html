@@ -879,7 +879,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@regression</span>
                         
-                            <span class="tag">@browser:firefox</span>
+                            <span class="tag">@browser:safari</span>
                         
                             <span class="tag">@smoke</span>
                         
@@ -887,15 +887,15 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                 
             </div>
             <h1>Feature:
-                <small>Leads</small>
+                <small>Login to Salesforce</small>
             </h1>
             
                 <p>
                <p><strong>File name:</strong>
-                    leads.feature
+                    login.feature
                 </p>
                 <p><strong>Relative path:</strong>
-                    salesforce/leads.feature</p>
+                    salesforce/login.feature</p>
             
         </div>
 
@@ -931,7 +931,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
         <tr>
             <td class="chart">
                 <canvas id="scenario-chart"></canvas>
-                <div class="total">3</div>
+                <div class="total">2</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">50.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">50.00 %</td>
                     
                     
                     </tr>
@@ -1025,10 +1025,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                     
                     
-                    <i class="fa fa-firefox fa-lg">
-                        <span>firefox</span>
+                    <i class="fa fa-safari fa-lg">
+                        <span>safari</span>
                     </i>
-                    140.0.2
+                    26.0
                     
                 </span>
             </li>
@@ -1089,7 +1089,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 </div>
 
-                <h2>Scenario: <small>Create a new lead</small></h2>
+                <h2>Scenario: <small>User logs in with valid credentials</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1100,10 +1100,6 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
 
-                    
-                        <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">4</span>
-                        </li>
                     
 
                     
@@ -1207,10 +1203,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 
 
                                 <div class="text">
-                                    <span class="keyword highlight">Given </span>
+                                    <span class="keyword highlight">Then </span>
 
                                     
-                                        the user navigates from "Home Page - SF" to "Leads"
+                                        the ISO should see the Home page
                                         
                                     
 
@@ -1242,270 +1238,14 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             
                                 <div id="error0-2-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>locator.click: Timeout 30000ms exceeded.
+                                    <pre class=info>locator.waitFor: Timeout 30000ms exceeded.
 Call log:
-  - waiting for locator('[tabindex][title="Leads"]')
+  - waiting for getByText('Latest Release Information') to be visible
+    - waiting for" https://oikocredit--ltp.sandbox.my.salesforce.com/_ui/system/security/ChangePassword?retURL=%2Fhome%2Fhome.jsp&fromFrontdoor=1&display=page&setupid=ChangePassword" navigation to finish...
+    - navigated to "https://oikocredit--ltp.sandbox.my.salesforce.com/_ui/system/security/ChangePassword?retURL=%2Fhome%2Fhome.jsp&fromFrontdoor=1&display=page&setupid=ChangePassword"
 
-    at HeaderMenuSF.clickOnTab (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/headerMenuSF.ts:26:29)
-    at HomePageSF.navigateTo (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/homePageSF.ts:20:28)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:31:29)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/salesforce/loginSF.steps.ts:6:45)</pre>
                                 </div>
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">When </span>
-
-                                    
-                                        the ISO clicks the New lead button
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO fills in the lead form and saves it
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">Then </span>
-
-                                    
-                                        the ISO should see the created lead success message
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO should see the new lead in the leads list
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
                             
 
                             
@@ -1549,7 +1289,7 @@ Call log:
                     
                 </div>
 
-                <h2>Scenario: <small>Edit a lead</small></h2>
+                <h2>Scenario: <small>The user attempts to log in with invalid credentials</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1561,20 +1301,12 @@ Call log:
                     
 
                     
-                        <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">4</span>
-                        </li>
+
                     
 
                     
                         <li>
-                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
-                        </li>
-                    
-
-                    
-                        <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">1</span>
+                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">3</span>
                         </li>
                     
 
@@ -1606,7 +1338,7 @@ Call log:
                                     <span class="keyword highlight">Given </span>
 
                                     
-                                        the ISO logs into SALESFORCE LTP with valid credentials
+                                        the ISO is on the SALESFORCE LTP login page
                                         
                                     
 
@@ -1654,404 +1386,6 @@ Call log:
                         
 
                     
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
-                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">Given </span>
-
-                                    
-                                        the user navigates from "Home Page - SF" to "Leads"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-                                        <a href="#error1-2-error" data-bs-toggle="collapse">+ Show Error</a>
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-                                <div id="error1-2-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>locator.click: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator('[tabindex][title="Leads"]')
-
-    at HeaderMenuSF.clickOnTab (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/headerMenuSF.ts:26:29)
-    at HomePageSF.navigateTo (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/homePageSF.ts:20:28)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:31:29)</pre>
-                                </div>
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">When </span>
-
-                                    
-                                        the ISO selects an existing lead
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO updates the Mobile field with a random mobile number
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">Then </span>
-
-                                    
-                                        the ISO should see the saved lead success message
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO should see the new mobile number in the lead details
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel" style="height: auto;">
-            <div class="x_title">
-
-                <div class="tags">
-                    
-                        
-                        
-                            <i class="fa fa-tags fa-lg"></i>
-                            
-                                <span class="tag">@regression</span>
-                            
-                                <span class="tag">@smoke</span>
-                            
-                        
-                    
-                </div>
-
-                <h2>Scenario: <small>Convert a lead</small></h2>
-
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
-                    </li>
-
-                    
-
-                    
-
-                    
-                        <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">4</span>
-                        </li>
-                    
-
-                    
-                        <li>
-                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
-                        </li>
-                    
-
-                    
-                        <li>
-                            <span class="step passed-background" data-bs-toggle="tooltip" title="Scenario passed">1</span>
-                        </li>
-                    
-
-                    
-
-                    
-                </ul>
-
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="x_content" style="display: none;">
-                <div class="scenario-step-container"></div>
-                    
-                        
                 
                         
                             <div class="scenario-step-container">
@@ -2065,150 +1399,10 @@ Call log:
                                 
 
                                 <div class="text">
-                                    <span class="keyword highlight">Given </span>
-
-                                    
-                                        the ISO logs into SALESFORCE LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
-                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">Given </span>
-
-                                    
-                                        the user navigates from "Home Page - SF" to "Leads"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-                                        <a href="#error2-2-error" data-bs-toggle="collapse">+ Show Error</a>
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-                                <div id="error2-2-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>locator.click: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator('[tabindex][title="Leads"]')
-
-    at HeaderMenuSF.clickOnTab (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/headerMenuSF.ts:26:29)
-    at HomePageSF.navigateTo (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/salesforce-pages/homePageSF.ts:20:28)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:31:29)</pre>
-                                </div>
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the ISO selects an existing lead
+                                        the ISO attempts to log in with invalid credentials
                                         
                                     
 
@@ -2262,72 +1456,8 @@ Call log:
 
                                 
                                     
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO converts the lead to a "Prospect Individual"
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
+                                        <div class="label" title="Success">
+                                            <i class="fa fa-check-circle fa-2x passed-color" data-bs-toggle="tooltip" data-placement="top" title="Step passed"></i>
                                         </div>
                                     
                                 
@@ -2336,71 +1466,7 @@ Call log:
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the ISO should see the lead conversion success message
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the "Prospect Individual" account should have a status of "Pending Signup"
+                                        the ISO should see an error message
                                         
                                     
 
@@ -2513,8 +1579,8 @@ Call log:
                     ],
                     datasets: [{
                         data: [
-                            0,
-                            3,
+                            1,
+                            1,
                             0,
                             0,
                             0,
