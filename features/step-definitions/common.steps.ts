@@ -8,7 +8,7 @@ Given(/^(?:the ISO|the client) is on the (\S+) (\S+) login page$/, async (app: s
   await nm.goToApp(application, environment)
 })
 
-Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, async (app: string, env: string) => {
+Given(/^(?:the ISO|the user) logs into (\S+) (\S+)(?: as (individual|joint))? with valid credentials$/, async (app: string, env: string, accountType?: "individual" | "joint") => {
   const { application, environment } = pu.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 
@@ -17,7 +17,7 @@ Given(/^(?:the ISO|the user) logs into (\S+) (\S+) with valid credentials$/, asy
       await pm.onLoginPageSF().loginWithEnvironmentCredentials(application, environment)
       break
     case Application.MYOIKOCREDIT:
-      await pm.onLoginPageMOC().loginWithEnvironmentCredentials(application, environment)
+      await pm.onLoginPageMOC().loginWithEnvironmentCredentials(application, environment, accountType)
       break
     case Application.TITAN:
       await pm.onLoginPageMS().loginWithEnvironmentCredentials(application, environment)

@@ -19,15 +19,27 @@ export abstract class BaseLoginPage extends BasePage {
     await this.logInButton.click()
   }
 
-  async loginWithEnvironmentCredentials(app: Application, env: Environment) {
-    const username = cs.get<string>(`${app}-${env}-user`)
-    const password = cs.get<string>(`${app}-${env}-password`)
+  async loginWithEnvironmentCredentials(app: Application, env: Environment, accountType?: "individual" | "joint") {
+    const { usernameKey, passwordKey } = this.getCredentialKeys(app, env, accountType)
+    const username = cs.get<string>(usernameKey)
+    const password = cs.get<string>(passwordKey)
 
     if (!username || !password) {
-      throw new Error(`Missing credentials for application ${app} and environment ${env}`)
+      throw new Error(`Missing credentials for ${app} in ${env}` + (accountType ? ` (account type: ${accountType})` : ''))
     }
 
     await this.loginUser(username, password, env)
   }
 
+  private getCredentialKeys(app: Application, env: Environment, accountType?: "individual" | "joint") {
+    let usernameKey = `${app}-${env}-user`
+    let passwordKey = `${app}-${env}-password`
+
+    if (app === Application.MYOIKOCREDIT && accountType) {
+      usernameKey = `${app}-${accountType}-${env}-user`
+      passwordKey = `${app}-${accountType}-${env}-password`
+    }
+
+    return { usernameKey, passwordKey }
+  }
 }
