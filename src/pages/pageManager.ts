@@ -13,6 +13,7 @@ import { EmailMessagePageSF } from "./salesforce-pages/emailMessagePageSF"
 import { LoginPageMOC } from "./myoikocredit-pages/loginPageMOC"
 import { HomePageMOC } from "./myoikocredit-pages/homePageMOC"
 import { TransactionsPageMOC } from "./myoikocredit-pages/transactionsPageMOC"
+import { DocumentsPageMOC } from "./myoikocredit-pages/documentsPageMOC"
 import { HomePageTIT } from "./titan-pages/homePageTIT"
 import { RequestsPageTIT } from "./titan-pages/requestsPageTIT"
 
@@ -33,6 +34,7 @@ export class PageManager {
   private readonly loginPageMOC: LoginPageMOC
   private readonly homePageMOC: HomePageMOC
   private readonly transactionsPageMOC: TransactionsPageMOC
+  private readonly documentsPageMOC: DocumentsPageMOC
   private readonly homePageTIT: HomePageTIT
   private readonly requestsPageTIT: RequestsPageTIT
   
@@ -51,12 +53,14 @@ export class PageManager {
     this.loginPageMOC = new LoginPageMOC(this.page)
     this.homePageMOC = new HomePageMOC(this.page)
     this.transactionsPageMOC = new TransactionsPageMOC(this.page)
+    this.documentsPageMOC = new DocumentsPageMOC(this.page)
     this.homePageTIT = new HomePageTIT(this.page)
     this.requestsPageTIT = new RequestsPageTIT(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
-      "Transaction Page - MOC": this.transactionsPageMOC,
+      "Transactions Page - MOC": this.transactionsPageMOC,
+      "Documents Page - MOC": this.documentsPageMOC
     }
   }
 
@@ -116,6 +120,10 @@ export class PageManager {
 
   onTransactionsPageMOC(){
     return this.transactionsPageMOC
+  }
+
+  onDocumentsPageMOC(){
+    return this.documentsPageMOC
   }
 
   onHomePageTIT(){

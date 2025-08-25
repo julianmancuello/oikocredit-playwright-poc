@@ -41,10 +41,10 @@ export class TransactionsPageMOC extends BasePage {
     this.accountId = page.locator('div[class="header slds-border_bottom"]')
     this.accountName = page.locator('div[class="name slds-float_left"]')
     this.accountIban = page.locator('div[class="slds-float_left"]')
-    this.balanceDetails = page.locator('div.slds-float_right')//2
-    this.dividendDetails = page.locator('div[class="slds-float_left slds-p-left_xx-large"]') //3
+    this.balanceDetails = page.locator('div.slds-float_right')
+    this.dividendDetails = page.locator('div[class="slds-float_left slds-p-left_xx-large"]')
     this.transactionsTitle = page.locator('span.slds-text-heading_medium')
-    this.columnHeaders = page.locator('span.slds-th__action') //5
+    this.columnHeaders = page.locator('span.slds-th__action')
   }
 
   getEssentialElements(): Locator[] {
