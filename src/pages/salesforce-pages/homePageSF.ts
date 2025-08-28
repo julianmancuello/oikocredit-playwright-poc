@@ -1,16 +1,18 @@
-import { Locator, Page } from "@playwright/test"
+import { Locator, FrameLocator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { HeaderMenuSF, HeaderTabSF } from "./headerMenuSF"
 
 export class HomePageSF extends BasePage {
 
   readonly menuSF: HeaderMenuSF
-  private readonly homeLatestInfo: Locator
+  private readonly iframeDashboard: FrameLocator
+  private readonly lastRefreshInfo: Locator
 
   constructor(page: Page){
     super(page)
-    this.homeLatestInfo = page.getByText('Latest Release Information')
-    this.menuSF = new HeaderMenuSF(page, this.homeLatestInfo)
+    this.iframeDashboard = page.frameLocator('iframe[title="dashboard"]')
+    this.lastRefreshInfo = this.iframeDashboard.locator('.lastRefreshDate')
+    this.menuSF = new HeaderMenuSF(page, this.lastRefreshInfo)
   }
 
   async navigateTo(destination: string): Promise<void> {
@@ -23,7 +25,7 @@ export class HomePageSF extends BasePage {
     }
   }
 
-  latestInfoTitle(){
-    return this.homeLatestInfo
+  getLastRefreshInfo(){
+    return this.lastRefreshInfo
   }
 }

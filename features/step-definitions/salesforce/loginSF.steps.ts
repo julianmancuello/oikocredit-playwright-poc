@@ -3,8 +3,8 @@ import { expect } from '@playwright/test'
 import { pm } from '../hooks'
 
 Then('the ISO should see the Home page', async () => {
-  await pm.onHomePageSF().latestInfoTitle().waitFor({ state: 'visible' })
-  await expect(pm.onHomePageSF().latestInfoTitle()).toBeVisible()
+  await pm.onHomePageSF().getLastRefreshInfo().waitFor({ state: 'visible' })
+  await expect(pm.onHomePageSF().getLastRefreshInfo()).toBeVisible()
 })
 
 When('the ISO attempts to log in with invalid credentials', async () => {
