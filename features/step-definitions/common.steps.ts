@@ -3,7 +3,7 @@ import { pm } from './hooks'
 import { PlatformUtils as pu, Application } from '../../src/utils/platformUtils'
 import { NavigationManager as nm } from '../../src/pages/navigationManager'
 
-Given(/^(?:the ISO|the client) is on the (\S+) (\S+) login page$/, async (app: string, env: string) => {
+Given(/^(?:the ISO|the user) is on the (\S+) (\S+) login page$/, async (app: string, env: string) => {
   const { application, environment } = pu.parseAndValidateContext(app, env)
   await nm.goToApp(application, environment)
 })
