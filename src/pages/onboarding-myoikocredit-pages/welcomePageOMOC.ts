@@ -1,16 +1,17 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
+import { FooterOMOC } from "./footerOMOC"
 
 export class WelcomePageOMOC extends BasePage {
 
-  private readonly getStartedButton: Locator
+  readonly footerOMOC: FooterOMOC
 
   constructor(page: Page){
     super(page)
-    this.getStartedButton = page.locator('button.slds--next-button')
+    this.footerOMOC = new FooterOMOC(page)
   }
 
   async clickGetStarted(){
-    await this.getStartedButton.click()
+    await this.footerOMOC.clickOn("Next")
   }
 }

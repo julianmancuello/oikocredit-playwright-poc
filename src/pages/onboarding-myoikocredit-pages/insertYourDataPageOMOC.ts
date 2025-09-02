@@ -2,26 +2,27 @@ import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
 import { DataFactory as df } from "../../utils/dataFactory"
 import { ContextStore as cs } from "../../utils/contextStore"
+import { FooterOMOC } from "./footerOMOC"
 
 export class InsertYourDataPageOMOC extends BasePage {
 
+  readonly footerOMOC: FooterOMOC
   private readonly usernameField: Locator
   private readonly passwordField: Locator
   private readonly repeatPasswordField: Locator
   private readonly privacyAndTermsCheckbox: Locator
   private readonly newslettersCheckbox: Locator
   private readonly emailsAboutCheckbox: Locator
-  private readonly nextButton: Locator
 
   constructor(page: Page){
     super(page)
+    this.footerOMOC = new FooterOMOC(page)
     this.usernameField = page.locator('input[name="username"]')
     this.passwordField = page.locator('input[name="password"]')
     this.repeatPasswordField = page.locator('input[name="password_repeat"]')
     this.privacyAndTermsCheckbox = page.locator('input[name="privacy"]')
     this.newslettersCheckbox = page.locator('input[value="newsletter"]')
     this.emailsAboutCheckbox = page.locator('input[value="regionalEvent"]')
-    this.nextButton = page.locator('button.slds--next-button')
   }
 
   async fillInsertYourDataPage(newsletters: boolean, emails: boolean){
@@ -36,6 +37,6 @@ export class InsertYourDataPageOMOC extends BasePage {
     if (emails) {
       await this.emailsAboutCheckbox.check({force: true})
     }
-    await this.nextButton.click()
+    await this.footerOMOC.clickOn("Next")
   }
 }
