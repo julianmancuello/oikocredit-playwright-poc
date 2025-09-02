@@ -879,7 +879,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@regression</span>
                         
-                            <span class="tag">@browser:chrome</span>
+                            <span class="tag">@browser:safari</span>
                         
                             <span class="tag">@debug</span>
                         
@@ -942,7 +942,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">0.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -951,7 +951,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">100.00 %</td>
                     
                     
                     </tr>
@@ -1025,10 +1025,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                     
                     
-                    <i class="fa fa-chrome fa-lg">
-                        <span>chrome</span>
+                    <i class="fa fa-safari fa-lg">
+                        <span>safari</span>
                     </i>
-                    139.0.7258.5
+                    26.0
                     
                 </span>
             </li>
@@ -1102,6 +1102,10 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
 
+                    
+                        <li>
+                            <span class="step failed-background" data-bs-toggle="tooltip" title="Scenario failed">1</span>
+                        </li>
                     
 
                     
@@ -1188,6 +1192,83 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                 
                         
+                            <div class="scenario-step-container">
+
+                                
+                                    
+                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step failed">
+                                            <i class="fa fa-exclamation-circle fa-2x failed-color"></i>
+                                        </div>
+                                    
+                                
+
+                                <div class="text">
+                                    <span class="keyword highlight">When </span>
+
+                                    
+                                        all steps test
+                                        
+                                    
+
+                                    
+
+                                </div>
+
+                                
+                                    
+
+                                    
+                                        <a href="#error0-2-error" data-bs-toggle="collapse">+ Show Error</a>
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+
+                        
+                            
+                                <div id="error0-2-error" class="scenario-step-collapse collapse">
+                                    <pre class=info>Error: Key 'generic-password' not found in ContextStore.
+    at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
+    at InsertYourDataPageOMOC.fillInsertYourDataPage (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/onboarding-myoikocredit-pages/insertYourDataPageOMOC.ts:29:32)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at processImmediate (node:internal/timers:453:9)
+    at process.topLevelDomainCallback (node:domain:161:15)
+    at process.callbackTrampoline (node:internal/async_hooks:128:24)
+    at async World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/myoikocredit/welcomeEnrollmentMOC.steps.ts:13:3)</pre>
+                                </div>
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                        
+
+                        
+                            
+                        
+
+                    
+                
+                        
                 
             </div>
         </div>
@@ -1251,8 +1332,8 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     ],
                     datasets: [{
                         data: [
-                            1,
                             0,
+                            1,
                             0,
                             0,
                             0,
