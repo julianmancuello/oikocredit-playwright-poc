@@ -18,6 +18,7 @@ import { HomePageTIT } from "./titan-pages/homePageTIT"
 import { RequestsPageTIT } from "./titan-pages/requestsPageTIT"
 import { WelcomePageOMOC } from "./onboarding-myoikocredit-pages/welcomePageOMOC"
 import { InsertYourDataPageOMOC } from "./onboarding-myoikocredit-pages/insertYourDataPageOMOC"
+import { VerifyYourEmailPageOMOC } from "./onboarding-myoikocredit-pages/verifyYourEmailPageOMOC"
 
 export class PageManager {
 
@@ -41,6 +42,7 @@ export class PageManager {
   private readonly requestsPageTIT: RequestsPageTIT
   private readonly welcomePageOMOC: WelcomePageOMOC
   private readonly insertYourDataPageOMOC: InsertYourDataPageOMOC
+  private readonly verifyYourEmailPageOMOC: VerifyYourEmailPageOMOC
   
   constructor(page: Page){
     this.page = page
@@ -62,6 +64,7 @@ export class PageManager {
     this.requestsPageTIT = new RequestsPageTIT(this.page)
     this.welcomePageOMOC = new WelcomePageOMOC(this.page)
     this.insertYourDataPageOMOC = new InsertYourDataPageOMOC(this.page)
+    this.verifyYourEmailPageOMOC = new VerifyYourEmailPageOMOC(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
@@ -146,5 +149,9 @@ export class PageManager {
 
   onInsertYourDataPageOMOC(){
     return this.insertYourDataPageOMOC
+  }
+  
+  onVerifyYourEmailPageOMOC(){
+    return this.verifyYourEmailPageOMOC
   }
 }
