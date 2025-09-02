@@ -2,14 +2,17 @@ import { Locator, Page } from "@playwright/test"
 import { BaseLoginPage } from "../baseLoginPage"
 import { Authenticator as auth } from "../../utils/authenticator"
 import { Environment } from "../../utils/platformUtils"
+import { ContextStore as cs } from "../../utils/contextStore"
 
 export class LoginPageMS extends BaseLoginPage {
 
   readonly usernameField: Locator
   readonly passwordField: Locator
   readonly logInButton: Locator
-  readonly TOTPField: Locator
-  readonly verifyButton: Locator
+  private readonly TOTPField: Locator
+  private readonly verifyButton: Locator
+  private readonly nextButton: Locator
+  private readonly notStaySignedIn: Locator
 
   constructor(page: Page){
     super(page)
@@ -18,6 +21,8 @@ export class LoginPageMS extends BaseLoginPage {
     this.logInButton = page.locator('#idSIButton9')
     this.TOTPField = page.locator('#idTxtBx_SAOTCC_OTC')
     this.verifyButton = page.locator('#idSubmit_SAOTCC_Continue')
+    this.nextButton = page.locator('button[data-testid="primaryButton"]')
+    this.notStaySignedIn = page.locator('button[data-testid="secondaryButton"]')
   }
 
   protected override async loginUser(username: string, password: string, env: Environment){
@@ -27,5 +32,14 @@ export class LoginPageMS extends BaseLoginPage {
     await this.logInButton.click()
     await this.TOTPField.fill(auth.generateTOTP(env))
     await this.verifyButton.click()
+  }
+
+  async loginEmail(){
+    await this.usernameField.fill(cs.get("email-user"))
+    await this.logInButton.click()
+    await this.passwordField.click()
+    await this.passwordField.fill(cs.get("email-password"))
+    await this.nextButton.click()
+    await this.notStaySignedIn.click()
   }
 }

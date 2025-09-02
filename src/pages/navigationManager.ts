@@ -22,6 +22,8 @@ const urls: Record<Application, Record<Environment, string>> = {
 
 export class NavigationManager {
 
+  private static readonly outlookUrl: string = 'https://www.microsoft.com/en-us/microsoft-365/outlook/'
+
   static async goToApp(app: Application, env: Environment, language?: Language, country?: Country) {
     const appUrls = urls[app]
 
@@ -46,5 +48,9 @@ export class NavigationManager {
     }
     
     await page.goto(finalUrl)
+  }
+
+  static async goToEmail() {
+    await page.goto(this.outlookUrl)
   }
 }

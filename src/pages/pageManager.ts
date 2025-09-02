@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test"
 import { BasePage } from "./basePage"
+import { HomePageMS } from "./microsoft-pages/homePageMS"
 import { LoginPageMS } from "./microsoft-pages/loginPageMS"
 import { LoginPageSF } from "./salesforce-pages/loginPageSF"
 import { HomePageSF } from "./salesforce-pages/homePageSF"
@@ -24,6 +25,7 @@ export class PageManager {
 
   private readonly pagesMap: Record<string, BasePage>
   private readonly page: Page
+  private readonly homePageMS: HomePageMS
   private readonly loginPageMS: LoginPageMS
   private readonly loginPageSF: LoginPageSF
   private readonly homePageSF: HomePageSF
@@ -46,6 +48,7 @@ export class PageManager {
   
   constructor(page: Page){
     this.page = page
+    this.homePageMS = new HomePageMS(this.page)
     this.loginPageMS = new LoginPageMS(this.page)
     this.loginPageSF = new LoginPageSF(this.page)
     this.homePageSF = new HomePageSF(this.page)
@@ -77,6 +80,10 @@ export class PageManager {
     const page = this.pagesMap[name]
     if (!page) throw new Error(`Page "${name}" not found in PageManager`)
     return page
+  }
+
+  onHomePageMS(){
+    return this.homePageMS
   }
 
   onLoginPageMS(){
