@@ -7,3 +7,8 @@ Given("the user is on the {string} {string} {string} welcome page in {string}", 
   const { application, environment, country, language } = pu.parseAndValidateContext(app, env, ctry, lang)
   await nm.goToApp(application, environment, language, country)
 })
+
+Then("all steps test", async () => {
+  await pm.onWelcomePageOMOC().clickGetStarted()
+  await pm.onInsertYourDataPageOMOC().fillInsertYourDataPage(true, true)
+})

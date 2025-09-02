@@ -22,4 +22,13 @@ export class DataFactory {
     const mobile = faker.phone.number({ style: 'international' })
     return mobile.replace(/^(\+\d{2})(\d+)/, '$1 $2')
   }
+
+  static generateRandomUsername() {
+    if(!cs.has("firstName") && !cs.has("lastName")){
+      this.generateAndStoreFullName()
+    }
+    const randomUsername = (`${cs.get("firstName")}${cs.get("lastName")}${this.generateRandomInteger(100)}`).toLowerCase()
+    cs.put("newUsername", randomUsername)
+    return randomUsername
+  }
 }
