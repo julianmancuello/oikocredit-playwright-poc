@@ -11,6 +11,7 @@ Given("the user is on the {string} {string} {string} welcome page in {string}", 
 Then("all steps test", async () => {
   await pm.onWelcomePageOMOC().clickGetStarted()
   await pm.onInsertYourDataPageOMOC().fillInsertYourDataPage(true, true)
+  await pm.onVerifyYourEmailPageOMOC().fillEmailAndRepeatEmail()
   await nm.goToEmail()
   await pm.onHomePageMS().clickSignIn()
   await pm.onLoginPageMS().loginEmail()

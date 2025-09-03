@@ -16,4 +16,11 @@ export class VerifyYourEmailPageOMOC extends BasePage {
     this.emailField = page.locator('input[name="email"]')
     this.repeatEmailField = page.locator('input[name="repeat_email"]')
   }
+
+  async fillEmailAndRepeatEmail(){
+    const dummyEmail = df.generateDummyEmail(cs.get("email-user"))
+    await this.emailField.fill(dummyEmail)
+    await this.repeatEmailField.fill(dummyEmail)
+    await this.footerOMOC.clickOn("Next")
+  }
 }

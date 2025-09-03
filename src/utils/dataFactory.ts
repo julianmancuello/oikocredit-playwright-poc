@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker'
 import { ContextStore as cs } from './contextStore'
+import { Utils as utils } from './utils'
 
 export class DataFactory {
 
@@ -30,5 +31,13 @@ export class DataFactory {
     const randomUsername = (`${cs.get("firstName")}${cs.get("lastName")}${this.generateRandomInteger(100)}`).toLowerCase()
     cs.put("newUsername", randomUsername)
     return randomUsername
+  }
+
+  static generateDummyEmail(baseEmail: string) {
+    const [localPart, domain] = baseEmail.split("@")
+    const timestamp = utils.generateTimestamp()
+    const dummyEmail = `${localPart}+${timestamp}@${domain}`
+    cs.put("dummyEmail", dummyEmail)
+    return dummyEmail
   }
 }
