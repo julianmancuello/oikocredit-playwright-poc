@@ -11,8 +11,12 @@ export class LoginPageMS extends BaseLoginPage {
   readonly logInButton: Locator
   private readonly TOTPField: Locator
   private readonly verifyButton: Locator
-  private readonly nextButton: Locator
-  private readonly notStaySignedIn: Locator
+  private readonly nextButtonEmail: Locator
+  private readonly TOTPFieldEmail1: Locator
+  private readonly TOTPFieldEmail2: Locator
+  private readonly verifyButtonEmail1: Locator
+  private readonly verifyButtonEmail2: Locator
+  private readonly notStaySignedInEmail: Locator
 
   constructor(page: Page){
     super(page)
@@ -21,8 +25,12 @@ export class LoginPageMS extends BaseLoginPage {
     this.logInButton = page.locator('#idSIButton9')
     this.TOTPField = page.locator('#idTxtBx_SAOTCC_OTC')
     this.verifyButton = page.locator('#idSubmit_SAOTCC_Continue')
-    this.nextButton = page.locator('button[data-testid="primaryButton"]')
-    this.notStaySignedIn = page.locator('button[data-testid="secondaryButton"]')
+    this.nextButtonEmail = page.locator('button[data-testid="primaryButton"]')
+    this.TOTPFieldEmail1 = page.locator('#floatingLabelInput5')
+    this.TOTPFieldEmail2 = page.locator('#otc-confirmation-input')
+    this.verifyButtonEmail1 = page.locator('[data-testid="primaryButton"]')
+    this.verifyButtonEmail2 = page.locator('#oneTimeCodePrimaryButton')
+    this.notStaySignedInEmail = page.locator('button[data-testid="secondaryButton"]')
   }
 
   protected override async loginUser(username: string, password: string, env: Environment){
@@ -39,7 +47,18 @@ export class LoginPageMS extends BaseLoginPage {
     await this.logInButton.click()
     await this.passwordField.click()
     await this.passwordField.fill(cs.get("email-password"))
-    await this.nextButton.click()
-    await this.notStaySignedIn.click()
+    await this.nextButtonEmail.click()
+
+    try {
+      await this.TOTPFieldEmail1.waitFor({ state: 'visible', timeout: 2000 })
+      await this.TOTPFieldEmail1.fill(auth.generateTOTP("email"))
+      await this.verifyButtonEmail1.click()
+    } catch {
+      await this.TOTPFieldEmail2.waitFor({ state: 'visible', timeout: 2000 })
+      await this.TOTPFieldEmail2.fill(auth.generateTOTP("email"))
+      await this.verifyButtonEmail2.click()
+    }
+
+    await this.notStaySignedInEmail.click()
   }
 }

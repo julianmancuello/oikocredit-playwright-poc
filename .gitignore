@@ -7,3 +7,4 @@ node_modules/
 reports/
 src/utils/authenticator-ltp.ts
 src/utils/authenticator-test.ts
+src/utils/authenticator-email.ts

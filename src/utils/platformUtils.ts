@@ -3,6 +3,8 @@ export enum Environment {
   ACC = 'acc'
 }
 
+export type Email = "email"
+
 export enum Application {
   SALESFORCE = 'salesforce',
   TITAN = 'titan',
