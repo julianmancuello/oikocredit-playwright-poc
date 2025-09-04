@@ -52,6 +52,6 @@ export class Utils {
     const hours = pad(now.getHours())
     const minutes = pad(now.getMinutes())
     const seconds = pad(now.getSeconds())
-    return `${year}${month}${day}T${hours}${minutes}${seconds}`
+    return `${year}${month}${day}t${hours}${minutes}${seconds}`
   }
 }

@@ -2,6 +2,7 @@ import { Page } from "@playwright/test"
 import { BasePage } from "./basePage"
 import { HomePageMS } from "./microsoft-pages/homePageMS"
 import { LoginPageMS } from "./microsoft-pages/loginPageMS"
+import { InboxPageMS } from "./microsoft-pages/inboxPageMS"
 import { LoginPageSF } from "./salesforce-pages/loginPageSF"
 import { HomePageSF } from "./salesforce-pages/homePageSF"
 import { LeadsPageSF } from "./salesforce-pages/leadsPageSF"
@@ -20,6 +21,7 @@ import { RequestsPageTIT } from "./titan-pages/requestsPageTIT"
 import { WelcomePageOMOC } from "./onboarding-myoikocredit-pages/welcomePageOMOC"
 import { InsertYourDataPageOMOC } from "./onboarding-myoikocredit-pages/insertYourDataPageOMOC"
 import { VerifyYourEmailPageOMOC } from "./onboarding-myoikocredit-pages/verifyYourEmailPageOMOC"
+import { YourEmailHasBeenVerifiedPageOMOC } from "./onboarding-myoikocredit-pages/yourEmailHasBeenVerifiedPageOMOC"
 
 export class PageManager {
 
@@ -27,6 +29,7 @@ export class PageManager {
   private readonly page: Page
   private readonly homePageMS: HomePageMS
   private readonly loginPageMS: LoginPageMS
+  private readonly inboxPageMS: InboxPageMS
   private readonly loginPageSF: LoginPageSF
   private readonly homePageSF: HomePageSF
   private readonly leadsPageSF: LeadsPageSF
@@ -45,11 +48,13 @@ export class PageManager {
   private readonly welcomePageOMOC: WelcomePageOMOC
   private readonly insertYourDataPageOMOC: InsertYourDataPageOMOC
   private readonly verifyYourEmailPageOMOC: VerifyYourEmailPageOMOC
+  private readonly yourEmailHasBeenVerifiedPageOMOC: YourEmailHasBeenVerifiedPageOMOC
   
   constructor(page: Page){
     this.page = page
     this.homePageMS = new HomePageMS(this.page)
     this.loginPageMS = new LoginPageMS(this.page)
+    this.inboxPageMS = new InboxPageMS(this.page)
     this.loginPageSF = new LoginPageSF(this.page)
     this.homePageSF = new HomePageSF(this.page)
     this.leadsPageSF = new LeadsPageSF(this.page)
@@ -68,6 +73,7 @@ export class PageManager {
     this.welcomePageOMOC = new WelcomePageOMOC(this.page)
     this.insertYourDataPageOMOC = new InsertYourDataPageOMOC(this.page)
     this.verifyYourEmailPageOMOC = new VerifyYourEmailPageOMOC(this.page)
+    this.yourEmailHasBeenVerifiedPageOMOC = new YourEmailHasBeenVerifiedPageOMOC(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
@@ -88,6 +94,10 @@ export class PageManager {
 
   onLoginPageMS(){
     return this.loginPageMS
+  }
+
+  onInboxPageMS(){
+    return this.inboxPageMS
   }
 
   onLoginPageSF(){
@@ -160,5 +170,9 @@ export class PageManager {
   
   onVerifyYourEmailPageOMOC(){
     return this.verifyYourEmailPageOMOC
+  }
+  
+  onYourEmailHasBeenVerifiedPageOMOC(){
+    return this.yourEmailHasBeenVerifiedPageOMOC
   }
 }

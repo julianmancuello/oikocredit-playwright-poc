@@ -15,4 +15,6 @@ Then("all steps test", async () => {
   await nm.goToEmail()
   await pm.onHomePageMS().clickSignIn()
   await pm.onLoginPageMS().loginEmail()
+  await pm.onInboxPageMS().clickFirstEmail()
+  await pm.onInboxPageMS().verifyEmail()
 })

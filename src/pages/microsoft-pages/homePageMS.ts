@@ -1,7 +1,5 @@
 import { Locator, Page } from "@playwright/test"
 import { BasePage } from "../basePage"
-import { Authenticator as auth } from "../../utils/authenticator"
-import { Environment } from "../../utils/platformUtils"
 
 export class HomePageMS extends BasePage {
 
