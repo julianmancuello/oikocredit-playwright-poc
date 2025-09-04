@@ -21,15 +21,16 @@ export class TransactionsPageMOC extends BasePage {
   private readonly accountId: Locator
   private readonly accountName: Locator
   private readonly accountIban: Locator
-  private readonly balanceDetails: Locator
+  private readonly investmentAmount: Locator
+  private readonly participations: Locator
   private readonly dividendDetails: Locator
   private readonly transactionsTitle: Locator
   private readonly columnHeaders: Locator
 
   constructor(page: Page) {
     super(page)
-    this.buyButton = page.getByTitle('Purchase Shares')
-    this.redeemButton = page.getByTitle('Redeem Shares')
+    this.buyButton = page.locator('button[title="Kaufen"]')
+    this.redeemButton = page.locator('button[title="Verkaufen"]')
     this.transactionAmountField = page.locator('input[name="Amount"]')
     this.nextButton = page.locator('button[kx-scope="button-brand"]')
     this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span | //p[.//strong[contains(text(), "Verkaufsauftrag:")]]/span')
@@ -37,13 +38,14 @@ export class TransactionsPageMOC extends BasePage {
     this.closeButton = page.locator('button[title="Close"]')
     this.firstRowTransactions = page.locator('tbody tr[data-row-number="1"]')
     this.transactionRow = page.locator('tbody tr')
-    this.backButton = page.locator('a.linkURL')
-    this.accountId = page.locator('div[class="header slds-border_bottom"]')
-    this.accountName = page.locator('div[class="name slds-float_left"]')
-    this.accountIban = page.locator('div[class="slds-float_left"]')
-    this.balanceDetails = page.locator('div.slds-float_right')
-    this.dividendDetails = page.locator('div[class="slds-float_left slds-p-left_xx-large"]')
-    this.transactionsTitle = page.locator('span.slds-text-heading_medium')
+    this.backButton = page.locator('//a[text()="Zurück"]')
+    this.accountId = page.locator('span.body-xs')
+    this.accountName = page.locator('div.h4')
+    this.accountIban = page.locator('.iban-list dd.body-xl')
+    this.investmentAmount = page.locator('.component-amount')
+    this.participations = page.locator('.body-xl .component-participation lightning-formatted-number')
+    this.dividendDetails = page.locator('.body-lg')
+    this.transactionsTitle = page.locator('span.slds-text-heading--small')
     this.columnHeaders = page.locator('span.slds-th__action')
   }
 
@@ -53,7 +55,8 @@ export class TransactionsPageMOC extends BasePage {
       this.accountId,
       this.accountName,
       this.accountIban,
-      this.balanceDetails,
+      this.investmentAmount,
+      this.participations,
       this.dividendDetails,
       this.buyButton,
       this.redeemButton,

@@ -7,7 +7,7 @@ export class HomePageMOC extends BasePage {
 
   constructor(page: Page){
     super(page)
-    this.buySellDividendsButton = page.locator('div.slds-clearfix a.linkURL[href]')
+    this.buySellDividendsButton = page.locator('.investment-card__next-button')
   }
 
   async navigateTo(destination: string): Promise<void> {
