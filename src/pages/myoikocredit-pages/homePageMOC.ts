@@ -3,11 +3,11 @@ import { BasePage } from "../basePage"
 
 export class HomePageMOC extends BasePage {
 
-  private readonly MoreButton: Locator
+  private readonly moreButton: Locator
 
   constructor(page: Page){
     super(page)
-    this.MoreButton = page.locator('.investment-card__next-button')
+    this.moreButton = page.locator('.investment-card__next-button')
   }
 
   async navigateTo(destination: string): Promise<void> {
@@ -20,6 +20,6 @@ export class HomePageMOC extends BasePage {
   }
 
   async clickMore(){
-    await this.MoreButton.click()
+    await this.moreButton.click()
   }
 }
