@@ -21,6 +21,7 @@ import { RequestsPageTIT } from "./titan-pages/requestsPageTIT"
 import { WelcomePageOMOC } from "./onboarding-myoikocredit-pages/welcomePageOMOC"
 import { InsertYourDataPageOMOC } from "./onboarding-myoikocredit-pages/insertYourDataPageOMOC"
 import { VerifyYourEmailPageOMOC } from "./onboarding-myoikocredit-pages/verifyYourEmailPageOMOC"
+import { CheckYourInboxPageOMOC } from "./onboarding-myoikocredit-pages/checkYourInboxPageOMOC"
 import { YourEmailHasBeenVerifiedPageOMOC } from "./onboarding-myoikocredit-pages/yourEmailHasBeenVerifiedPageOMOC"
 
 export class PageManager {
@@ -48,6 +49,7 @@ export class PageManager {
   private readonly welcomePageOMOC: WelcomePageOMOC
   private readonly insertYourDataPageOMOC: InsertYourDataPageOMOC
   private readonly verifyYourEmailPageOMOC: VerifyYourEmailPageOMOC
+  private readonly checkYourInboxPageOMOC: CheckYourInboxPageOMOC
   private readonly yourEmailHasBeenVerifiedPageOMOC: YourEmailHasBeenVerifiedPageOMOC
   
   constructor(page: Page){
@@ -73,6 +75,7 @@ export class PageManager {
     this.welcomePageOMOC = new WelcomePageOMOC(this.page)
     this.insertYourDataPageOMOC = new InsertYourDataPageOMOC(this.page)
     this.verifyYourEmailPageOMOC = new VerifyYourEmailPageOMOC(this.page)
+    this.checkYourInboxPageOMOC = new CheckYourInboxPageOMOC(this.page)
     this.yourEmailHasBeenVerifiedPageOMOC = new YourEmailHasBeenVerifiedPageOMOC(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
@@ -170,6 +173,10 @@ export class PageManager {
   
   onVerifyYourEmailPageOMOC(){
     return this.verifyYourEmailPageOMOC
+  }
+
+  onCheckYourInboxPageOMOC(){
+    return this.checkYourInboxPageOMOC
   }
   
   onYourEmailHasBeenVerifiedPageOMOC(){
