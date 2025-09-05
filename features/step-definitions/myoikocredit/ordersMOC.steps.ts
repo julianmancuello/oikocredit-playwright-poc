@@ -6,7 +6,7 @@ import { ContextStore as cs } from '../../../src/utils/contextStore'
 import { Utils as utils } from '../../../src/utils/utils'
 
 When('the user creates a {} order', async (transaction: Transaction) => {
-  await pm.onHomePageMOC().clickBuySellDividendsAndMore()
+  await pm.onHomePageMOC().clickMore()
   await pm.onTransactionsPageMOC().selectTransaction(transaction)
   await pm.onTransactionsPageMOC().fillInAmountWithRandomNumber(transaction)
   expect(await pm.onTransactionsPageMOC().getAmountInConfirmRequest()).toEqual(cs.get("expAmountInConfirmation"))
@@ -24,7 +24,7 @@ When('the user creates a {} order', async (transaction: Transaction) => {
 })
 
 Then('the user checks that the {} order appears approved in the transactions', async (transaction: Transaction) => {
-  await pm.onHomePageMOC().clickBuySellDividendsAndMore()
+  await pm.onHomePageMOC().clickMore()
   const date = utils.getFormattedToday("dd MMMM YYYY")
   const transactionType = utils.getTransactionType(transaction)
   const amount = cs.get<string>("expAmountInTransactions")

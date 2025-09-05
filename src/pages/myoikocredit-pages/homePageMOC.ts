@@ -13,13 +13,13 @@ export class HomePageMOC extends BasePage {
   async navigateTo(destination: string): Promise<void> {
     switch (destination) {
       case "Transactions Page - MOC":
-        return await this.clickBuySellDividendsAndMore()
+        return await this.clickMore()
       default:
         return super.navigateTo(destination)
     }
   }
 
-  async clickBuySellDividendsAndMore(){
+  async clickMore(){
     await this.MoreButton.click()
   }
 }
