@@ -17,7 +17,7 @@ When('the user creates a {} order', async (transaction: Transaction) => {
   const expectedValues = {
     date: utils.getFormattedToday("dd MMMM YYYY"),
     transactionType: utils.getTransactionType(transaction),
-    status: "Eingereicht",
+    status: "In Bearbeitung",
     amount: cs.get("expAmountInTransactions")
   }
   expect(actualValues).toEqual(expectedValues)

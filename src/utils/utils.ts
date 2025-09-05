@@ -37,7 +37,7 @@ export class Utils {
   static getTransactionType(transaction: Transaction) {
     switch (transaction) {
       case "Purchase":
-        return "Investition"
+        return "Anlage"
       case "Redemption":
         return "Verkauf"
     }

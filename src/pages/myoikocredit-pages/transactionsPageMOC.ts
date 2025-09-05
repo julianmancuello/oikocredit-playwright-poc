@@ -33,7 +33,7 @@ export class TransactionsPageMOC extends BasePage {
     this.redeemButton = page.locator('button[title="Verkaufen"]')
     this.transactionAmountField = page.locator('input[name="Amount"]')
     this.nextButton = page.locator('button[kx-scope="button-brand"]')
-    this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span | //p[.//strong[contains(text(), "Verkaufsauftrag:")]]/span')
+    this.confirmAmount = page.locator('//p[.//strong[contains(text(), "Betrag:")]]/span')
     this.informationOfTransaction = page.locator('(//flowruntime-lwc-field)[1]')
     this.closeButton = page.locator('button[title="Close"]')
     this.firstRowTransactions = page.locator('tbody tr[data-row-number="1"]')
@@ -111,7 +111,7 @@ export class TransactionsPageMOC extends BasePage {
     cs.put("expAmountInTransactions", expAmountInTransactions)
     await this.waitForContentUpdate(this.firstRowTransactions.locator('td[data-label="Betrag"]'), expAmountInTransactions)
     const date = await this.firstRowTransactions.locator('th[data-label="Datum"]').textContent()
-    const transactionType = await this.firstRowTransactions.locator('td[data-label="Transaktion"]').textContent()
+    const transactionType = await this.firstRowTransactions.locator('td[data-label="Aktion"]').textContent()
     const status = await this.firstRowTransactions.locator('td[data-label="Status"]').textContent()
     const amount = await this.firstRowTransactions.locator('td[data-label="Betrag"]').textContent()
 
