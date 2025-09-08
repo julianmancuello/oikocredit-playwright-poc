@@ -28,7 +28,8 @@ export class DataFactory {
     if(!cs.has("firstName") && !cs.has("lastName")){
       this.generateAndStoreFullName()
     }
-    const randomUsername = (`${cs.get("firstName")}${cs.get("lastName")}${this.generateRandomInteger(100)}`).toLowerCase()
+    let lastName = cs.get<string>("lastName").replace(/[^a-zA-Z]/g, "")
+    const randomUsername = (`${cs.get("firstName")}${lastName}${this.generateRandomInteger(100)}`).toLowerCase()
     cs.put("newUsername", randomUsername)
     return randomUsername
   }
