@@ -881,21 +881,19 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             <span class="tag">@browser:chrome</span>
                         
-                            <span class="tag">@debug</span>
-                        
                     
                 
             </div>
             <h1>Feature:
-                <small>E2E - Orders in MyOikocredit Investor Portal</small>
+                <small>MyOikocredit - Investor Portal - Transactions</small>
             </h1>
             
                 <p>
                <p><strong>File name:</strong>
-                    orders.feature
+                    transactions.feature
                 </p>
                 <p><strong>Relative path:</strong>
-                    E2E/orders.feature</p>
+                    myoikocredit/transactions.feature</p>
             
         </div>
 
@@ -1079,17 +1077,15 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                         
                         
-                            <i class="fa fa-tags fa-lg"></i>
+                            <i class="fa fa-tag fa-lg"></i>
                             
                                 <span class="tag">@regression</span>
-                            
-                                <span class="tag">@debug</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>E2E - Order Flow - Purchase</small></h2>
+                <h2>Scenario Outline: <small>Validate Transaction Details - individual</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1102,7 +1098,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
                         <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">8</span>
+                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">2</span>
                         </li>
                     
 
@@ -1177,11 +1173,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <pre class=info>Error: Key 'myoikocredit-individual-ltp-user' not found in ContextStore.
     at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
     at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:24:25)
-    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)
-    at runNextTicks (node:internal/process/task_queues:65:5)
-    at processImmediate (node:internal/timers:453:9)
-    at process.topLevelDomainCallback (node:domain:161:15)
-    at process.callbackTrampoline (node:internal/async_hooks:128:24)</pre>
+    at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
                                 </div>
                             
 
@@ -1219,391 +1211,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the user creates a Purchase order
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO logs into TITAN LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO approves the Purchase order
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO logs into SALESFORCE LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO searches for the LTP investor
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO checks that the Purchase order appears in the emails
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user logs into MYOIKOCREDIT LTP with valid credentials
+                                        the user navigates from "Home Page - MOC" to "Transactions Page - MOC"
                                         
                                     
 
@@ -1667,7 +1275,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the user checks that the Purchase order appears approved in the transactions
+                                        the user checks the visibility of the "Transactions Page - MOC" details
                                         
                                     
 
@@ -1730,17 +1338,15 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                     
                         
                         
-                            <i class="fa fa-tags fa-lg"></i>
+                            <i class="fa fa-tag fa-lg"></i>
                             
                                 <span class="tag">@regression</span>
-                            
-                                <span class="tag">@debug</span>
                             
                         
                     
                 </div>
 
-                <h2>Scenario Outline: <small>E2E - Order Flow - Redemption</small></h2>
+                <h2>Scenario Outline: <small>Validate Transaction Details - joint</small></h2>
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -1753,7 +1359,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
 
                     
                         <li>
-                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">8</span>
+                            <span class="step skipped-background" data-bs-toggle="tooltip" title="Scenario is skipped">2</span>
                         </li>
                     
 
@@ -1793,7 +1399,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Given </span>
 
                                     
-                                        the user logs into MYOIKOCREDIT LTP as individual with valid credentials
+                                        the user logs into MYOIKOCREDIT LTP as joint with valid credentials
                                         
                                     
 
@@ -1825,7 +1431,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                         
                             
                                 <div id="error1-1-error" class="scenario-step-collapse collapse">
-                                    <pre class=info>Error: Key 'myoikocredit-individual-ltp-user' not found in ContextStore.
+                                    <pre class=info>Error: Key 'myoikocredit-joint-ltp-user' not found in ContextStore.
     at Function.get (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/utils/contextStore.ts:18:13)
     at LoginPageMOC.loginWithEnvironmentCredentials (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/src/pages/baseLoginPage.ts:24:25)
     at World.(anonymous) (/home/runner/work/oikocredit-playwright-poc/oikocredit-playwright-poc/features/step-definitions/common.steps.ts:20:33)</pre>
@@ -1866,391 +1472,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">When </span>
 
                                     
-                                        the user creates a Redemption order
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO logs into TITAN LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO approves the Redemption order
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO logs into SALESFORCE LTP with valid credentials
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO searches for the LTP investor
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the ISO checks that the Redemption order appears in the emails
-                                        
-                                    
-
-                                    
-
-                                </div>
-
-                                
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                
-                            </div>
-
-                        
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-
-                            
-                        
-
-                        
-                            
-                        
-
-                    
-                
-                        
-                            <div class="scenario-step-container">
-
-                                
-                                    
-                                        <div class="label" data-bs-toggle="tooltip" data-placement="top" title="Step is skipped">
-                                            <i class="fa fa-arrow-circle-right fa-2x skipped-color"></i>
-                                        </div>
-                                    
-                                
-
-                                <div class="text">
-                                    <span class="keyword highlight">And </span>
-
-                                    
-                                        the user logs into MYOIKOCREDIT LTP with valid credentials
+                                        the user navigates from "Home Page - MOC" to "Transactions Page - MOC"
                                         
                                     
 
@@ -2314,7 +1536,7 @@ body.darkmode .navbar .navbar-text:last-of-type::after {
                                     <span class="keyword highlight">Then </span>
 
                                     
-                                        the user checks that the Redemption order appears approved in the transactions
+                                        the user checks the visibility of the "Transactions Page - MOC" details
                                         
                                     
 
