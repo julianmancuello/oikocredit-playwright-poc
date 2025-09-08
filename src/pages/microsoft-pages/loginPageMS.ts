@@ -50,11 +50,11 @@ export class LoginPageMS extends BaseLoginPage {
     await this.nextButtonEmail.click()
 
     try {
-      await this.TOTPFieldEmail1.waitFor({ state: 'visible', timeout: 2000 })
+      await this.TOTPFieldEmail1.waitFor({ state: 'visible', timeout: 1000 })
       await this.TOTPFieldEmail1.fill(auth.generateTOTP("email"))
       await this.verifyButtonEmail1.click()
     } catch {
-      await this.TOTPFieldEmail2.waitFor({ state: 'visible', timeout: 2000 })
+      await this.TOTPFieldEmail2.waitFor({ state: 'visible', timeout: 1000 })
       await this.TOTPFieldEmail2.fill(auth.generateTOTP("email"))
       await this.verifyButtonEmail2.click()
     }

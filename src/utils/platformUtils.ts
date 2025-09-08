@@ -5,6 +5,8 @@ export enum Environment {
 
 export type Email = "email"
 
+export type AccountType = "individual" | "joint"
+
 export enum Application {
   SALESFORCE = 'salesforce',
   TITAN = 'titan',

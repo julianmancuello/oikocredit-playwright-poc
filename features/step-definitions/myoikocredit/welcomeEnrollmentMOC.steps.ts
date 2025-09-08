@@ -19,4 +19,5 @@ Then("all steps test", async () => {
   await pm.switchToNewPage(pm.onInboxPageMS().verifyEmail())
   await pm.onYourEmailHasBeenVerifiedPageOMOC().footerOMOC.clickOn("Next")
   await pm.onLoginPageMOC().loginAsNewMyOikocreditUser()
+  await pm.onLetsGetStartedPageOMOC().chooseAccountType("individual")
 })

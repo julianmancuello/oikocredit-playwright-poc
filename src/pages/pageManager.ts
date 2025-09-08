@@ -23,6 +23,7 @@ import { InsertYourDataPageOMOC } from "./onboarding-myoikocredit-pages/insertYo
 import { VerifyYourEmailPageOMOC } from "./onboarding-myoikocredit-pages/verifyYourEmailPageOMOC"
 import { CheckYourInboxPageOMOC } from "./onboarding-myoikocredit-pages/checkYourInboxPageOMOC"
 import { YourEmailHasBeenVerifiedPageOMOC } from "./onboarding-myoikocredit-pages/yourEmailHasBeenVerifiedPageOMOC"
+import { LetsGetStartedPageOMOC } from "./onboarding-myoikocredit-pages/letsGetStartedPageOMOC"
 
 export class PageManager {
 
@@ -51,6 +52,7 @@ export class PageManager {
   private verifyYourEmailPageOMOC!: VerifyYourEmailPageOMOC
   private checkYourInboxPageOMOC!: CheckYourInboxPageOMOC
   private yourEmailHasBeenVerifiedPageOMOC!: YourEmailHasBeenVerifiedPageOMOC
+  private letsGetStartedPageOMOC!: LetsGetStartedPageOMOC
   
   constructor(page: Page){
     this.page = page
@@ -86,6 +88,7 @@ export class PageManager {
     this.verifyYourEmailPageOMOC = new VerifyYourEmailPageOMOC(this.page)
     this.checkYourInboxPageOMOC = new CheckYourInboxPageOMOC(this.page)
     this.yourEmailHasBeenVerifiedPageOMOC = new YourEmailHasBeenVerifiedPageOMOC(this.page)
+    this.letsGetStartedPageOMOC = new LetsGetStartedPageOMOC(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
@@ -199,5 +202,9 @@ export class PageManager {
   
   onYourEmailHasBeenVerifiedPageOMOC(){
     return this.yourEmailHasBeenVerifiedPageOMOC
+  }
+
+  onLetsGetStartedPageOMOC(){
+    return this.letsGetStartedPageOMOC
   }
 }
