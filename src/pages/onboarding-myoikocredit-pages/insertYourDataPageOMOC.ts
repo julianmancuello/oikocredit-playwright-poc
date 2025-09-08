@@ -29,6 +29,7 @@ export class InsertYourDataPageOMOC extends BasePage {
     await this.usernameField.fill(df.generateRandomUsername())
     const genericPassword = cs.get<string>("generic-password")
     await this.passwordField.fill(genericPassword)
+    await this.repeatPasswordField.click({force: true})
     await this.repeatPasswordField.fill(genericPassword)
     await this.privacyAndTermsCheckbox.check({force: true})
     if (newsletters) {

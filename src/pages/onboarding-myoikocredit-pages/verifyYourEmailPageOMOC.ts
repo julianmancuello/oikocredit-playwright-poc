@@ -20,6 +20,7 @@ export class VerifyYourEmailPageOMOC extends BasePage {
   async fillEmailAndRepeatEmail(){
     const dummyEmail = df.generateDummyEmail(cs.get("email-user"))
     await this.emailField.fill(dummyEmail)
+    await this.repeatEmailField.click({force: true})
     await this.repeatEmailField.fill(dummyEmail)
     await this.footerOMOC.clickOn("Next")
   }
