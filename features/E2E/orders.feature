@@ -1,6 +1,6 @@
 @regression
 Feature: E2E - Orders in MyOikocredit Investor Portal
-  @debug
+  
   Scenario Outline: E2E - Order Flow - <TransactionType>
     Given the user logs into MYOIKOCREDIT LTP as individual with valid credentials
     When the user creates a <TransactionType> order

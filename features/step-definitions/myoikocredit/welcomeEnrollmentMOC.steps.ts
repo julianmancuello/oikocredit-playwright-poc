@@ -16,5 +16,7 @@ Then("all steps test", async () => {
   await pm.onHomePageMS().clickSignIn()
   await pm.onLoginPageMS().loginEmail()
   await pm.onInboxPageMS().clickFirstEmail()
-  await pm.onInboxPageMS().verifyEmail()
+  await pm.switchToNewPage(pm.onInboxPageMS().verifyEmail())
+  await pm.onYourEmailHasBeenVerifiedPageOMOC().footerOMOC.clickOn("Next")
+  await pm.onLoginPageMOC().loginAsNewMyOikocreditUser()
 })

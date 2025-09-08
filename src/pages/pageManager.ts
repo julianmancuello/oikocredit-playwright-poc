@@ -26,34 +26,43 @@ import { YourEmailHasBeenVerifiedPageOMOC } from "./onboarding-myoikocredit-page
 
 export class PageManager {
 
-  private readonly pagesMap: Record<string, BasePage>
-  private readonly page: Page
-  private readonly homePageMS: HomePageMS
-  private readonly loginPageMS: LoginPageMS
-  private readonly inboxPageMS: InboxPageMS
-  private readonly loginPageSF: LoginPageSF
-  private readonly homePageSF: HomePageSF
-  private readonly leadsPageSF: LeadsPageSF
-  private readonly accountsPageSF: AccountsPageSF
-  private readonly leadProfilePageSF: LeadProfilePageSF
-  private readonly accountProfilePageSF: AccountProfilePageSF
-  private readonly contactProfilePageSF: ContactProfilePageSF
-  private readonly searchResultsPageSF: SearchResultsPageSF
-  private readonly emailMessagePageSF: EmailMessagePageSF
-  private readonly loginPageMOC: LoginPageMOC
-  private readonly homePageMOC: HomePageMOC
-  private readonly transactionsPageMOC: TransactionsPageMOC
-  private readonly documentsPageMOC: DocumentsPageMOC
-  private readonly homePageTIT: HomePageTIT
-  private readonly requestsPageTIT: RequestsPageTIT
-  private readonly welcomePageOMOC: WelcomePageOMOC
-  private readonly insertYourDataPageOMOC: InsertYourDataPageOMOC
-  private readonly verifyYourEmailPageOMOC: VerifyYourEmailPageOMOC
-  private readonly checkYourInboxPageOMOC: CheckYourInboxPageOMOC
-  private readonly yourEmailHasBeenVerifiedPageOMOC: YourEmailHasBeenVerifiedPageOMOC
+  private pagesMap!: Record<string, BasePage>
+  private page: Page
+  private homePageMS!: HomePageMS
+  private loginPageMS!: LoginPageMS
+  private inboxPageMS!: InboxPageMS
+  private loginPageSF!: LoginPageSF
+  private homePageSF!: HomePageSF
+  private leadsPageSF!: LeadsPageSF
+  private accountsPageSF!: AccountsPageSF
+  private leadProfilePageSF!: LeadProfilePageSF
+  private accountProfilePageSF!: AccountProfilePageSF
+  private contactProfilePageSF!: ContactProfilePageSF
+  private searchResultsPageSF!: SearchResultsPageSF
+  private emailMessagePageSF!: EmailMessagePageSF
+  private loginPageMOC!: LoginPageMOC
+  private homePageMOC!: HomePageMOC
+  private transactionsPageMOC!: TransactionsPageMOC
+  private documentsPageMOC!: DocumentsPageMOC
+  private homePageTIT!: HomePageTIT
+  private requestsPageTIT!: RequestsPageTIT
+  private welcomePageOMOC!: WelcomePageOMOC
+  private insertYourDataPageOMOC!: InsertYourDataPageOMOC
+  private verifyYourEmailPageOMOC!: VerifyYourEmailPageOMOC
+  private checkYourInboxPageOMOC!: CheckYourInboxPageOMOC
+  private yourEmailHasBeenVerifiedPageOMOC!: YourEmailHasBeenVerifiedPageOMOC
   
   constructor(page: Page){
     this.page = page
+    this.initPages()
+  }
+
+  setPage(page: Page) {
+    this.page = page
+    this.initPages()
+  }
+
+  private initPages() {
     this.homePageMS = new HomePageMS(this.page)
     this.loginPageMS = new LoginPageMS(this.page)
     this.inboxPageMS = new InboxPageMS(this.page)
@@ -83,6 +92,15 @@ export class PageManager {
       "Transactions Page - MOC": this.transactionsPageMOC,
       "Documents Page - MOC": this.documentsPageMOC
     }
+  }
+
+  async switchToNewPage(action: Promise<unknown>) {
+    const [newPage] = await Promise.all([
+      this.page.context().waitForEvent("page"),
+      action
+    ])
+    await newPage.waitForLoadState()
+    this.setPage(newPage)
   }
 
   onPage(name: string): BasePage {
