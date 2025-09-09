@@ -58,7 +58,7 @@ export class LeadProfilePageSF extends BasePage {
   }
 
   async fillInWithRandomMobile(){
-    const newMobile = df.generateRandomMobile()
+    const newMobile = df.generateMobileNumber(true)
     cs.put("newMobile", newMobile)
     await this.mobileField.clear()
     await this.mobileField.fill(newMobile)

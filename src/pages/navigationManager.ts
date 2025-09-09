@@ -1,5 +1,6 @@
 import { Environment, Application, Country, Language } from "../utils/platformUtils"
 import { page } from "../../features/step-definitions/hooks"
+import { ContextStore as cs } from "../utils/contextStore"
 
 const urls: Record<Application, Record<Environment, string>> = {
   [Application.SALESFORCE]: {
@@ -31,7 +32,9 @@ export class NavigationManager {
       throw new Error(`Application '${app}' not found in URL config`)
     }
 
-    const baseUrl = appUrls[env];
+    const baseUrl = appUrls[env]
+    cs.put("app", app)
+    cs.put("env", env)
 
     if (!baseUrl) {
       throw new Error(`URL for application '${app}' in environment '${env}' not found`)
@@ -45,6 +48,8 @@ export class NavigationManager {
       }
 
       finalUrl = `${baseUrl}?language=${language}&country=${country}`
+      cs.put("language", language)
+      cs.put("country", country)
     }
     
     await page.goto(finalUrl)

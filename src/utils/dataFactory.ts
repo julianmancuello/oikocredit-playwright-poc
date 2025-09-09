@@ -19,9 +19,13 @@ export class DataFactory {
     return faker.number.int({ min: lowerBound, max: upperBound })
   }
 
-  static generateRandomMobile() {
+  static generateMobileNumber(keepCountryCode: boolean) {
     const mobile = faker.phone.number({ style: 'international' })
-    return mobile.replace(/^(\+\d{2})(\d+)/, '$1 $2')
+    if (keepCountryCode) {
+      return mobile.replace(/^(\+\d{2})(\d+)/, '$1 $2')
+    } else {
+      return mobile.replace(/^\+\d{2}/, '')
+    }
   }
 
   static generateRandomUsername() {
@@ -40,5 +44,30 @@ export class DataFactory {
     const dummyEmail = `${localPart}+${timestamp}@${domain}`
     cs.put("dummyEmail", dummyEmail)
     return dummyEmail
+  }
+
+  static generateCity() {
+    return faker.location.city()
+  }
+
+  static generateStreet() {
+    return faker.location.street()
+  }
+
+  static generatePostalCode() {
+    return faker.location.zipCode('####?')
+  }
+
+  static generateBirthDate() {
+    const rawDate = faker.date.birthdate()
+    const day = String(rawDate.getDate()).padStart(2, "0")
+    const month = String(rawDate.getMonth() + 1).padStart(2, "0")
+    const year = rawDate.getFullYear()
+
+    if (cs.get("language") === "en_US") {
+      return `${month}/${day}/${year}`
+    } else {
+      return `${day}/${month}/${year}`
+    }
   }
 }

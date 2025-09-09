@@ -12,7 +12,7 @@ export class InboxPageMS extends BasePage {
     super(page)
     this.firstEmail = page.locator('(//div[@class="EeHm8"])[2]')
     this.toEmailAddress = page.locator('._EType_RECIPIENT_ENTITY')
-    this.verifyEmailButton = page.locator('//a[text()="Verify email"]')
+    this.verifyEmailButton = page.locator('a[data-linkto]')
   }
 
   async clickFirstEmail() {
