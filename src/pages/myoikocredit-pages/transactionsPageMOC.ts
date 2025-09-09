@@ -130,19 +130,34 @@ export class TransactionsPageMOC extends BasePage {
       transformedAmount = amount.replace("EUR ", "EUR -")
     }
     const rowCount = await this.transactionRow.count()
+    const matchingRows: string[] = []
+
     for (let i = 0; i < rowCount; i++) {
       const currentRow = this.transactionRow.nth(i)
       const dateInCol = await currentRow.locator('th[data-label="Datum"]').innerText()
-      const transactionTypeInCol = await currentRow.locator('td[data-label="Transaktion"]').innerText()
+      const transactionTypeInCol = await currentRow.locator('td[data-label="Aktion"]').innerText()
       const amountInCol = await currentRow.locator('td[data-label="Betrag"]').innerText()
-      if (dateInCol.trim() === date && transactionTypeInCol.trim() === transactionType && amountInCol.trim() === transformedAmount) {
-        return await currentRow.locator('td[data-label="Status"]').innerText()
-      }
+      if (dateInCol.trim() === date && transactionTypeInCol.trim() === transactionType) {
+        if (amountInCol.trim() === transformedAmount) {
+          const status = await currentRow.locator('td[data-label="Status"]').innerText()
+          matchingRows.push(status)
+        } else if (transactionType === "Verkauf" && amountInCol.trim() === amount) {
+          matchingRows.push("__DUPLICATE__")
+        }
+      } 
     }
-    throw new Error(`No row found with date "${date}", transaction type "${transactionType}" and amount "${transformedAmount}"`)
+
+    if (matchingRows.length === 0) {
+      throw new Error(`No row found with date "${date}", transaction type "${transactionType}" and amount "${transformedAmount}"`)
+    }
+    
+    if (matchingRows.length > 1) {
+      throw new Error(`Duplicate transactions found with date "${date}", type "${transactionType}" and amount "${transformedAmount}"`)
+    }
+    return matchingRows[0]
   }
 
-  async getApprovalLabel(transaction: Transaction) {
+  async getApprovalLabel(transaction: Transaction) {//TODO: need refactor
     switch (transaction) {
       case "Purchase":
         return "Investition angekündigt";
