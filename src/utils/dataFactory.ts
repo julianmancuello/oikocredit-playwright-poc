@@ -70,4 +70,8 @@ export class DataFactory {
       return `${day}/${month}/${year}`
     }
   }
+
+  static generateTIN() {
+    return faker.string.numeric(10)
+  }
 }

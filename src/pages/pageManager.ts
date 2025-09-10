@@ -25,6 +25,7 @@ import { CheckYourInboxPageOMOC } from "./onboarding-myoikocredit-pages/checkYou
 import { YourEmailHasBeenVerifiedPageOMOC } from "./onboarding-myoikocredit-pages/yourEmailHasBeenVerifiedPageOMOC"
 import { LetsGetStartedPageOMOC } from "./onboarding-myoikocredit-pages/letsGetStartedPageOMOC"
 import { ProfileDetailsPageOMOC } from "./onboarding-myoikocredit-pages/profileDetailsPageOMOC"
+import { LegalDetailsPageOMOC } from "./onboarding-myoikocredit-pages/legalDetailsPageOMOC"
 
 export class PageManager {
 
@@ -55,6 +56,7 @@ export class PageManager {
   private yourEmailHasBeenVerifiedPageOMOC!: YourEmailHasBeenVerifiedPageOMOC
   private letsGetStartedPageOMOC!: LetsGetStartedPageOMOC
   private profileDetailsPageOMOC!: ProfileDetailsPageOMOC
+  private legalDetailsPageOMOC!: LegalDetailsPageOMOC
   
   constructor(page: Page){
     this.page = page
@@ -92,6 +94,7 @@ export class PageManager {
     this.yourEmailHasBeenVerifiedPageOMOC = new YourEmailHasBeenVerifiedPageOMOC(this.page)
     this.letsGetStartedPageOMOC = new LetsGetStartedPageOMOC(this.page)
     this.profileDetailsPageOMOC = new ProfileDetailsPageOMOC(this.page)
+    this.legalDetailsPageOMOC = new LegalDetailsPageOMOC(this.page)
     this.pagesMap = {
       "Home Page - SF": this.homePageSF,
       "Home Page - MOC": this.homePageMOC,
@@ -213,5 +216,9 @@ export class PageManager {
 
   onProfileDetailsPageOMOC(){
     return this.profileDetailsPageOMOC
+  }
+
+  onLegalDetailsPageOMOC(){
+    return this.legalDetailsPageOMOC
   }
 }
